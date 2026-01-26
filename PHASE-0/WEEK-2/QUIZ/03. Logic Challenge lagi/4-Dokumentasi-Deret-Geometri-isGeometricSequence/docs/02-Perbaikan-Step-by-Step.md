@@ -379,8 +379,8 @@ if (arr.length === 0) return false
 ## 🔗 Navigation
 
 - **📚 [← Kembali ke README](../README.md)**
-- **🐛 [← Kembali ke Part 1: Review Kode Awal](docs/01-Review-Kode-Awal.md)**
-- **📝 [Lanjut ke Part 3: Refactoring Clean Code →](docs/03-Refactoring-Clean-Code.md)**
+- **🐛 [← Kembali ke Part 1: Review Kode Awal](01-Review-Kode-Awal.md)**
+- **📝 [Lanjut ke Part 3: Refactoring Clean Code →](03-Refactoring-Clean-Code.md)**
 
 ---
 
