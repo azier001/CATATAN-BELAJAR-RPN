@@ -49,13 +49,13 @@ dimana: a₂/a₁ = a₃/a₂ = a₄/a₃ = r (rasio konstan)
 
 | Part | Topik | Level | Waktu |
 |------|-------|-------|-------|
-| **[Part 1](01-Review-Kode-Awal.md)** | Review Kode & Identifikasi 3 Bug | 🌱 Pemula | 15 menit |
-| **[Part 2](02-Perbaikan-Step-by-Step.md)** | Perbaikan Iteratif (3 Iterasi) | 🌿 Menengah | 20 menit |
-| **[Part 3](03-Refactoring-Clean-Code.md)** | Refactoring ke Clean Code + English | 🌿 Menengah | 20 menit |
-| **[Part 4](04-Alternatif-Every-Method.md)** | Implementasi dengan `.every()` | 🌳 Advanced | 25 menit |
-| **[Part 5](05-Alternatif-Descriptive-Variables.md)** | Enhanced Readability Version | 🌿 Menengah | 20 menit |
-| **[Part 6](06-Perbandingan-Tiga-Versi.md)** | Comparison & Trade-offs | 🌿 Menengah | 15 menit |
-| **[Part 7](07-Ringkasan-Cheat-Sheet.md)** | Cheat Sheet & Quick Reference | 🌿 Menengah | 15 menit |
+| **[Part 1](docs/01-Review-Kode-Awal.md)** | Review Kode & Identifikasi 3 Bug | 🌱 Pemula | 15 menit |
+| **[Part 2](docs/02-Perbaikan-Step-by-Step.md)** | Perbaikan Iteratif (3 Iterasi) | 🌿 Menengah | 20 menit |
+| **[Part 3](docs/03-Refactoring-Clean-Code.md)** | Refactoring ke Clean Code + English | 🌿 Menengah | 20 menit |
+| **[Part 4](docs/04-Alternatif-Every-Method.md)** | Implementasi dengan `.every()` | 🌳 Advanced | 25 menit |
+| **[Part 5](docs/05-Alternatif-Descriptive-Variables.md)** | Enhanced Readability Version | 🌿 Menengah | 20 menit |
+| **[Part 6](docs/06-Perbandingan-Tiga-Versi.md)** | Comparison & Trade-offs | 🌿 Menengah | 15 menit |
+| **[Part 7](docs/07-Ringkasan-Cheat-Sheet.md)** | Cheat Sheet & Quick Reference | 🌿 Menengah | 15 menit |
 
 **Total:** ~130 menit (2+ jam)
 
@@ -297,14 +297,13 @@ if (numbers[i-1] === 0 || numbers[i] / numbers[i-1] !== ratio)
 
 **Siap untuk journey dari Bug ke Clean Code?**
 
-**📚 [Mulai dari Part 1: Review Kode Awal →](01-Review-Kode-Awal.md)**
+**📚 [Mulai dari Part 1: Review Kode Awal →](docs/01-Review-Kode-Awal.md)**
 
 ---
 
 **Quick Links:**
 
-[Part 1](01-Review-Kode-Awal.md) • [Part 2](02-Perbaikan-Step-by-Step.md) • [Part 3](03-Refactoring-Clean-Code.md) • [Part 4](04-Alternatif-Every-Method.md) • [Part 5](05-Alternatif-Descriptive-Variables.md) • [Part 6](06-Perbandingan-Tiga-Versi.md) • [Part 7](07-Ringkasan-Cheat-Sheet.md)
-
+[Part 1](docs/01-Review-Kode-Awal.md) • [Part 2](docs/02-Perbaikan-Step-by-Step.md) • [Part 3](docs/03-Refactoring-Clean-Code.md) • [Part 4](docs/04-Alternatif-Every-Method.md) • [Part 5](docs/05-Alternatif-Descriptive-Variables.md) • [Part 6](docs/06-Perbandingan-Tiga-Versi.md) • [Part 7](docs/07-Ringkasan-Cheat-Sheet.md)
 ---
 
 Made with ❤️ for learners
