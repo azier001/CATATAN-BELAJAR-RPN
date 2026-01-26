@@ -319,7 +319,7 @@ Correctness (#2) > Robustness (#3) > Readability (#1)
 ## 🔗 Navigation
 
 - **📚 [← Kembali ke README](../README.md)**
-- **🔧 [Lanjut ke Part 2: Perbaikan Step-by-Step →](02-Perbaikan-Step-by-Step.md)**
+- **🔧 [Lanjut ke Part 2: Perbaikan Step-by-Step →](docs/02-Perbaikan-Step-by-Step.md)**
 
 ---
 
