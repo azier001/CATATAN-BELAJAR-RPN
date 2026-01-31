@@ -1,10 +1,12 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║            📝 PART 3: REFACTORING CLEAN CODE 📝                         ║
 ║                                                                          ║
-║         Transform dari "Works" ke "Professional Production Code"        ║
+║         Transform dari "Works" ke "Professional Production Code"         ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-20%20minutes-blue)
