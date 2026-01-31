@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║            🔧 PART 2: PERBAIKAN STEP-BY-STEP 🔧                         ║
@@ -5,6 +6,7 @@
 ║              Iterasi Perbaikan dari Bug ke Working Code                  ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-20%20minutes-blue)
