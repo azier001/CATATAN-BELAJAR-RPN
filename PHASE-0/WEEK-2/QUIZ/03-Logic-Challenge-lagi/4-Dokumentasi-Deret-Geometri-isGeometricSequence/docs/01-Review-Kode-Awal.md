@@ -1,10 +1,12 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
-║              📚 PART 1: REVIEW KODE AWAL & ANALISIS BUG 📚             ║
+║              📚 PART 1: REVIEW KODE AWAL & ANALISIS BUG 📚              ║
 ║                                                                          ║
-║                  Identifikasi 3 Bug Kritis dalam Kode                   ║
+║                  Identifikasi 3 Bug Kritis dalam Kode                    ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-15%20minutes-blue)
