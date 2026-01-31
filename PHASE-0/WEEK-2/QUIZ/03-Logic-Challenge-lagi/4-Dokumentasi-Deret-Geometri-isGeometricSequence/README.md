@@ -1,12 +1,15 @@
 # 📚 Deret Geometri - Complete Learning Guide
 
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║         🎯 DERET GEOMETRI - COMPLETE LEARNING GUIDE 🎯                  ║
 ║                                                                          ║
-║     Dari Bug ke Clean Code - Kuasai Semua Pendekatan & Best Practice   ║
+║     Dari Bug ke Clean Code - Kuasai Semua Pendekatan & Best Practice     ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Language](https://img.shields.io/badge/Language-JavaScript-yellow)
