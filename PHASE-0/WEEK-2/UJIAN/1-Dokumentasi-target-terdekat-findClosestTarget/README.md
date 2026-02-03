@@ -1,5 +1,4 @@
 # 📚 targetTerdekat - Panduan Lengkap
-
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
@@ -10,23 +9,18 @@
 ╚══════════════════════════════════════════════════════════════════════════╝
 ```
 
-<div align="center">
-
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Language](https://img.shields.io/badge/Language-JavaScript-yellow)
 ![Topics](https://img.shields.io/badge/Topics-Algorithm%20|%20Optimization%20|%20Refactoring-blue)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
-</div>
-
 ---
 
 ## 📖 Tentang Dokumentasi Ini
 
-Dokumentasi ini membahas **algoritma mencari jarak terdekat** antara karakter 'o' dan 'x' dalam array - dari nested loop hingga single-pass optimal, mencakup refactoring, optimasi bertahap, dan perbandingan 6 implementasi berbeda.
+Dokumentasi ini membahas **algoritma mencari jarak terdekat** antara karakter 'o' dan 'x' dalam array - dari nested loop hingga single-pass optimal, mencakup refactoring, optimasi bertahap, dan perbandingan 5 implementasi berbeda.
 
-### Cocok untuk:
-
+**Cocok untuk:**
 - 🎓 **Pemula** - Belajar refactoring dan optimasi algoritma
 - 💻 **Developer** - Improve code quality dan performa
 - 🎯 **Job Seeker** - Persiapan interview coding
@@ -42,8 +36,7 @@ Cari jarak terdekat antara karakter 'o' dan 'x' dalam array.
 **Input:** Array of characters  
 **Output:** Number (jarak terdekat), atau 0 jika tidak ada 'x'
 
-### Contoh:
-
+**Contoh:**
 ```javascript
 targetTerdekat(['x', ' ', 'o'])  // 2
 targetTerdekat(['o', 'x'])       // 1
@@ -60,7 +53,7 @@ targetTerdekat(['x', ' ', 'o', ' ', 'x', 'o'])  // 1
 | **[Part 1](docs/01-Permasalahan-dan-Kode-Awal.md)** | Problem & Kode Awal (V1, V2) | 🌱 Pemula | 15 menit |
 | **[Part 2](docs/02-Refactoring-Nested-Loop.md)** | Refactoring ke Clean Code | 🌱 Pemula | 10 menit |
 | **[Part 3](docs/03-Optimasi-Two-Pass.md)** | Optimasi Two-Pass (V3) | 🌿 Menengah | 25 menit |
-| **[Part 4](docs/04-Solusi-Terbaik-Single-Pass.md)** | Solusi Terbaik Single-Pass (V6) | 🌿 Menengah | 20 menit |
+| **[Part 4](docs/04-Solusi-Terbaik-Single-Pass.md)** | Solusi Terbaik Single-Pass (V4, V5) | 🌿 Menengah | 20 menit |
 | **[Part 5](docs/05-Perbandingan-dan-Kesimpulan.md)** | Perbandingan & Kesimpulan | 🌿 Menengah | 15 menit |
 | **[Bonus](docs/06-Algoritma-Cheatsheet.md)** | Quick Reference Interview | 🌱 Pemula | 5 menit |
 
@@ -70,8 +63,7 @@ targetTerdekat(['x', ' ', 'o', ' ', 'x', 'o'])  // 1
 
 ## 🗺️ Roadmap Belajar
 
-### 📚 Jalur Lengkap (Recommended)
-
+### **📚 Jalur Lengkap (Recommended)**
 ```
 Part 1 → Part 2 → Part 3 → Part 4 → Part 5 → Bonus
   ↓        ↓        ↓        ↓        ↓        ↓
@@ -81,13 +73,12 @@ Total: ~90 menit
 ```
 
 **Hasil:**
-- ✅ 6 implementasi berbeda (V1, V2, V3, V6, V6B)
+- ✅ 5 implementasi berbeda (Versi 1-5)
 - ✅ Refactoring & clean code
 - ✅ Optimasi algoritma
 - ✅ Trade-offs analysis
 
-### ⚡ Jalur Cepat (Essentials)
-
+### **⚡ Jalur Cepat (Essentials)**
 ```
 Part 1 → Part 4 → Part 5 → Bonus
   ↓        ↓        ↓        ↓
@@ -96,8 +87,7 @@ Part 1 → Part 4 → Part 5 → Bonus
 Total: ~55 menit
 ```
 
-### 🏆 Jalur Interview Prep
-
+### **🏆 Jalur Interview Prep**
 ```
 Part 1 → Part 4 → Bonus
   ↓        ↓        ↓
@@ -108,51 +98,45 @@ Total: ~40 menit
 
 ---
 
-## 📊 Quick Comparison: 6 Versi Implementasi
+## 📊 Quick Comparison: 5 Versi Implementasi
 
 | Versi | Passes | Time | Space | Readability | Best For |
 |-------|--------|------|-------|-------------|----------|
-| **V1: Original (Indonesia)** | 2 + nested | O(n×m) | O(n×m) | ⭐⭐⭐ | ❌ Buggy |
-| **V2: Refactored (English)** | 2 + nested | O(n×m) | O(n+m) | ⭐⭐⭐⭐ | Learning |
-| **V3: Two-Pass** | 3 | O(n) | O(1) | ⭐⭐⭐⭐ | Learning optimasi |
-| **V6: Single-Pass** | 1 | O(n) | O(1) | ⭐⭐⭐⭐⭐ | 🏆 Production |
-| **V6B: Functional** | 1 | O(n) | O(1) | ⭐⭐⭐⭐ | FP style |
+| **Versi 1: Original (Indonesia)** | 2 + nested | O(n×m) | O(n×m) | ⭐⭐⭐ | ❌ Buggy |
+| **Versi 2: Refactored (English)** | 2 + nested | O(n×m) | O(n+m) | ⭐⭐⭐⭐ | Learning |
+| **Versi 3: Two-Pass** | 3 | O(n) | O(1) | ⭐⭐⭐⭐ | Learning optimasi |
+| **Versi 4: Single-Pass** | 1 | O(n) | O(1) | ⭐⭐⭐⭐⭐ | 🏆 Production |
+| **Versi 5: Functional** | 1 | O(n) | O(1) | ⭐⭐⭐⭐ | FP style |
 
-### Key Differences:
-
-- **V1-V2:** Nested loop, simpan semua jarak
-- **V3:** Two-pass (kiri→kanan, kanan→kiri)
-- **V6:** Single-pass, track lastO & lastX
-- **V6B:** Single-pass dengan `reduce()`
+**Key Differences:**
+- **Versi 1-2:** Nested loop, simpan semua jarak
+- **Versi 3:** Two-pass (kiri→kanan, kanan→kiri)
+- **Versi 4:** Single-pass, track lastO & lastX
+- **Versi 5:** Single-pass dengan `reduce()`
 
 ---
 
 ## 🎮 Quick Start
 
-### 🌱 Saya Pemula
-
+### **Saya Pemula**
 → Mulai: **Part 1** (15 menit)  
 → Focus: Pahami problem & lihat evolution kode
 
-### 🔧 Saya Mau Refactor Code
-
+### **Saya Mau Refactor Code**
 → Langsung: **Part 2** (10 menit)  
 → Focus: Clean code principles
 
-### 💼 Saya Persiapan Interview
-
+### **Saya Persiapan Interview**
 → Baca: **Part 1 → Part 4 → Bonus** (40 menit)  
 → Focus: Best solution + trade-offs
 
-### 🚀 Saya Explore Optimasi
-
+### **Saya Explore Optimasi**
 → Baca: **Part 3 → Part 4 → Part 5** (60 menit)  
 → Focus: Two-pass vs Single-pass
 
 ---
 
 ## 🧪 Test Cases Standar
-
 ```javascript
 // Simple cases
 targetTerdekat(['x', 'o'])               // 1
@@ -175,8 +159,6 @@ targetTerdekat(['x', ' ', ' ', ' ', 'x', 'x', 'o', ' '])  // 1
 <details>
 <summary><strong>❓ Berapa lama waktu yang dibutuhkan?</strong></summary>
 
-<br>
-
 - **Quick:** 40 menit (Part 1, 4, Bonus)
 - **Normal:** 55 menit (Essentials)
 - **Deep dive:** 90 menit (Semua part)
@@ -188,8 +170,6 @@ Pilih sesuai kebutuhan dan waktu tersedia!
 <details>
 <summary><strong>❓ Part mana yang paling penting?</strong></summary>
 
-<br>
-
 **Part 1 & Part 4** adalah must-read:
 - Part 1: Pahami problem & evolution
 - Part 4: Best solution (Single-Pass)
@@ -199,16 +179,14 @@ Sisanya optional tapi recommended untuk understanding lengkap.
 </details>
 
 <details>
-<summary><strong>❓ Kenapa ada 6 versi implementasi?</strong></summary>
-
-<br>
+<summary><strong>❓ Kenapa ada 5 versi implementasi?</strong></summary>
 
 Karena:
-- **Learning journey** - Dari V1 (buggy) ke V6 (optimal)
+- **Learning journey** - Dari Versi 1 (nested loop) ke Versi 4 (optimal)
 - **Trade-offs** - Speed vs readability
 - **Interview** - Tunjukkan kamu tahu alternatives
 
-Dengan 6 versi, kamu bisa:
+Dengan 5 versi, kamu bisa:
 - Pilih sesuai situasi
 - Jelaskan trade-offs
 - Adaptasi berdasarkan feedback
@@ -218,15 +196,13 @@ Dengan 6 versi, kamu bisa:
 <details>
 <summary><strong>❓ Mana versi terbaik untuk production?</strong></summary>
 
-<br>
-
-**V6 (Single-Pass)** - paling optimal:
+**Versi 4 (Single-Pass)** - paling optimal:
 - ✅ Hanya 1 loop
 - ✅ O(n) time, O(1) space
 - ✅ Paling readable & clean
 - ✅ Production-ready
 
-V3 (Two-Pass) juga bagus untuk learning konsep optimasi.
+Versi 3 (Two-Pass) juga bagus untuk learning konsep optimasi.
 
 </details>
 
@@ -234,14 +210,12 @@ V3 (Two-Pass) juga bagus untuk learning konsep optimasi.
 
 ## 📚 Prerequisites
 
-### Perlu dikuasai:
-
+**Perlu dikuasai:**
 - ✅ JavaScript basics (variabel, function, loop)
 - ✅ Array manipulation
 - ✅ Conditional statements
 
-### Tidak perlu:
-
+**Tidak perlu:**
 - ❌ Advanced algorithms
 - ❌ Framework knowledge
 - ❌ Complex math
@@ -252,15 +226,13 @@ V3 (Two-Pass) juga bagus untuk learning konsep optimasi.
 
 Setelah selesai, kamu akan bisa:
 
-### Technical:
-
+**Technical:**
 - ✅ Refactor nested loop ke optimal algorithm
 - ✅ Implement single-pass algorithm
 - ✅ Analyze time & space complexity
 - ✅ Choose best solution based on context
 
-### Soft Skills:
-
+**Soft Skills:**
 - ✅ Problem-solving methodology
 - ✅ Code optimization thinking
 - ✅ Trade-offs analysis
@@ -270,8 +242,7 @@ Setelah selesai, kamu akan bisa:
 
 ## 💡 Critical Reminders
 
-### ⚠️ Common Pitfalls:
-
+### **⚠️ Common Pitfalls:**
 ```javascript
 // ❌ SALAH - Nested loop tidak efisien
 for (const x of xPositions) {
@@ -298,14 +269,12 @@ if (distance < minDistance) minDistance = distance
 
 ## 🚀 Next Steps Setelah Selesai
 
-### Practice:
-
+**Practice:**
 - Longest substring without repeating characters
 - Two sum problem
 - Container with most water
 
-### Extend:
-
+**Extend:**
 - Multiple character pairs
 - 2D array version
 - Weighted distances
@@ -318,11 +287,11 @@ if (distance < minDistance) minDistance = distance
 
 **Siap untuk journey dari Nested Loop ke Single-Pass?**
 
-### 📚 [Mulai dari Part 1: Permasalahan & Kode Awal →](docs/01-Permasalahan-dan-Kode-Awal.md)
+**📚 [Mulai dari Part 1: Permasalahan & Kode Awal →](docs/01-Permasalahan-dan-Kode-Awal.md)**
 
 ---
 
-### Quick Links:
+**Quick Links:**
 
 [Part 1](docs/01-Permasalahan-dan-Kode-Awal.md) • [Part 2](docs/02-Refactoring-Nested-Loop.md) • [Part 3](docs/03-Optimasi-Two-Pass.md) • [Part 4](docs/04-Solusi-Terbaik-Single-Pass.md) • [Part 5](docs/05-Perbandingan-dan-Kesimpulan.md) • [Bonus](docs/06-Algoritma-Cheatsheet.md)
 
@@ -333,3 +302,5 @@ Made with ❤️ for learners
 **Happy Learning! 🚀**
 
 </div>
+
+=== END OF FILE ===
