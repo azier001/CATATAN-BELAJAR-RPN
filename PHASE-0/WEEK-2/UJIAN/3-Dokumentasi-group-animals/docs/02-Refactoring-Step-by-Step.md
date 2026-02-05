@@ -67,11 +67,13 @@ Buat struktur dasar dengan loop, ambil huruf pertama saja dulu.
 ### **Code:**
 ```javascript
 const groupAnimals = (animals) => {
-  const sortedAnimals = [...animals].sort((a,b) => a.localeCompare(b))
+  const sortedAnimals = [...animals].sort((a,b) => a.localeCompare(b))  // ✅ TAMBAH
   
-  console.log(sortedAnimals)
+  console.log(sortedAnimals)  // ✅ TAMBAH
 }
 ```
+
+**Legend:** ✅ = Baris baru ditambahkan
 
 ### **Test:**
 ```javascript
@@ -79,9 +81,9 @@ groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil'])
 // Output: ['anoa', 'ayam', 'cacing', 'kancil', 'kuda']
 ```
 
-### **Masalah yang Ditemukan:**
+### **❌ Masalah yang Ditemukan:**
 
-**❌ Urutan dalam grup jadi salah!**
+**Urutan dalam grup jadi salah!**
 
 ```javascript
 Input:  ['cacing', 'ayam', 'kuda', 'anoa', 'kancil']
@@ -119,17 +121,19 @@ Actual grup 'a':   ['anoa', 'ayam']  // Urutan alphabetical
 
 ```javascript
 const groupAnimals = (animals) => {
-  const result = []
+  const result = []                                    // ✅ TAMBAH
   
-  for (const animal of animals) {
-    const firstLetter = animal[0]
+  for (const animal of animals) {                      // ✅ TAMBAH
+    const firstLetter = animal[0]                      // ✅ TAMBAH
     
-    console.log(`Animal: ${animal}, Letter: ${firstLetter}`)
+    console.log(`Animal: ${animal}, Letter: ${firstLetter}`)  // ✅ TAMBAH
   }
   
-  return result
+  return result                                        // ✅ TAMBAH
 }
 ```
+
+**Legend:** ✅ = Baris baru ditambahkan
 
 ### **Test:**
 ```javascript
@@ -149,30 +153,35 @@ groupAnimals(['ayam', 'cacing', 'anoa'])
 ### **Tugas:**
 Cari apakah sudah ada grup dengan huruf pertama yang sama.
 
-### **Code:**
+### **Perubahan dari Step Sebelumnya:**
+
 ```javascript
 const groupAnimals = (animals) => {
   const result = []
   
   for (const animal of animals) {
     const firstLetter = animal[0]
-    let foundGroup = null
+    let foundGroup = null                              // ✅ TAMBAH
     
-    for (const group of result) {
-      const groupFirstLetter = group[0][0]
+    for (const group of result) {                      // ✅ TAMBAH
+      const groupFirstLetter = group[0][0]             // ✅ TAMBAH
       
-      if (groupFirstLetter === firstLetter) {
-        foundGroup = group
-        break
-      }
-    }
+      if (groupFirstLetter === firstLetter) {          // ✅ TAMBAH
+        foundGroup = group                             // ✅ TAMBAH
+        break                                          // ✅ TAMBAH
+      }                                                // ✅ TAMBAH
+    }                                                  // ✅ TAMBAH
     
-    console.log(`Animal: ${animal}, Found: ${foundGroup !== null}`)
+    console.log(`Animal: ${animal}, Found: ${foundGroup !== null}`)  // 🔄 UBAH
   }
   
   return result
 }
 ```
+
+**Legend:**
+- ✅ = Baris baru ditambahkan
+- 🔄 = Baris diubah
 
 ### **Test:**
 ```javascript
@@ -192,7 +201,8 @@ groupAnimals(['ayam', 'cacing', 'anoa'])
 ### **Tugas:**
 Push animal ke grup yang sesuai (yang sudah ada atau baru).
 
-### **Code:**
+### **Perubahan dari Step Sebelumnya:**
+
 ```javascript
 const groupAnimals = (animals) => {
   const result = []
@@ -210,18 +220,22 @@ const groupAnimals = (animals) => {
       }
     }
     
-    if (foundGroup !== null) {
-      foundGroup.push(animal)
-    } else {
-      result.push([animal])
-    }
+    if (foundGroup !== null) {                         // ✅ TAMBAH
+      foundGroup.push(animal)                          // ✅ TAMBAH
+    } else {                                           // ✅ TAMBAH
+      result.push([animal])                            // ✅ TAMBAH
+    }                                                  // ✅ TAMBAH
     
-    console.log(`After ${animal}:`, JSON.stringify(result))
+    console.log(`After ${animal}:`, JSON.stringify(result))  // 🔄 UBAH
   }
   
   return result
 }
 ```
+
+**Legend:**
+- ✅ = Baris baru ditambahkan
+- 🔄 = Baris diubah
 
 ### **Test:**
 ```javascript
@@ -242,7 +256,8 @@ groupAnimals(['ayam', 'cacing', 'anoa', 'cicak'])
 ### **Tugas:**
 Sort grup berdasarkan huruf pertama alphabetically.
 
-### **Code:**
+### **Perubahan dari Step Sebelumnya:**
+
 ```javascript
 const groupAnimals = (animals) => {
   const result = []
@@ -267,17 +282,19 @@ const groupAnimals = (animals) => {
     }
   }
   
-  // Sort grup alphabetically
-  result.sort((groupA, groupB) => {
-    const letterA = groupA[0][0]
-    const letterB = groupB[0][0]
-    
-    return letterA.localeCompare(letterB)
-  })
+  // Sort grup alphabetically                       // ✅ TAMBAH
+  result.sort((groupA, groupB) => {                 // ✅ TAMBAH
+    const letterA = groupA[0][0]                    // ✅ TAMBAH
+    const letterB = groupB[0][0]                    // ✅ TAMBAH
+                                                    // ✅ TAMBAH
+    return letterA.localeCompare(letterB)          // ✅ TAMBAH
+  })                                                // ✅ TAMBAH
   
   return result
 }
 ```
+
+**Legend:** ✅ = Baris baru ditambahkan
 
 ### **Test (Final):**
 ```javascript
