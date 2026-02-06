@@ -573,12 +573,7 @@ Setelah master ini, explore:
 
 ---
 
-## 🔗 Navigation
 
-- **📚 [← Kembali ke README](../README.md)**
-- **📊 [← Kembali ke Part 6: Perbandingan & Kesimpulan](06-Perbandingan-Kesimpulan.md)**
-
----
 
 <div align="center">
 
