@@ -1,4 +1,4 @@
-# 📚 Shift Word - Complete Learning Guide
+# 📚 Shift Word - PART 1: ANALISIS KODE ORIGINAL 
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
