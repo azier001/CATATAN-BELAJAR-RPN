@@ -3,7 +3,7 @@
 ![Language](https://img.shields.io/badge/Language-JavaScript-yellow?style=for-the-badge&logo=javascript)
 ![Topic](https://img.shields.io/badge/Topic-Recursion-orange?style=for-the-badge)
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen?style=for-the-badge)
-![Versions](https://img.shields.io/badge/Versions-6-blue?style=for-the-badge)
+![Versions](https://img.shields.io/badge/Versions-8-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
 ---
@@ -91,7 +91,8 @@ Dokumentasi-total-digit-recursive_total-digit-rekursif/
 │   ├── 06-tail-recursion_rekursif-ekor.md
 │   ├── 07-iterative-approach_pendekatan-iteratif.md
 │   ├── 08-edge-cases_kasus-tepi.md
-│   └── 09-all-versions-comparison_perbandingan-semua-versi.md
+│   ├── 09-all-versions-comparison_perbandingan-semua-versi.md
+│   └── 10-for-loop-approach_pendekatan-for-loop.md
 ├── README.md
 └── ringkasan-algoritma-semua-versi.md
 ```
@@ -111,6 +112,7 @@ Dokumentasi-total-digit-recursive_total-digit-rekursif/
 | 07 | [Iterative Approach](./docs/07-iterative-approach_pendekatan-iteratif.md) | Pendekatan `while` loop |
 | 08 | [Edge Cases](./docs/08-edge-cases_kasus-tepi.md) | Input `0`, negatif, desimal |
 | 09 | [All Versions Comparison](./docs/09-all-versions-comparison_perbandingan-semua-versi.md) | Perbandingan lengkap semua versi |
+| 10 | [For Loop Approach](./docs/10-for-loop-approach_pendekatan-for-loop.md) | Pendekatan `for` biasa dan `for...of` |
 | — | [Ringkasan Algoritma](./ringkasan-algoritma-semua-versi.md) | Ringkasan cepat semua versi |
 
 ---

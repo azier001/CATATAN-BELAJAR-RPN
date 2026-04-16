@@ -2,7 +2,7 @@
 
 ![Language](https://img.shields.io/badge/Language-JavaScript-yellow?style=for-the-badge&logo=javascript)
 ![Topic](https://img.shields.io/badge/Topic-Recursion-orange?style=for-the-badge)
-![Versions](https://img.shields.io/badge/Versions-6-blue?style=for-the-badge)
+![Versions](https://img.shields.io/badge/Versions-8-blue?style=for-the-badge)
 
 > File ini adalah referensi cepat — cocok dibuka saat lupa atau menemukan challenge serupa.
 
@@ -113,7 +113,7 @@ function totalDigitRecursive(number, total = 0) {
 
 ---
 
-## 🔁 Versi 6 — Iteratif
+## 🔁 Versi 6 — Iteratif (`while`)
 
 ```js
 const totalDigitRekursif = (angka) => {
@@ -135,6 +135,53 @@ const totalDigitRekursif = (angka) => {
 | Kondisi loop | `angka >= 10` |
 | Setelah loop | `return total + angka` — digit terakhir ditambahkan |
 | Catatan | ✅ Tidak ada call stack tambahan |
+
+---
+
+## 🔄 Versi 7 — `for` Biasa
+
+```js
+const totalDigitRekursif = (angka) => {
+  const str = angka.toString()
+  let total = 0
+
+  for (let i = 0; i < str.length; i++) {
+    total += Number(str[i])
+  }
+
+  return total
+}
+```
+
+| | |
+|--|--|
+| Mekanisme | `for` loop dengan index |
+| Akumulator | `total` |
+| Konversi | Angka → string → angka |
+| Catatan | ✅ Familiar dan mudah dibaca, tapi perlu variabel index |
+
+---
+
+## 🔄 Versi 8 — `for...of`
+
+```js
+const totalDigitRekursif = (angka) => {
+  let total = 0
+
+  for (const digit of angka.toString()) {
+    total += Number(digit)
+  }
+
+  return total
+}
+```
+
+| | |
+|--|--|
+| Mekanisme | `for...of` loop |
+| Akumulator | `total` |
+| Konversi | Angka → string → angka |
+| Catatan | ✅ Paling bersih dan ringkas di antara versi iteratif |
 
 ---
 
@@ -168,7 +215,9 @@ Math.floor(angka / 10)  // buang digit terakhir  → Math.floor(512 / 10) = 51
 | V3 Matematis `< 10` ⭐ | Rekursif | ✅ Tidak ada | ❌ | ✅ Ada |
 | V4 String Depan-Belakang | Rekursif | ⚠️ Banyak | ❌ | ✅ Ada |
 | V5 Tail Recursion | Rekursif | ✅ Tidak ada | ✅ Ada | ❌ Tidak ada |
-| V6 Iteratif | Iteratif | ✅ Tidak ada | ✅ Ada | ❌ Tidak ada |
+| V6 `while` loop | Iteratif | ✅ Tidak ada | ✅ Ada | ❌ Tidak ada |
+| V7 `for` biasa | Iteratif | ⚠️ Ada | ✅ Ada | ❌ Tidak ada |
+| V8 `for...of` | Iteratif | ⚠️ Ada | ✅ Ada | ❌ Tidak ada |
 
 ---
 

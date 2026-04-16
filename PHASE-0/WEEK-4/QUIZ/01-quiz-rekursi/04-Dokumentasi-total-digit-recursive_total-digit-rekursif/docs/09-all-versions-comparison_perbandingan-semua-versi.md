@@ -86,7 +86,7 @@ function totalDigitRecursive(number, total = 0) {
 }
 ```
 
-### Versi 6 — Iteratif
+### Versi 6 — Iteratif (`while`)
 
 ```js
 const totalDigitRekursif = (angka) => {
@@ -101,21 +101,50 @@ const totalDigitRekursif = (angka) => {
 }
 ```
 
+### Versi 7 — `for` Biasa
+
+```js
+const totalDigitRekursif = (angka) => {
+  const str = angka.toString()
+  let total = 0
+
+  for (let i = 0; i < str.length; i++) {
+    total += Number(str[i])
+  }
+
+  return total
+}
+```
+
+### Versi 8 — `for...of`
+
+```js
+const totalDigitRekursif = (angka) => {
+  let total = 0
+
+  for (const digit of angka.toString()) {
+    total += Number(digit)
+  }
+
+  return total
+}
+```
+
 ---
 
 ## 📊 Tabel Perbandingan
 
-| | V1 String & Array | V2 Matematis `=== 0` | V3 Matematis `< 10` | V4 String Depan-Belakang | V5 Tail Recursion | V6 Iteratif |
-|--|:-----------------:|:--------------------:|:-------------------:|:------------------------:|:-----------------:|:-----------:|
-| Jenis | Rekursif | Rekursif | Rekursif | Rekursif | Rekursif | Iteratif |
-| Konversi tipe data | ⚠️ Banyak | ✅ Tidak ada | ✅ Tidak ada | ⚠️ Banyak | ✅ Tidak ada | ✅ Tidak ada |
-| Default parameter | ⚠️ Kompleks | ✅ Tidak ada | ✅ Tidak ada | ✅ Tidak ada | ✅ Sederhana | ✅ Tidak ada |
-| Arah proses | Belakang → depan | Belakang → depan | Belakang → depan | Depan → belakang | Belakang → depan | Belakang → depan |
-| Unwinding | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ❌ Tidak ada | ❌ Tidak ada |
-| Akumulator | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada | ✅ Ada | ✅ Ada |
-| Call stack tambahan | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ❌ Tidak ada |
-| Keterbacaan | ⚠️ Rumit | ✅ Bersih | ✅ Bersih | ✅ Cukup bersih | ✅ Bersih | ✅ Eksplisit |
-| Hasil | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar |
+| | V1 String & Array | V2 Matematis `=== 0` | V3 Matematis `< 10` | V4 String Depan-Belakang | V5 Tail Recursion | V6 `while` | V7 `for` Biasa | V8 `for...of` |
+|--|:-----------------:|:--------------------:|:-------------------:|:------------------------:|:-----------------:|:----------:|:--------------:|:-------------:|
+| Jenis | Rekursif | Rekursif | Rekursif | Rekursif | Rekursif | Iteratif | Iteratif | Iteratif |
+| Konversi tipe data | ⚠️ Banyak | ✅ Tidak ada | ✅ Tidak ada | ⚠️ Banyak | ✅ Tidak ada | ✅ Tidak ada | ⚠️ Ada | ⚠️ Ada |
+| Default parameter | ⚠️ Kompleks | ✅ Tidak ada | ✅ Tidak ada | ✅ Tidak ada | ✅ Sederhana | ✅ Tidak ada | ✅ Tidak ada | ✅ Tidak ada |
+| Arah proses | Belakang → depan | Belakang → depan | Belakang → depan | Depan → belakang | Belakang → depan | Belakang → depan | Depan → belakang | Depan → belakang |
+| Unwinding | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada |
+| Akumulator | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada |
+| Call stack tambahan | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ✅ Ada | ❌ Tidak ada | ❌ Tidak ada | ❌ Tidak ada |
+| Keterbacaan | ⚠️ Rumit | ✅ Bersih | ✅ Bersih | ✅ Cukup bersih | ✅ Bersih | ✅ Eksplisit | ✅ Mudah dibaca | ✅ Paling bersih |
+| Hasil | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar | ✅ Benar |
 
 ---
 
@@ -171,6 +200,22 @@ const totalDigitRekursif = (angka) => {
 
 **Kenapa?** Tidak ada call stack tambahan, mudah di-debug, dan cocok jika rekursif tidak diwajibkan.
 
+### 🎖️ Untuk kesederhanaan maksimal — gunakan Versi 8
+
+```js
+const totalDigitRekursif = (angka) => {
+  let total = 0
+
+  for (const digit of angka.toString()) {
+    total += Number(digit)
+  }
+
+  return total
+}
+```
+
+**Kenapa?** Kode paling mudah dibaca — tidak perlu index, tidak perlu kondisi `>= 10`, tidak perlu `return total + angka` di akhir.
+
 ---
 
 ## ✅ Ringkasan
@@ -182,7 +227,9 @@ const totalDigitRekursif = (angka) => {
 | V3 | Rekursif Matematis `< 10` | Bersih, efisien, eksplisit | — |
 | V4 | Rekursif String Depan-Belakang | Intuitif arahnya | Banyak konversi tipe data |
 | V5 | Tail Recursion | Tidak ada unwinding | Konsep lebih advanced |
-| V6 | Iteratif | Tidak ada call stack tambahan | Bukan rekursif |
+| V6 | `while` loop | Tidak ada call stack tambahan | Perlu `return total + angka` di akhir |
+| V7 | `for` biasa | Mudah dibaca, familiar | Perlu variabel index |
+| V8 | `for...of` | Paling bersih dan ringkas | Ada konversi string |
 
 ---
 
@@ -190,6 +237,7 @@ const totalDigitRekursif = (angka) => {
 
 - **📚 [← Kembali ke README](../README.md)**
 - **📖 [← Kembali ke Part 8 — Edge Cases](./08-edge-cases_kasus-tepi.md)**
+- **📖 [Lanjut ke Part 10 — Pendekatan For Loop →](./10-for-loop-approach_pendekatan-for-loop.md)**
 
 ---
 
