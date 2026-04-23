@@ -1,10 +1,10 @@
 # 📘 Dokumentasi — Total Digit Recursive / Total Digit Rekursif
 
-![Language](https://img.shields.io/badge/Language-JavaScript-yellow?style=for-the-badge&logo=javascript)
-![Topic](https://img.shields.io/badge/Topic-Recursion-orange?style=for-the-badge)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen?style=for-the-badge)
-![Versions](https://img.shields.io/badge/Versions-8-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Topics](https://img.shields.io/badge/Topics-Recursion%20|%20Math%20|%20Base%20Case-blue?style=for-the-badge)
+![Versions](https://img.shields.io/badge/Versions-8-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
 
 ---
 
