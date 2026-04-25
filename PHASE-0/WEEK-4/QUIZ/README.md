@@ -10,6 +10,7 @@
 |------|-------|-----------------|--------|
 | [01 — Rekursi](./01-quiz-rekursi/) | Recursion · Tail Recursion · Base Case | 5 challenge | ✅ Selesai |
 | [02 — Git Branch](./02-quiz-git-branch/) | Function · Loop · Grouping · String Parsing | 2 challenge | ✅ Selesai |
+| [03 — Regex](./03-quiz-regex/) | Regular Expressions · Pattern Matching | 1 challenge | ✅ Selesai |
 
 ---
 
@@ -24,6 +25,7 @@
 | 5 | Kali Terus Rekursif | Quiz 1 | Easy | ✅ |
 | 6 | Damage Calculation | Quiz 2 | Easy | ✅ |
 | 7 | Melee Ranged Grouping | Quiz 2 | Easy-Medium | ✅ |
+| 8 | hapusSimbol / removeNonAlphanumeric | Quiz 3 | Medium | ✅ |
 
 ---
 

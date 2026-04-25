@@ -34,6 +34,12 @@
 | 01 | [Damage Calculation](./QUIZ/02-quiz-git-branch/01-Dokumentasi-damage-calculation-challenge_tantangan-kalkulasi-damage/) | Easy | ✅ |
 | 02 | [Melee Ranged Grouping](./QUIZ/02-quiz-git-branch/02-Dokumentasi-hero-type-classification-meleeRangedGrouping_klasifikasi-tipe-hero-meleeRangedGrouping/) | Easy-Medium | ✅ |
 
+### Quiz 3 — Regex
+
+| # | Challenge | Difficulty | Status |
+|---|-----------|-----------|--------|
+| 01 | [hapusSimbol / removeNonAlphanumeric](./QUIZ/03-quiz-regex/01-Dokumentasi-hapusSimbol-removeNonAlphanumeric_hapus-karakter-non-alfanumerik/) | Medium | ✅ |
+
 ---
 
 ## 💡 Key Insights Minggu Ini
@@ -52,7 +58,8 @@
 WEEK-4/
 └── QUIZ/
     ├── 01-quiz-rekursi/        ← 5 challenge rekursi
-    └── 02-quiz-git-branch/     ← 2 challenge git branch
+    ├── 02-quiz-git-branch/     ← 2 challenge git branch
+    └── 03-quiz-regex/          ← 1 challenge regex
 ```
 
 ---
