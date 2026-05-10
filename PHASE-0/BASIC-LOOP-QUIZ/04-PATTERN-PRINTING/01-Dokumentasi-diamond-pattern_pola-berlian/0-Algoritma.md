@@ -27,6 +27,26 @@ Total Baris    =  (num × 2) - 1
 4. Return pattern
 ```
 
+```javascript
+function berlian(num) {
+  let pattern = '';
+
+  for (let row = 1; row <= num; row++) {
+    for (let space = 1; space <= num - row; space++) { pattern += ' '; }
+    for (let star = 1; star <= row * 2 - 1; star++) { pattern += '*'; }
+    pattern += '\n';
+  }
+
+  for (let row = num - 1; row >= 1; row--) {
+    for (let space = 1; space <= num - row; space++) { pattern += ' '; }
+    for (let star = 1; star <= row * 2 - 1; star++) { pattern += '*'; }
+    pattern += '\n';
+  }
+
+  return pattern;
+}
+```
+
 ---
 
 ### ⚡ V2 — `.repeat()` (2 Loop Utama)
@@ -40,9 +60,25 @@ Total Baris    =  (num × 2) - 1
 4. Return pattern
 ```
 
+```javascript
+const berlian = (num) => {
+  let pattern = '';
+
+  for (let row = 1; row <= num; row++) {
+    pattern += ' '.repeat(num - row) + '*'.repeat(2 * row - 1) + '\n';
+  }
+
+  for (let row = num - 1; row >= 1; row--) {
+    pattern += ' '.repeat(num - row) + '*'.repeat(2 * row - 1) + '\n';
+  }
+
+  return pattern;
+};
+```
+
 ---
 
-### ⚡ V3 — Math.abs + `.repeat()` (1 Loop)
+### ⚡ V3 — Math.abs + `.repeat()` (1 Loop) ⭐
 
 ```
 1. Buat string kosong `pattern`
@@ -50,6 +86,19 @@ Total Baris    =  (num × 2) - 1
    - currentRow = num - Math.abs(num - i)
    - pattern += ' '.repeat(num - currentRow) + '*'.repeat(2*currentRow - 1) + '\n'
 3. Return pattern
+```
+
+```javascript
+const berlian = (num) => {
+  let pattern = '';
+
+  for (let i = 1; i <= num * 2 - 1; i++) {
+    let currentRow = num - Math.abs(num - i);
+    pattern += ' '.repeat(num - currentRow) + '*'.repeat(2 * currentRow - 1) + '\n';
+  }
+
+  return pattern;
+};
 ```
 
 ---
@@ -64,6 +113,21 @@ Total Baris    =  (num × 2) - 1
    - Nested loop bintang: (2*level - 1) kali
    - Tambah '\n'
 3. Return pattern
+```
+
+```javascript
+function berlian(num) {
+  let pattern = '';
+
+  for (let i = 1; i <= num * 2 - 1; i++) {
+    let level = i <= num ? i : num * 2 - i;
+    for (let space = 1; space <= num - level; space++) { pattern += ' '; }
+    for (let star = 1; star <= 2 * level - 1; star++) { pattern += '*'; }
+    pattern += '\n';
+  }
+
+  return pattern;
+}
 ```
 
 ---
