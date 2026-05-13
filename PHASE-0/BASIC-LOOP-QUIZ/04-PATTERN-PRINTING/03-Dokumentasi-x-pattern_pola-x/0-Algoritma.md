@@ -1,24 +1,109 @@
-# Ringkasan Algoritma Pola X (Zero-Based)
+# 📋 Ringkasan Algoritma — Pola X (X Pattern)
 
-1. Pola dibentuk sebagai persegi berukuran `num × num` dengan **indeks dimulai dari 0 sampai** `num - 1`.
+### ✨ _Quick reference: buka → lihat kode → langsung ingat_
 
-2. Lakukan perulangan baris (row) dari 0 hingga `num - 1`.
+> 🎯 File ini berisi **kode final** dari semua versi solusi. Untuk penjelasan detail "Kenapa", lihat [README.md](./README.md).
 
-3. Di setiap baris, lakukan perulangan kolom (col) dari 0 hingga `num - 1`.
+---
 
-4. Pada setiap posisi `(row, col)`:
-   - Cetak `*` jika:
-     - Berada **di diagonal utama** → `row = col`, **atau**
-     - berada **di diagonal terbalik** → `row + col = num - 1`
-   - Selain itu, cetak spasi.
+## 🔑 Rumus Kunci
 
-5. Setelah satu baris selesai, lanjutkan ke baris berikutnya.
+```
+🔲 Ukuran Grid       = num × num (indeks mulai dari 0)
+⬇️ Diagonal Utama (\) = row === col
+⬆️ Diagonal Terbalik (/) = row + col === num - 1
 
-6. Hasil akhirnya membentuk pola huruf **X**.
+Cetak '*' jika SALAH SATU terpenuhi, selain itu cetak ' ' (spasi).
+```
 
-## Catatan kunci untuk diingat saat ujian
+---
 
-- **Zero-based index** → baris & kolom selalu mulai dari **0**
-- Nilai maksimum indeks = `num - 1`
-- Titik tengah X selalu berada pada posisi:
-  - `(row + col) = num - 1`
+## ✅ Versi 1 — Nested Loop (Best Practice)
+
+```javascript
+const polaX = (num) => {
+  let pattern = '';
+
+  for (let row = 0; row < num; row++) {
+    for (let col = 0; col < num; col++) {
+      pattern += (row === col || row + col === num - 1) ? '*' : ' ';
+    }
+    pattern += '\n';
+  }
+
+  return pattern;
+};
+```
+
+> 📌 **Kapan pakai:** Saat soal **mewajibkan** nested loop. Paling mudah dibaca — 2 loop, 1 ternary.
+
+---
+
+## ✅ Versi 2 — Single Loop + Array.fill()
+
+```javascript
+const polaX = (num) => {
+  let pattern = '';
+
+  for (let row = 0; row < num; row++) {
+    let baris = Array(num).fill(' ');
+    baris[row] = '*';
+    baris[num - 1 - row] = '*';
+    pattern += baris.join('') + '\n';
+  }
+
+  return pattern;
+};
+```
+
+> 📌 **Kapan pakai:** Saat ingin pendekatan "kanvas spasi → tembak bintang" — lebih ringkas dan intuitif.
+
+---
+
+## ✅ Versi 3 — 1D Array Buffer (Ultra Efficient)
+
+```javascript
+const polaX = (num) => {
+  const panjangTotal = (num + 1) * num;
+  const grid = Array(panjangTotal).fill(' ');
+
+  for (let row = 0; row < num; row++) {
+    const awalBaris = row * (num + 1);
+    grid[awalBaris + num] = '\n';
+    grid[awalBaris + row] = '*';
+    grid[awalBaris + (num - 1 - row)] = '*';
+  }
+
+  return grid.join('');
+};
+```
+
+> 📌 **Kapan pakai:** Saat butuh performa absolut — 1 array raksasa, `.join('')` hanya 1 kali.
+
+---
+
+## 📊 Perbandingan Cepat
+
+| | V1 ⭐ | V2 🎯 | V3 🚀 |
+|---|:---:|:---:|:---:|
+| Loop | 2 (nested) | 1 | 1 |
+| Kompleksitas | O(N²) | O(N²) | O(N) |
+| Readability | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
+| Performa | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Cocok untuk | Ujian, semua level | Kode ringkas | Performa absolut |
+
+---
+
+## 📤 Expected Output (`num = 5`)
+
+```
+*   *
+ * * 
+  *  
+ * * 
+*   *
+```
+
+---
+
+> 📝 Untuk penjelasan lengkap (Algoritma Tahan Lupa, Blueprint, Naming Convention, Gotchas), lihat [README.md](./README.md).

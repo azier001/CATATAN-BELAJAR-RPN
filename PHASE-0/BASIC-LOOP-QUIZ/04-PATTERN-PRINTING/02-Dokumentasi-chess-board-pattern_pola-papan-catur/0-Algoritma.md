@@ -1,55 +1,101 @@
+# 📋 Ringkasan Algoritma — Pola Papan Catur (Chess Board Pattern)
 
-## 📋 Algoritma Step-by-Step
+### ✨ _Quick reference: buka → lihat kode → langsung ingat_
 
-### Langkah 1️⃣: Inisialisasi
-```
-Buat variabel pattern = '' (string kosong)
-```
-**Tujuan:** Tempat menyimpan hasil pola papan catur
+> 🎯 File ini berisi **kode final** dari semua versi solusi. Untuk penjelasan detail "Kenapa", lihat [README.md](./README.md).
 
 ---
 
-### Langkah 2️⃣: Loop Baris (Outer Loop)
+## 🔑 Rumus Kunci
+
 ```
-FOR row = 1 sampai num:
+🎯 Logika Inti  = (row + col) % 2 === 0  →  '#'  (posisi genap)
+                  (row + col) % 2 !== 0  →  ' '  (posisi ganjil)
+📐 Ukuran Grid  = num × num
 ```
-**Tujuan:** Iterasi setiap baris dari atas ke bawah
 
 ---
 
-### Langkah 3️⃣: Loop Kolom (Inner Loop)
+## ✅ Versi 1 — Nested Loop
+
+```javascript
+const papanCatur = (num) => {
+  let pattern = '';
+
+  for (let row = 1; row <= num; row++) {
+    for (let col = 1; col <= num; col++) {
+      pattern += (row + col) % 2 === 0 ? '#' : ' ';
+    }
+    pattern += '\n';
+  }
+
+  return pattern;
+};
 ```
-  FOR col = 1 sampai num:
-```
-**Tujuan:** Iterasi setiap kolom dari kiri ke kanan dalam 1 baris
+
+> 📌 **Kapan pakai:** Saat soal **mewajibkan** nested loop. Paling mudah dibaca dan dipahami.
 
 ---
 
-### Langkah 4️⃣: Cek Posisi (Logika Inti)
+## ✅ Versi 2 — Single Loop (1D → 2D)
+
+```javascript
+const papanCatur = (num) => {
+  let pattern = '';
+
+  for (let i = 0; i < num * num; i++) {
+    const row = Math.floor(i / num);
+    const col = i % num;
+
+    pattern += (row + col) % 2 === 0 ? '#' : ' ';
+
+    if (col === num - 1) pattern += '\n';
+  }
+
+  return pattern;
+};
 ```
-    Hitung: (row + col) % 2
-    
-    JIKA hasil = 0 (genap):
-      Tambahkan '#' ke pattern
-    SELAIN ITU:
-      Tambahkan ' ' (spasi) ke pattern
-```
-**Tujuan:** Tentukan karakter berdasarkan posisi
+
+> 📌 **Kapan pakai:** Saat ingin eksplorasi mapping 1D ke 2D — cocok untuk game dev dan grafis.
 
 ---
 
-### Langkah 5️⃣: Akhiri Baris
+## ✅ Versi 3 — Functional (Array.from)
+
+```javascript
+const papanCatur = (num) =>
+  Array.from({ length: num }, (_, row) =>
+    Array.from({ length: num }, (_, col) =>
+      (row + col) % 2 === 0 ? '#' : ' '
+    ).join('')
+  ).join('\n');
 ```
-  Tambahkan '\n' (newline) ke pattern
-```
-**Tujuan:** Pindah ke baris baru setelah 1 baris selesai
+
+> 📌 **Kapan pakai:** Saat butuh pendekatan modern dan deklaratif — cocok untuk React dan modern JS.
 
 ---
 
-### Langkah 6️⃣: Return Hasil
-```
-RETURN pattern
-```
-**Tujuan:** Kembalikan pola lengkap
+## 📊 Perbandingan Cepat
+
+| | V1 🔄 | V2 🔢 | V3 ⚗️ |
+|---|:---:|:---:|:---:|
+| Loop | 2 (nested) | 1 | 0 |
+| Readability | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Indeks mulai | 1 | 0 | 0 |
+| Trailing `\n` | ✅ Ada | ✅ Ada | ❌ Tidak ada |
+| Cocok untuk | Pemula, ujian | Game dev | Modern JS |
 
 ---
+
+## 📤 Expected Output (`num = 4`)
+
+```
+# # 
+ # #
+# # 
+ # #
+```
+
+---
+
+> 📝 Untuk penjelasan lengkap (Algoritma Tahan Lupa, Blueprint, Naming Convention, Gotchas), lihat [README.md](./README.md).
