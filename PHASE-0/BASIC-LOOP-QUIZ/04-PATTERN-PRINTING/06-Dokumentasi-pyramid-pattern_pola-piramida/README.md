@@ -16,7 +16,8 @@
 | 🗺️ | [Blueprint & Kamus Variabel](#blueprint--kamus-variabel) | Kerangka kode + pemetaan variabel |
 | 👣 | [Pendekatan Bertahap (V1)](#pendekatan-bertahap-v1--nested-loop) | Membangun solusi step-by-step |
 | 🔄 | [Evolusi Solusi (V2)](#evolusi-solusi-v2--repeat) | Alternatif ringkas dengan `.repeat()` |
-| 📊 | [Perbandingan Semua Versi](#perbandingan-semua-versi) | Tabel komparasi 2 pendekatan |
+| 🔢 | [Bonus: 1-Indexed vs 0-Indexed](#bonus-1-indexed-vs-0-indexed) | Perbandingan rumus & kode berdasarkan titik awal iterasi |
+| 📊 | [Perbandingan Semua Versi](#perbandingan-semua-versi) | Tabel komparasi semua pendekatan |
 | 🏷️ | [Naming Convention](#naming-convention) | Best practice penamaan variabel |
 | ⚠️ | [Gotchas & Peringatan](#gotchas--peringatan) | Jebakan umum yang harus dihindari |
 
@@ -464,6 +465,73 @@ const piramida = (num) => {
 
 ---
 
+<a name="bonus-1-indexed-vs-0-indexed"></a>
+
+## 🔢 Bonus: 1-Indexed vs 0-Indexed
+
+Semua solusi di atas menggunakan loop yang dimulai dari `row = 1` (*1-indexed*). Tapi bagaimana jika kita memulai dari `row = 0` (*0-indexed*) seperti kebiasaan umum di JavaScript (misalnya saat mengakses array)?
+
+### 📊 Perbandingan Nilai `row` per Baris (`num = 5`)
+
+| Baris Fisik | `row` (1-Indexed) | `row` (0-Indexed) | Target Spasi | Target Bintang |
+|:---:|:---:|:---:|:---:|:---:|
+| Puncak | 1 | 0 | 4 | 1 |
+| Baris 2 | 2 | 1 | 3 | 3 |
+| Baris 3 | 3 | 2 | 2 | 5 |
+| Baris 4 | 4 | 3 | 1 | 7 |
+| Dasar | 5 | 4 | 0 | 9 |
+
+> 📌 *Target spasi dan bintang **tidak berubah** — yang berubah hanya nilai `row`. Karena selisih 1, rumusnya harus disesuaikan.*
+
+### 🔑 Perbandingan Rumus
+
+| Elemen | 1-Indexed (`row` mulai 1) | 0-Indexed (`row` mulai 0) | Kenapa berubah? |
+|:---|:---|:---|:---|
+| **Rumus Spasi** | `num - row` | `num - row - 1` | `row = 0` → `num - 0 = 5` (kelebihan 1), maka perlu `- 1` |
+| **Rumus Bintang** | `(2 * row) - 1` | `(2 * row) + 1` | `row = 0` → `(2*0) - 1 = -1` (negatif!), maka perlu `+ 1` |
+
+### 💻 Kode 0-Indexed — Nested Loop (V3)
+
+```javascript
+const piramida = (num) => {
+  let pattern = '';
+
+  for (let row = 0; row < num; row++) {
+    for (let space = 0; space < num - row - 1; space++) {
+      pattern += ' ';
+    }
+
+    for (let star = 0; star < (2 * row) + 1; star++) {
+      pattern += '*';
+    }
+
+    pattern += '\n';
+  }
+
+  return pattern;
+};
+```
+
+### 💻 Kode 0-Indexed — `.repeat()` (V3B)
+
+```javascript
+const piramida = (num) => {
+  let pattern = '';
+
+  for (let row = 0; row < num; row++) {
+    pattern += ' '.repeat(num - row - 1) + '*'.repeat((2 * row) + 1) + '\n';
+  }
+
+  return pattern;
+};
+```
+
+> [!TIP]
+> 💡 **Mana yang lebih baik?**
+> Untuk kasus *pattern printing*, **1-indexed lebih intuitif** karena rumus matematikanya lebih alami (`num - row` dan `2*row - 1`). Tidak perlu `+1` atau `-1` ekstra di kepala. Gunakan 0-indexed hanya jika konteks kodenya memang mengharuskan (misalnya saat mengakses index array).
+
+---
+
 <a name="perbandingan-semua-versi"></a>
 
 ## 📊 Perbandingan Semua Versi
@@ -481,6 +549,7 @@ const piramida = (num) => {
 > 🏆 **Kapan pakai versi mana?**
 > - **V1** → Saat belajar atau soal **mewajibkan** nested loop
 > - **V2** → Saat butuh kode yang ringkas, cepat, dan mudah dibaca di *real project*
+> - **V3** → Saat konteks kode mengharuskan *0-indexed* (lihat [Bonus: 1-Indexed vs 0-Indexed](#bonus-1-indexed-vs-0-indexed))
 
 ---
 
@@ -529,11 +598,11 @@ const piramida = (num) => {
 > [!WARNING]
 > 🐛 **Jebakan 2: Loop dimulai dari `0` tapi rumus pakai `row` langsung**
 >
-> Jika `row` dimulai dari `0`, maka:
+> Jika `row` dimulai dari `0` tapi rumus **tidak disesuaikan**, maka:
 > - `2 * row - 1` → `2 * 0 - 1` = **-1** ❌ (bintang negatif!)
 > - `num - row` → `5 - 0` = **5** (spasi terlalu banyak!)
 >
-> **Solusi:** Mulai `row` dari `1`, atau sesuaikan rumus menjadi `2 * (row + 1) - 1`.
+> **Solusi:** Mulai `row` dari `1`, atau sesuaikan rumus menjadi `(2 * row) + 1` (bintang) dan `num - row - 1` (spasi). Lihat bagian [Bonus: 1-Indexed vs 0-Indexed](#bonus-1-indexed-vs-0-indexed) untuk detail lengkap.
 
 > [!CAUTION]
 > 🔴 **Jebakan 3: Lupa `'\n'` di akhir baris**
@@ -551,4 +620,4 @@ const piramida = (num) => {
 ---
 
 > 📝 **Catatan Akhir:**
-> Dokumentasi ini dibuat pada **13 Mei 2026** berdasarkan sesi mentoring langsung bersama **Google Antigravity**. Pola Piramida adalah **level-up** pertama dari Pola Persegi — di sini kamu mulai belajar "mengkoordinasikan" 2 nested loop sekaligus (spasi + bintang). Konsep ini akan sangat berguna untuk pola yang lebih kompleks seperti **Diamond Pattern** yang membutuhkan piramida atas + piramida terbalik.
+> Dokumentasi ini dibuat pada **13 Mei 2026** dan diperbarui pada **15 Mei 2026** berdasarkan sesi mentoring langsung bersama **Google Antigravity**. Pola Piramida adalah **level-up** pertama dari Pola Persegi — di sini kamu mulai belajar "mengkoordinasikan" 2 nested loop sekaligus (spasi + bintang). Konsep ini akan sangat berguna untuk pola yang lebih kompleks seperti **Diamond Pattern** yang membutahkan piramida atas + piramida terbalik.
