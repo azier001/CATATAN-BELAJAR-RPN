@@ -41,6 +41,42 @@ toggleCase('001-A-3-5TrdYW') // → '001-a-3-5tRDyw'
 
 ---
 
+## ⭐ Solusi Paling Direkomendasikan
+
+Dari berbagai eksplorasi (tersedia lengkap di folder `docs`), berikut adalah dua pendekatan yang paling direkomendasikan karena menyeimbangkan **Readability (keterbacaan)** dan **Clean Code**:
+
+### 1. Pendekatan `for...of` + Regex (Best untuk Readability)
+Sangat cocok untuk belajar, debugging, dan mudah dipahami oleh pemula karena alur logikanya sangat eksplisit.
+
+```javascript
+function toggleCase(str) {
+  let result = ''
+
+  for (const char of str) {
+    if (/[a-z]/.test(char)) {
+      result += char.toUpperCase()
+    } else {
+      result += char.toLowerCase()
+    }
+  }
+
+  return result
+}
+```
+
+### 2. Pendekatan Functional + Ternary (Best untuk Keringkasan)
+Sangat direkomendasikan jika tim lebih menyukai gaya *functional programming* modern. Kodenya ringkas tanpa variabel penampung (`result`).
+
+```javascript
+function toggleCase(str) {
+  return str.split('').map(char => /[a-z]/.test(char) ? char.toUpperCase() : char.toLowerCase()).join('')
+}
+```
+
+> **Catatan:** Untuk melihat semua versi (termasuk kode original yang tidak direkomendasikan) dan perbandingan lengkapnya, silakan baca dokumen di bawah.
+
+---
+
 ## 📚 Daftar Part Dokumentasi
 
 | Part | Topik | Level |
