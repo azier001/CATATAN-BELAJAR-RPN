@@ -61,7 +61,7 @@ sortAlphabetically('software')   // → 'aeforstw'
 
 ### **📚 Jalur Lengkap (Recommended)**
 ```
-Part 1 → Part 2 → Part 3 → Part 4 → Part 5 → Part 6 → Part 7 → Part 8 → Part 9
+Part 1 → Part 2 → Part 3 → Part 4 → Part 5 → Part 6 → Part 7 → Part 8 → Part 9 → Part 10
 ```
 
 **Hasil:**
@@ -73,7 +73,7 @@ Part 1 → Part 2 → Part 3 → Part 4 → Part 5 → Part 6 → Part 7 → Par
 
 ### **⚡ Jalur Cepat (Langsung ke kode)**
 ```
-Part 2 → Part 3 → Part 4 → Part 9
+Part 2 → Part 3 → Part 4 → Part 10
 ```
 
 **Hasil:**
@@ -84,7 +84,7 @@ Part 2 → Part 3 → Part 4 → Part 9
 
 ### **🔀 Jalur Alternatif (Fokus algoritma)**
 ```
-Part 1 → Part 4 → Part 6 → Part 8 → Part 9
+Part 1 → Part 4 → Part 6 → Part 8 → Part 10
 ```
 
 **Hasil:**
@@ -121,8 +121,40 @@ Part 1 → Part 4 → Part 6 → Part 8 → Part 9
 → Focus: Algoritma detail tiap sorting
 
 ### **Saya Mau Lihat Semua Solusi**
-→ Langsung: **Part 9**
-→ Focus: Perbandingan dan kesimpulan
+→ Langsung: **Part 9 dan 10**
+→ Focus: Perbandingan semua versi secara lengkap
+
+---
+
+## 💻 Solusi Rekomendasi (Untuk Pemula)
+
+Kode di bawah adalah versi **Bubble Sort (Single Function)** yang paling direkomendasikan untuk pemula karena semua logika berada di satu tempat, sehingga sangat mudah untuk dipelajari alur kerjanya dari atas ke bawah.
+
+```javascript
+const sortAlphabetically = (inputString) => {
+  const characters = inputString.split('')
+  const length = characters.length
+
+  for (let i = 0; i < length - 1; i++) {
+    let swapped = false
+
+    for (let j = 0; j < length - i - 1; j++) {
+      if (characters[j] > characters[j + 1]) {
+        let temp = characters[j]
+        characters[j] = characters[j + 1]
+        characters[j + 1] = temp
+
+        swapped = true
+      }
+    }
+
+    if (!swapped) break
+  }
+
+  return characters.join('')
+}
+```
+*(Lihat penjelasan lengkapnya di [Part 10](docs/10-ringkasan-semua-versi.md))*
 
 ---
 
@@ -214,7 +246,7 @@ Setelah selesai, kamu akan bisa:
 
 **Quick Links:**
 
-[Part 1](docs/01-soal-dan-pemahaman.md) • [Part 2](docs/02-analisis-kode-original.md) • [Part 3](docs/03-refactoring-step-by-step.md) • [Part 4](docs/04-ringkasan-algoritma-refactoring.md) • [Part 5](docs/05-alternatif-selection-sort.md) • [Part 6](docs/06-ringkasan-algoritma-selection-sort.md) • [Part 7](docs/07-alternatif-insertion-sort.md) • [Part 8](docs/08-ringkasan-algoritma-insertion-sort.md) • [Part 9](docs/09-perbandingan-kesimpulan.md)
+[Part 1](docs/01-soal-dan-pemahaman.md) • [Part 2](docs/02-analisis-kode-original.md) • [Part 3](docs/03-refactoring-step-by-step.md) • [Part 4](docs/04-ringkasan-algoritma-refactoring.md) • [Part 5](docs/05-alternatif-selection-sort.md) • [Part 6](docs/06-ringkasan-algoritma-selection-sort.md) • [Part 7](docs/07-alternatif-insertion-sort.md) • [Part 8](docs/08-ringkasan-algoritma-insertion-sort.md) • [Part 9](docs/09-perbandingan-kesimpulan.md) • [Part 10](docs/10-ringkasan-semua-versi.md)
 
 ---
 

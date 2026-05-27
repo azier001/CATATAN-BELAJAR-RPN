@@ -17,6 +17,14 @@
 
 ---
 
+## 🧭 Quick Jump
+
+| 🎯 Tujuan | 🔷 Versi 1 | 🔶 Versi 2 | 🧪 Test Cases | 📊 Perbandingan |
+|:---------:|:----------:|:----------:|:-------------:|:---------------:|
+| [Jump](#-tujuan) | [Jump](#-versi-1-single-function) | [Jump](#-versi-2-multi-function) | [Jump](#-test-cases) | [Jump](#-perbandingan-lengkap) |
+
+---
+
 ## 🎯 Tujuan
 
 - ✅ Ringkasan algoritma Bubble Sort versi Single Function
@@ -504,6 +512,14 @@ Default: 🔶 Multi Function — lebih scalable dan maintainable ✅
 │     Satu fungsi, satu tanggung jawab — mudah dibaca & di-maintain   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 🔗 Navigation
+
+- **📚 [← Kembali ke README](../README.md)**
+- **📖 [← Part 3: Refactoring Step-by-Step](03-refactoring-step-by-step.md)**
+- **📖 [Lanjut ke Part 5: Alternatif Selection Sort →](05-alternatif-selection-sort.md)**
 
 ---
 
