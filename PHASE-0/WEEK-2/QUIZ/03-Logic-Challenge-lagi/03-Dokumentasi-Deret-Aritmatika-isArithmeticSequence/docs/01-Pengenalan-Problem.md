@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║              📚 PART 1: PENGENALAN & ANALISIS PROBLEM 📚                ║
@@ -5,6 +6,7 @@
 ║                   Memahami Deret Aritmatika dari Nol                    ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-10%20minutes-blue)
@@ -14,8 +16,8 @@
 
 ## 🧭 Quick Jump
 
-| 📖 Definisi | 🎯 Problem | 🧪 Test Cases | ⚠️ Edge Cases | 💡 Pattern | 📊 Summary |
-|:-----------:|:----------:|:-------------:|:-------------:|:----------:|:----------:|
+|             📖 Definisi             |         🎯 Problem          |        🧪 Test Cases         |        ⚠️ Edge Cases        |          💡 Pattern           |       📊 Summary        |
+| :---------------------------------: | :-------------------------: | :--------------------------: | :-------------------------: | :---------------------------: | :---------------------: |
 | [Jump](#-definisi-deret-aritmatika) | [Jump](#-problem-statement) | [Jump](#-test-cases-lengkap) | [Jump](#️-edge-cases-kritis) | [Jump](#-pattern-recognition) | [Jump](#-key-takeaways) |
 
 ---
@@ -62,9 +64,9 @@ Deret Aritmatika: [2, 5, 8, 11, 14]
 
  2    5    8    11   14
   └─3─┘└─3─┘└─3──┘└─3─┘
-  
+
   Selisih: 3  3  3  3  ← Semua SAMA!
-  
+
   ✅ Ini adalah deret aritmatika dengan d = 3
 ```
 
@@ -73,9 +75,9 @@ Bukan Deret Aritmatika: [2, 5, 9, 14, 20]
 
  2    5    9    14   20
   └─3─┘└─4─┘└─5──┘└─6─┘
-  
+
   Selisih: 3  4  5  6  ← BERBEDA!
-  
+
   ❌ Ini BUKAN deret aritmatika
 ```
 
@@ -90,13 +92,15 @@ function isArithmeticSequence(numbers)
 ```
 
 ### **Input:**
+
 - **Type:** Array of numbers
 - **Content:** Integer atau floating point numbers
 - **Range:** Bisa positif, negatif, atau nol
 
 ### **Output:**
+
 - **Type:** Boolean
-- **Value:** 
+- **Value:**
   - `true` jika array membentuk deret aritmatika
   - `false` jika tidak
 
@@ -211,22 +215,22 @@ Output: false
 
 ```javascript
 // Test 1: Deret naik sederhana
-isArithmeticSequence([1, 2, 3, 4, 5, 6])
+isArithmeticSequence([1, 2, 3, 4, 5, 6]);
 // Expected: true ✅
 // Selisih: 1, 1, 1, 1, 1
 
 // Test 2: Deret dengan selisih lebih besar
-isArithmeticSequence([2, 4, 6, 8])
+isArithmeticSequence([2, 4, 6, 8]);
 // Expected: true ✅
 // Selisih: 2, 2, 2
 
 // Test 3: Deret turun
-isArithmeticSequence([10, 8, 6, 4, 2])
+isArithmeticSequence([10, 8, 6, 4, 2]);
 // Expected: true ✅
 // Selisih: -2, -2, -2, -2
 
 // Test 4: Deret konstan (selisih 0)
-isArithmeticSequence([5, 5, 5, 5])
+isArithmeticSequence([5, 5, 5, 5]);
 // Expected: true ✅
 // Selisih: 0, 0, 0
 ```
@@ -237,17 +241,17 @@ isArithmeticSequence([5, 5, 5, 5])
 
 ```javascript
 // Test 5: Selisih tidak konsisten
-isArithmeticSequence([2, 4, 6, 12, 24])
+isArithmeticSequence([2, 4, 6, 12, 24]);
 // Expected: false ❌
 // Selisih: 2, 2, 6, 12 → tidak sama!
 
 // Test 6: Deret geometri (bukan aritmatika)
-isArithmeticSequence([2, 6, 18, 54])
+isArithmeticSequence([2, 6, 18, 54]);
 // Expected: false ❌
 // Selisih: 4, 12, 36 → ini rasio 3, bukan selisih konstan
 
 // Test 7: Random numbers
-isArithmeticSequence([1, 2, 3, 4, 7, 9])
+isArithmeticSequence([1, 2, 3, 4, 7, 9]);
 // Expected: false ❌
 // Selisih: 1, 1, 1, 3, 2 → tidak konsisten
 ```
@@ -260,13 +264,13 @@ Ini adalah edge case yang **sangat penting**!
 
 ```javascript
 // Test 8: Array dengan 1 elemen
-isArithmeticSequence([5])
+isArithmeticSequence([5]);
 // Expected: true ✅
 // Penjelasan: Tidak ada pasangan untuk dibandingkan,
 //             secara teknis tidak melanggar aturan
 
 // Test 9: Array dengan 2 elemen
-isArithmeticSequence([3, 7])
+isArithmeticSequence([3, 7]);
 // Expected: true ✅
 // Penjelasan: Hanya ada 1 selisih (7-3=4),
 //             selisih ini "konsisten" (tidak ada yang berbeda)
@@ -309,17 +313,17 @@ isArithmeticSequence([3, 7])
 
 ```javascript
 // Test 10: Deret dengan angka negatif
-isArithmeticSequence([-5, -3, -1, 1, 3])
+isArithmeticSequence([-5, -3, -1, 1, 3]);
 // Expected: true ✅
 // Selisih: 2, 2, 2, 2
 
 // Test 11: Deret turun ke negatif
-isArithmeticSequence([3, 0, -3, -6])
+isArithmeticSequence([3, 0, -3, -6]);
 // Expected: true ✅
 // Selisih: -3, -3, -3
 
 // Test 12: Semua negatif
-isArithmeticSequence([-10, -7, -4, -1])
+isArithmeticSequence([-10, -7, -4, -1]);
 // Expected: true ✅
 // Selisih: 3, 3, 3
 ```
@@ -343,17 +347,17 @@ Setiap langkah = +2 (konstan) ✅
 
 ```javascript
 // Test 13: Zero di tengah
-isArithmeticSequence([-2, 0, 2, 4])
+isArithmeticSequence([-2, 0, 2, 4]);
 // Expected: true ✅
 // Selisih: 2, 2, 2
 
 // Test 14: Zero di awal
-isArithmeticSequence([0, 3, 6, 9])
+isArithmeticSequence([0, 3, 6, 9]);
 // Expected: true ✅
 // Selisih: 3, 3, 3
 
 // Test 15: Semua nol (konstan)
-isArithmeticSequence([0, 0, 0, 0])
+isArithmeticSequence([0, 0, 0, 0]);
 // Expected: true ✅
 // Selisih: 0, 0, 0 (deret konstan)
 ```
@@ -367,12 +371,12 @@ isArithmeticSequence([0, 0, 0, 0])
 
 ```javascript
 // Test 16: Desimal sederhana
-isArithmeticSequence([1.5, 2.5, 3.5, 4.5])
+isArithmeticSequence([1.5, 2.5, 3.5, 4.5]);
 // Expected: true ✅
 // Selisih: 1.0, 1.0, 1.0
 
 // Test 17: Desimal kompleks
-isArithmeticSequence([0.1, 0.2, 0.3, 0.4])
+isArithmeticSequence([0.1, 0.2, 0.3, 0.4]);
 // Expected: true ✅ (tapi hati-hati floating point precision!)
 // Selisih: 0.1, 0.1, 0.1
 ```
@@ -390,15 +394,15 @@ isArithmeticSequence([0.1, 0.2, 0.3, 0.4])
 
 Mari kita identifikasi semua edge case yang harus dihandle:
 
-| Edge Case | Input Example | Expected | Reason |
-|-----------|---------------|----------|--------|
-| **Array kosong** | `[]` | `true` | Tidak ada yang dilanggar (vacuously true) |
-| **Array 1 elemen** | `[5]` | `true` | Tidak ada pasangan untuk dicek |
-| **Array 2 elemen** | `[3, 7]` | `true` | Hanya 1 selisih, otomatis "konsisten" |
-| **Deret konstan** | `[5, 5, 5]` | `true` | Selisih = 0 (valid!) |
-| **Angka negatif** | `[-5, -3, -1]` | `true`/`false` | Handle seperti biasa |
-| **Zero dalam deret** | `[-2, 0, 2]` | `true`/`false` | Zero = angka biasa |
-| **Floating point** | `[0.1, 0.2, 0.3]` | `true`/`false` | Hati-hati precision! |
+| Edge Case            | Input Example     | Expected       | Reason                                    |
+| -------------------- | ----------------- | -------------- | ----------------------------------------- |
+| **Array kosong**     | `[]`              | `true`         | Tidak ada yang dilanggar (vacuously true) |
+| **Array 1 elemen**   | `[5]`             | `true`         | Tidak ada pasangan untuk dicek            |
+| **Array 2 elemen**   | `[3, 7]`          | `true`         | Hanya 1 selisih, otomatis "konsisten"     |
+| **Deret konstan**    | `[5, 5, 5]`       | `true`         | Selisih = 0 (valid!)                      |
+| **Angka negatif**    | `[-5, -3, -1]`    | `true`/`false` | Handle seperti biasa                      |
+| **Zero dalam deret** | `[-2, 0, 2]`      | `true`/`false` | Zero = angka biasa                        |
+| **Floating point**   | `[0.1, 0.2, 0.3]` | `true`/`false` | Hati-hati precision!                      |
 
 ---
 
@@ -423,6 +427,7 @@ Mari kita identifikasi semua edge case yang harus dihandle:
 **Decision untuk dokumentasi ini:** **Opsi 2** ✅
 
 **Reasoning:**
+
 - Array kosong atau 1 elemen **tidak melanggar** definisi deret aritmatika
 - Secara matematis: "semua selisih sama" → jika tidak ada selisih, statement ini tetap true
 - Lebih flexible untuk edge case handling
@@ -466,14 +471,16 @@ Kesimpulan: Semua selisih harus = d
 ```javascript
 // ❌ SALAH: Membandingkan NILAI
 for (let i = 0; i < arr.length; i++) {
-  if (arr[i] !== currentValue) {  // Wrong!
+  if (arr[i] !== currentValue) {
+    // Wrong!
     // ...
   }
 }
 
 // ✅ BENAR: Membandingkan INDEX
 for (let i = 0; i < arr.length; i++) {
-  if (i !== currentIndex) {  // Correct!
+  if (i !== currentIndex) {
+    // Correct!
     // ...
   }
 }
@@ -508,6 +515,7 @@ RETURN true  ← All checks passed
 **Jawaban:** **Ya!** ✅
 
 **Penjelasan:**
+
 - Selisih: 5-5=0, 5-5=0, 5-5=0
 - Semua selisih = 0 (konstan!)
 - Ini disebut **deret konstan** (constant sequence)
@@ -526,6 +534,7 @@ RETURN true  ← All checks passed
 **Jawaban:** **Ya!** ✅ (Berdasarkan decision kita)
 
 **Penjelasan:**
+
 - Tidak ada pasangan untuk dicek
 - Tidak ada aturan yang dilanggar
 - **Vacuously true** - statement "semua selisih sama" tetap valid karena tidak ada selisih yang berbeda
@@ -540,6 +549,7 @@ RETURN true  ← All checks passed
 **Jawaban:** **d = -3**
 
 **Penjelasan:**
+
 - 7 - 10 = -3
 - 4 - 7 = -3
 - 1 - 4 = -3
@@ -554,6 +564,7 @@ Common difference bisa **negatif**! Ini menunjukkan deret **turun** (decreasing)
 **Jawaban:** **Tidak!** ❌
 
 **Penjelasan:**
+
 - Selisih: 2-1=1, 4-2=2, 8-4=4
 - Selisih tidak konsisten (1, 2, 4)
 - Ini adalah **deret geometri** dengan rasio 2 (bukan deret aritmatika)
@@ -601,34 +612,36 @@ Fun fact: Deret geometri punya **rasio konstan**, bukan **selisih konstan**.
 Di part-part berikutnya, kita akan explore 4 pendekatan berbeda:
 
 **Approach 1: Loop dari Index 0** (Explicit)
+
 ```javascript
 // Check semua pair dari awal
 for (let i = 0; i < n - 1; i++) {
-  if (arr[i+1] - arr[i] !== commonDiff) return false
+  if (arr[i + 1] - arr[i] !== commonDiff) return false;
 }
 ```
 
 **Approach 2: Loop dari Index 1** (Optimized)
+
 ```javascript
 // Skip pair pertama (sudah jadi acuan)
 for (let i = 1; i < n - 1; i++) {
-  if (arr[i+1] - arr[i] !== commonDiff) return false
+  if (arr[i + 1] - arr[i] !== commonDiff) return false;
 }
 ```
 
 **Approach 3: Functional with .every()** (Declarative)
+
 ```javascript
 // Use array methods
-return arr.slice(1).every((num, i) => 
-  num - arr[i] === commonDiff
-)
+return arr.slice(1).every((num, i) => num - arr[i] === commonDiff);
 ```
 
 **Approach 4: Transform then Validate** (FP Style)
+
 ```javascript
 // Create differences array, then check
-const diffs = arr.slice(1).map((n, i) => n - arr[i])
-return diffs.every(d => d === diffs[0])
+const diffs = arr.slice(1).map((n, i) => n - arr[i]);
+return diffs.every((d) => d === diffs[0]);
 ```
 
 > **🎯 COMING UP**  
@@ -638,14 +651,14 @@ return diffs.every(d => d === diffs[0])
 
 ## 📊 Requirement Summary
 
-| Aspek | Detail |
-|-------|--------|
-| **Input Type** | Array of numbers |
-| **Input Range** | Any numbers (positive, negative, zero, float) |
-| **Min Length** | 0 (atau 2, tergantung requirement) |
-| **Output Type** | Boolean |
-| **Edge Cases** | Small arrays, negative numbers, zero, floats |
-| **Performance Target** | O(n) time, O(1) space (ideal) |
+| Aspek                  | Detail                                        |
+| ---------------------- | --------------------------------------------- |
+| **Input Type**         | Array of numbers                              |
+| **Input Range**        | Any numbers (positive, negative, zero, float) |
+| **Min Length**         | 0 (atau 2, tergantung requirement)            |
+| **Output Type**        | Boolean                                       |
+| **Edge Cases**         | Small arrays, negative numbers, zero, floats  |
+| **Performance Target** | O(n) time, O(1) space (ideal)                 |
 
 ---
 
@@ -689,6 +702,7 @@ Sekarang kamu sudah paham **apa** yang harus dibuat. Tapi ada **masalah**...
 > **🐛 Bagaimana jika kode kita punya bug?**
 
 Di Part 2, kita akan:
+
 - Lihat kode yang **bermasalah** (bug scope variable)
 - Analisis **root cause** dengan detail
 - Belajar **debugging systematically**

@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║              🏆 PART 7: PERBANDINGAN & KESIMPULAN 🏆                    ║
@@ -5,6 +6,7 @@
 ║        The Grand Finale: Comparing All Approaches & Best Practices      ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-All%20Levels-blue)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-15%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 📊 Comparison | 🌊 Flowchart | 📝 Pseudocode | 💼 Interview | 🎯 Best Practices | 🚀 Next Steps |
-|:-------------:|:------------:|:-------------:|:------------:|:-----------------:|:-------------:|
+|           📊 Comparison            |            🌊 Flowchart             |          📝 Pseudocode           |             💼 Interview             |        🎯 Best Practices         |    🚀 Next Steps     |
+| :--------------------------------: | :---------------------------------: | :------------------------------: | :----------------------------------: | :------------------------------: | :------------------: |
 | [Jump](#-comparison-table-lengkap) | [Jump](#-flowchart-decision-making) | [Jump](#-pseudocode-semua-versi) | [Jump](#-interview-tips--strategies) | [Jump](#-best-practices-summary) | [Jump](#-next-steps) |
 
 ---
@@ -37,24 +39,24 @@ Part terakhir ini akan:
 
 ### **The Ultimate Comparison:**
 
-| Aspek | Alt 1: Explicit | Alt 2: Optimized | Alt 3: FP .every() | Alt 4: FP .map() |
-|-------|-----------------|------------------|-------------------|------------------|
-| **Loop Start** | `i = 0` | `i = 1` | Slice(1) | Slice(1) |
-| **Paradigm** | Imperative | Imperative | Functional | Functional |
-| **Style** | HOW | HOW | WHAT | WHAT |
-| **Lines of Code** | ~13 | ~13 | ~8 | ~11 |
-| **Redundancy** | 1 check | 0 checks | 0 checks | 0 checks |
-| **Readability** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Optimization** | Medium | High | High | Medium |
-| **Time Complexity** | O(n) | O(n) | O(n) | O(n) |
-| **Space Complexity** | O(1) | O(1) | O(1) | O(n) |
-| **Debugging** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **FP Knowledge** | Not needed | Not needed | Basic | Intermediate |
-| **Interview Score** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Production Ready** | ✅ | ✅✅ | ✅ | ✅ |
-| **Learning Curve** | Easy | Easy | Medium | Medium |
-| **Team Skill** | Any | Any | Intermediate+ | Intermediate+ |
-| **Best For** | Teaching | Production | Modern JS | FP learning |
+| Aspek                | Alt 1: Explicit | Alt 2: Optimized | Alt 3: FP .every() | Alt 4: FP .map() |
+| -------------------- | --------------- | ---------------- | ------------------ | ---------------- |
+| **Loop Start**       | `i = 0`         | `i = 1`          | Slice(1)           | Slice(1)         |
+| **Paradigm**         | Imperative      | Imperative       | Functional         | Functional       |
+| **Style**            | HOW             | HOW              | WHAT               | WHAT             |
+| **Lines of Code**    | ~13             | ~13              | ~8                 | ~11              |
+| **Redundancy**       | 1 check         | 0 checks         | 0 checks           | 0 checks         |
+| **Readability**      | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐         | ⭐⭐⭐⭐           | ⭐⭐⭐⭐         |
+| **Optimization**     | Medium          | High             | High               | Medium           |
+| **Time Complexity**  | O(n)            | O(n)             | O(n)               | O(n)             |
+| **Space Complexity** | O(1)            | O(1)             | O(1)               | O(n)             |
+| **Debugging**        | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐       | ⭐⭐⭐             | ⭐⭐⭐⭐⭐       |
+| **FP Knowledge**     | Not needed      | Not needed       | Basic              | Intermediate     |
+| **Interview Score**  | ⭐⭐⭐          | ⭐⭐⭐⭐⭐       | ⭐⭐⭐⭐           | ⭐⭐⭐⭐         |
+| **Production Ready** | ✅              | ✅✅             | ✅                 | ✅               |
+| **Learning Curve**   | Easy            | Easy             | Medium             | Medium           |
+| **Team Skill**       | Any             | Any              | Intermediate+      | Intermediate+    |
+| **Best For**         | Teaching        | Production       | Modern JS          | FP learning      |
 
 ---
 
@@ -388,15 +390,15 @@ STYLE: Functional dengan two-step approach
 
 ```
 Strong Answer:
-"Yes, I can optimize from Alternatif 1 to Alternatif 2 
-by starting the loop from index 1 instead of 0. This 
-eliminates one redundant check where we compare the 
-reference difference to itself. The improvement is 
-minimal (one iteration), but it demonstrates the 
+"Yes, I can optimize from Alternatif 1 to Alternatif 2
+by starting the loop from index 1 instead of 0. This
+eliminates one redundant check where we compare the
+reference difference to itself. The improvement is
+minimal (one iteration), but it demonstrates the
 DRY principle and shows zero redundancy.
 
-However, both are O(n) time complexity, so the 
-practical performance difference is negligible for 
+However, both are O(n) time complexity, so the
+practical performance difference is negligible for
 most use cases."
 ```
 
@@ -404,14 +406,14 @@ most use cases."
 
 ```
 Strong Answer:
-"Time complexity is O(n) for all approaches - we need 
+"Time complexity is O(n) for all approaches - we need
 to check each consecutive pair once.
 
 Space complexity:
 - Alternatif 1, 2, 3: O(1) - constant extra space
 - Alternatif 4: O(n) - creates intermediate array
 
-So Alternatif 1-3 are more space-efficient, while 
+So Alternatif 1-3 are more space-efficient, while
 Alternatif 4 trades space for easier debugging."
 ```
 
@@ -419,11 +421,11 @@ Alternatif 4 trades space for easier debugging."
 
 ```
 Strong Answer:
-"Yes, I can use array methods like .every(). 
+"Yes, I can use array methods like .every().
 [Show Alternatif 3]
 
-The functional approach is more declarative - it 
-describes WHAT we want (check if every difference 
+The functional approach is more declarative - it
+describes WHAT we want (check if every difference
 equals the common difference) rather than HOW to do it.
 
 Trade-offs:
@@ -555,16 +557,19 @@ Trade-offs:
 ### **Recommended Practice Problems:**
 
 **Easy:**
+
 - Is Array Sorted
 - Remove Duplicates from Array
 - Two Sum Problem
 
 **Medium:**
+
 - Product of Array Except Self (similar pattern!)
 - Find Peak Element
 - Maximum Subarray
 
 **For Functional Programming:**
+
 - Filter, Map, Reduce challenges
 - Array transformation problems
 - Data pipeline exercises
@@ -678,7 +683,7 @@ Kamu telah menyelesaikan SEMUA 7 parts dokumentasi!
 ```
 ✅ Understood problem deeply
 ✅ Debugged and fixed code
-✅ Optimized systematically  
+✅ Optimized systematically
 ✅ Refactored to clean code
 ✅ Explored 4 different approaches
 ✅ Learned imperative AND functional

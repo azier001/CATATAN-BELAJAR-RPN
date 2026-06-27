@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║                  🎨 PART 6: ALTERNATIF FUNCTIONAL 🎨                    ║
@@ -5,6 +6,7 @@
 ║         Dari Imperative ke Declarative: Functional Programming Way      ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Advanced-red)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-30%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 🎯 FP Intro | 🔄 Alternatif 3 | 🎨 Alternatif 4 | 📊 Comparison | 📝 Algoritma | 💡 Summary |
-|:-----------:|:---------------:|:---------------:|:-------------:|:------------:|:----------:|
+|                 🎯 FP Intro                 |                🔄 Alternatif 3                |              🎨 Alternatif 4              |           📊 Comparison            |               📝 Algoritma                |       💡 Summary        |
+| :-----------------------------------------: | :-------------------------------------------: | :---------------------------------------: | :--------------------------------: | :---------------------------------------: | :---------------------: |
 | [Jump](#-pengenalan-functional-programming) | [Jump](#-alternatif-3-single-transform-every) | [Jump](#-alternatif-4-two-step-transform) | [Jump](#-imperative-vs-functional) | [Jump](#-ringkasan-algoritma-versi-ujian) | [Jump](#-key-takeaways) |
 
 ---
@@ -60,23 +62,24 @@ Prinsip utama:
 // ═══════════════════════════════════════════
 // IMPERATIVE: "HOW to do it"
 // ═══════════════════════════════════════════
-const numbers = [1, 2, 3, 4, 5]
-const doubled = []
+const numbers = [1, 2, 3, 4, 5];
+const doubled = [];
 
 for (let i = 0; i < numbers.length; i++) {
-  doubled.push(numbers[i] * 2)
+  doubled.push(numbers[i] * 2);
 }
 // Result: [2, 4, 6, 8, 10]
 
 // ═══════════════════════════════════════════
 // DECLARATIVE: "WHAT to achieve"
 // ═══════════════════════════════════════════
-const numbers = [1, 2, 3, 4, 5]
-const doubled = numbers.map(n => n * 2)
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map((n) => n * 2);
 // Result: [2, 4, 6, 8, 10]
 ```
 
 **Perbedaan:**
+
 - Imperative: Step-by-step instructions (loop, push)
 - Declarative: Describe transformation (map)
 
@@ -86,16 +89,21 @@ const doubled = numbers.map(n => n * 2)
 
 ```javascript
 // .slice(start, end) - Extract portion of array
-[1, 2, 3, 4, 5].slice(1)     // [2, 3, 4, 5]
-[1, 2, 3, 4, 5].slice(1, 3)  // [2, 3]
+[1, 2, 3, 4, 5]
+  .slice(1) // [2, 3, 4, 5]
+  [(1, 2, 3, 4, 5)].slice(1, 3) // [2, 3]
 
-// .every(callback) - Check if ALL elements satisfy condition
-[2, 4, 6].every(n => n % 2 === 0)  // true
-[2, 4, 7].every(n => n % 2 === 0)  // false
+  [
+    // .every(callback) - Check if ALL elements satisfy condition
+    (2, 4, 6)
+  ].every((n) => n % 2 === 0) // true
+  [(2, 4, 7)].every((n) => n % 2 === 0) // false
 
-// .map(callback) - Transform each element
-[1, 2, 3].map(n => n * 2)  // [2, 4, 6]
-[1, 2, 3].map(n => n + 10) // [11, 12, 13]
+  [
+    // .map(callback) - Transform each element
+    (1, 2, 3)
+  ].map((n) => n * 2) // [2, 4, 6]
+  [(1, 2, 3)].map((n) => n + 10); // [11, 12, 13]
 ```
 
 ---
@@ -107,15 +115,15 @@ const doubled = numbers.map(n => n * 2)
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   // Functional approach with .every()
   return numbers.slice(1).every((currentNumber, index) => {
-    return currentNumber - numbers[index] === commonDifference
-  })
+    return currentNumber - numbers[index] === commonDifference;
+  });
 }
 ```
 
@@ -126,10 +134,10 @@ function isArithmeticSequence(numbers) {
 #### **Step 1: `.slice(1)` - Extract dari index 1**
 
 ```javascript
-const numbers = [2, 4, 6, 8, 10]
-const sliced = numbers.slice(1)
+const numbers = [2, 4, 6, 8, 10];
+const sliced = numbers.slice(1);
 
-console.log(sliced)  // [4, 6, 8, 10]
+console.log(sliced); // [4, 6, 8, 10]
 ```
 
 **Visualisasi:**
@@ -143,6 +151,7 @@ New Index:     0   1   2   3
 ```
 
 **Kenapa slice dari 1?**
+
 - Kita sudah pakai `numbers[0]` untuk hitung `commonDifference`
 - Sekarang kita mau validasi sisanya
 
@@ -154,7 +163,7 @@ New Index:     0   1   2   3
 array.every((element, index) => {
   // Return true if condition satisfied
   // Return false if condition NOT satisfied
-})
+});
 ```
 
 **How `.every()` works:**
@@ -171,13 +180,16 @@ array.every((element, index) => {
 **Example:**
 
 ```javascript
-[2, 4, 6].every(n => n % 2 === 0)
-// Iteration 1: 2 % 2 === 0? true
-// Iteration 2: 4 % 2 === 0? true
-// Iteration 3: 6 % 2 === 0? true
-// Result: true (all true)
+[2, 4, 6]
+  .every((n) => n % 2 === 0)
+  [
+    // Iteration 1: 2 % 2 === 0? true
+    // Iteration 2: 4 % 2 === 0? true
+    // Iteration 3: 6 % 2 === 0? true
+    // Result: true (all true)
 
-[2, 4, 7].every(n => n % 2 === 0)
+    (2, 4, 7)
+  ].every((n) => n % 2 === 0);
 // Iteration 1: 2 % 2 === 0? true
 // Iteration 2: 4 % 2 === 0? true
 // Iteration 3: 7 % 2 === 0? false ← STOP HERE
@@ -192,8 +204,8 @@ Ini adalah **bagian paling tricky** yang sering bikin bingung!
 
 ```javascript
 numbers.slice(1).every((currentNumber, index) => {
-  return currentNumber - numbers[index] === commonDifference
-})
+  return currentNumber - numbers[index] === commonDifference;
+});
 ```
 
 **⚠️ CRITICAL: `index` adalah index di SLICED array, bukan original!**
@@ -356,17 +368,17 @@ Magic! 🪄
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
+
   // Step 1: Transform - Create array of differences
   const differences = numbers.slice(1).map((num, index) => {
-    return num - numbers[index]
-  })
-  
+    return num - numbers[index];
+  });
+
   // Step 2: Validate - Check if all differences are equal
-  const expectedDifference = differences[0]
-  return differences.every(diff => diff === expectedDifference)
+  const expectedDifference = differences[0];
+  return differences.every((diff) => diff === expectedDifference);
 }
 ```
 
@@ -391,6 +403,7 @@ function isArithmeticSequence(numbers) {
 ```
 
 **Benefits of separation:**
+
 - ✅ Each step has clear responsibility
 - ✅ Easier to debug (can inspect `differences`)
 - ✅ More testable (test each step separately)
@@ -404,8 +417,8 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 const differences = numbers.slice(1).map((num, index) => {
-  return num - numbers[index]
-})
+  return num - numbers[index];
+});
 ```
 
 **How `.map()` works:**
@@ -422,7 +435,7 @@ const differences = numbers.slice(1).map((num, index) => {
 **Example:**
 
 ```javascript
-[1, 2, 3].map(n => n * 2)
+[1, 2, 3].map((n) => n * 2);
 // Iteration 1: 1 * 2 = 2
 // Iteration 2: 2 * 2 = 4
 // Iteration 3: 3 * 2 = 6
@@ -480,8 +493,8 @@ Final differences array: [2, 2, 2, 2]
 #### **Step 2: Validate with `.every()`**
 
 ```javascript
-const expectedDifference = differences[0]
-return differences.every(diff => diff === expectedDifference)
+const expectedDifference = differences[0];
+return differences.every((diff) => diff === expectedDifference);
 ```
 
 **Process:**
@@ -540,21 +553,21 @@ All true → return true ✅
 
 ```javascript
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  
+  if (numbers.length < 2) return true;
+
   const differences = numbers.slice(1).map((num, index) => {
-    return num - numbers[index]
-  })
-  
+    return num - numbers[index];
+  });
+
   // 🔍 You can inspect here!
-  console.log('Differences:', differences)
-  
-  const expectedDifference = differences[0]
-  return differences.every(diff => diff === expectedDifference)
+  console.log('Differences:', differences);
+
+  const expectedDifference = differences[0];
+  return differences.every((diff) => diff === expectedDifference);
 }
 
 // Test
-isArithmeticSequence([2, 4, 6, 12])
+isArithmeticSequence([2, 4, 6, 12]);
 // Console: Differences: [2, 2, 6]
 // Now you can SEE where it fails!
 ```
@@ -604,55 +617,53 @@ isArithmeticSequence([2, 4, 6, 12])
 // ALTERNATIF 1: Imperative (i=0)
 // ════════════════════════════════════════════
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  const commonDifference = numbers[1] - numbers[0]
-  
+  if (numbers.length < 2) return true;
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 0; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 }
 
 // ════════════════════════════════════════════
 // ALTERNATIF 2: Imperative (i=1) - OPTIMAL
 // ════════════════════════════════════════════
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  const commonDifference = numbers[1] - numbers[0]
-  
+  if (numbers.length < 2) return true;
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 }
 
 // ════════════════════════════════════════════
 // ALTERNATIF 3: Functional (.every())
 // ════════════════════════════════════════════
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  const commonDifference = numbers[1] - numbers[0]
-  
-  return numbers.slice(1).every((num, i) =>
-    num - numbers[i] === commonDifference
-  )
+  if (numbers.length < 2) return true;
+  const commonDifference = numbers[1] - numbers[0];
+
+  return numbers
+    .slice(1)
+    .every((num, i) => num - numbers[i] === commonDifference);
 }
 
 // ════════════════════════════════════════════
 // ALTERNATIF 4: Functional (.map() + .every())
 // ════════════════════════════════════════════
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  
-  const differences = numbers.slice(1).map((num, i) =>
-    num - numbers[i]
-  )
-  
-  return differences.every(d => d === differences[0])
+  if (numbers.length < 2) return true;
+
+  const differences = numbers.slice(1).map((num, i) => num - numbers[i]);
+
+  return differences.every((d) => d === differences[0]);
 }
 ```
 
@@ -660,18 +671,18 @@ function isArithmeticSequence(numbers) {
 
 ### **Comparison Table:**
 
-| Aspect | Alt 1 | Alt 2 | Alt 3 | Alt 4 |
-|--------|-------|-------|-------|-------|
-| **Style** | Imperative | Imperative | Functional | Functional |
-| **Paradigm** | HOW | HOW | WHAT | WHAT |
-| **Loop** | Manual | Manual | Abstract | Abstract |
-| **Lines** | 8 | 8 | 6 | 9 |
-| **Readability** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Performance** | Good | Best | Good | Fair |
-| **Memory** | O(1) | O(1) | O(1) | O(n) |
-| **Debugging** | Easy | Easy | Medium | Easy |
-| **FP Concepts** | None | None | Medium | High |
-| **Best For** | Learning | Production | Modern JS | Teaching FP |
+| Aspect          | Alt 1      | Alt 2      | Alt 3      | Alt 4       |
+| --------------- | ---------- | ---------- | ---------- | ----------- |
+| **Style**       | Imperative | Imperative | Functional | Functional  |
+| **Paradigm**    | HOW        | HOW        | WHAT       | WHAT        |
+| **Loop**        | Manual     | Manual     | Abstract   | Abstract    |
+| **Lines**       | 8          | 8          | 6          | 9           |
+| **Readability** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐   | ⭐⭐⭐⭐   | ⭐⭐⭐⭐    |
+| **Performance** | Good       | Best       | Good       | Fair        |
+| **Memory**      | O(1)       | O(1)       | O(1)       | O(n)        |
+| **Debugging**   | Easy       | Easy       | Medium     | Easy        |
+| **FP Concepts** | None       | None       | Medium     | High        |
+| **Best For**    | Learning   | Production | Modern JS  | Teaching FP |
 
 ---
 
@@ -721,7 +732,7 @@ INPUT: numbers (array of numbers)
 4. UNTUK SETIAP elemen dalam slicedArray:
      index_in_sliced ← posisi elemen di slicedArray
      currentNumber ← elemen saat ini
-     
+
      JIKA currentNumber - numbers[index_in_sliced] ≠ commonDifference MAKA
        RETURN false
 
@@ -751,7 +762,7 @@ INPUT: numbers (array of numbers)
 2. TRANSFORM STEP:
    slicedArray ← numbers dari index 1 hingga akhir
    differences ← []
-   
+
    UNTUK SETIAP elemen dalam slicedArray:
      index_in_sliced ← posisi elemen
      difference ← elemen - numbers[index_in_sliced]
@@ -759,7 +770,7 @@ INPUT: numbers (array of numbers)
 
 3. VALIDATE STEP:
    expectedDifference ← differences[0]
-   
+
    UNTUK SETIAP difference dalam differences:
      JIKA difference ≠ expectedDifference MAKA
        RETURN false
@@ -808,17 +819,20 @@ When .every() runs on sliced:
 **Jawaban:**
 
 **Alternatif 3:** Single pass dengan `.every()` langsung
+
 - Validasi langsung tanpa intermediate data
 - More concise
 - Harder to debug
 
 **Alternatif 4:** Two-step dengan `.map()` then `.every()`
+
 - Transform dulu (buat array differences)
 - Validate kemudian (cek semua differences)
 - Can inspect intermediate data
 - Easier to debug
 
 **Analogi:**
+
 - Alt 3: Check sambil jalan (inspect on-the-fly)
 - Alt 4: Kumpulin data dulu, baru analyze
 
@@ -830,6 +844,7 @@ When .every() runs on sliced:
 **Jawaban:**
 
 **Use Functional when:**
+
 - ✅ Team familiar dengan FP
 - ✅ Modern JavaScript codebase
 - ✅ Declarative style preferred
@@ -837,6 +852,7 @@ When .every() runs on sliced:
 - ✅ Chaining operations
 
 **Use Imperative when:**
+
 - ✅ Team prefers explicit control flow
 - ✅ Performance critical (avoid intermediate arrays)
 - ✅ Easier debugging needed
@@ -896,16 +912,19 @@ Setelah membaca Part 6, kamu sekarang paham:
 ### **If You Want to Learn More:**
 
 **Books:**
+
 - 📘 "Functional-Light JavaScript" by Kyle Simpson
 - 📘 "Professor Frisby's Mostly Adequate Guide to FP"
 - 📘 "Eloquent JavaScript" (Chapter on FP)
 
 **Online:**
+
 - 🌐 [MDN: Array Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - 🌐 [JavaScript.info: Array Methods](https://javascript.info/array-methods)
 - 🌐 [FreeCodeCamp: Functional Programming](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#functional-programming)
 
 **Practice:**
+
 - 🛠️ [Codewars](https://www.codewars.com) - FP katas
 - 🛠️ [Exercism](https://exercism.org) - JavaScript track
 - 🛠️ [LeetCode](https://leetcode.com) - Array problems

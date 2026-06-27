@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║                  ⚡ PART 5: ALTERNATIF IMPERATIVE ⚡                     ║
@@ -5,6 +6,7 @@
 ║           Dua Pendekatan Berbeda, Satu Tujuan yang Sama                 ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-25%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 🎯 Overview | ⚡ Alternatif 1 | 🚀 Alternatif 2 | 📊 Comparison | 📝 Algoritma | 💡 Summary |
-|:-----------:|:---------------:|:---------------:|:-------------:|:------------:|:----------:|
+|              🎯 Overview               |               ⚡ Alternatif 1                |            🚀 Alternatif 2            |          📊 Comparison          |               📝 Algoritma                |       💡 Summary        |
+| :------------------------------------: | :------------------------------------------: | :-----------------------------------: | :-----------------------------: | :---------------------------------------: | :---------------------: |
 | [Jump](#-overview-imperative-approach) | [Jump](#-alternatif-1-explicit-early-return) | [Jump](#-alternatif-2-optimized-loop) | [Jump](#-perbandingan-mendalam) | [Jump](#-ringkasan-algoritma-versi-ujian) | [Jump](#-key-takeaways) |
 
 ---
@@ -75,32 +77,32 @@ Contoh:
 ```javascript
 // ALTERNATIF 1: Explicit Early Return (Loop dari i=0)
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+  if (numbers.length < 2) return true;
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 0; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 
 // ALTERNATIF 2: Optimized Loop (Loop dari i=1)
 function isArithmeticSequence(numbers) {
-  if (numbers.length < 2) return true
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+  if (numbers.length < 2) return true;
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -115,19 +117,19 @@ function isArithmeticSequence(numbers) {
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   // Loop starts from i = 0
   for (let i = 0; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -250,19 +252,19 @@ function isArithmeticSequence(numbers) {
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   // Loop starts from i = 1 (skip first pair)
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -382,10 +384,10 @@ function isArithmeticSequence(     function isArithmeticSequence(
   if (numbers.length < 2) {          if (numbers.length < 2) {
     return true                        return true
   }                                  }
-  
+
   const commonDifference =           const commonDifference =
     numbers[1] - numbers[0]            numbers[1] - numbers[0]
-  
+
   for (let i = 0;                    for (let i = 1;          ← DIFFERENT!
        i < numbers.length - 1;            i < numbers.length - 1;
        i++) {                             i++) {
@@ -395,7 +397,7 @@ function isArithmeticSequence(     function isArithmeticSequence(
       return false                       return false
     }                                    }
   }                                    }
-  
+
   return true                        return true
 }                                  }
 ```
@@ -442,14 +444,14 @@ function isArithmeticSequence(     function isArithmeticSequence(
 
 ### **Performance Metrics:**
 
-| Metric | Alternatif 1 | Alternatif 2 | Winner |
-|--------|--------------|--------------|--------|
-| **Iterations** | n-1 | n-2 | Alt 2 |
-| **Meaningful checks** | n-2 | n-2 | Tie |
-| **Redundant checks** | 1 | 0 | Alt 2 |
-| **Lines of code** | Same | Same | Tie |
-| **Readability** | High | Medium | Alt 1 |
-| **Optimization** | Medium | High | Alt 2 |
+| Metric                | Alternatif 1 | Alternatif 2 | Winner |
+| --------------------- | ------------ | ------------ | ------ |
+| **Iterations**        | n-1          | n-2          | Alt 2  |
+| **Meaningful checks** | n-2          | n-2          | Tie    |
+| **Redundant checks**  | 1            | 0            | Alt 2  |
+| **Lines of code**     | Same         | Same         | Tie    |
+| **Readability**       | High         | Medium       | Alt 1  |
+| **Optimization**      | Medium       | High         | Alt 2  |
 
 ---
 
@@ -552,16 +554,16 @@ Both handle edge case correctly! ✅
 
 ### **Scenario-Based Recommendation:**
 
-| Scenario | Recommended | Reason |
-|----------|-------------|--------|
-| **Learning/Teaching** | Alternatif 1 | Easier to explain |
-| **Code Review Focus** | Alternatif 2 | Shows best practices |
-| **Interview Coding** | Both OK | Explain trade-offs |
-| **Production Code** | Alternatif 2 | Optimal & clean |
-| **Legacy Codebase** | Match existing style | Consistency |
-| **Performance Critical** | Alternatif 2 | Every cycle counts |
-| **Junior Dev Team** | Alternatif 1 | Less confusion |
-| **Senior Dev Team** | Alternatif 2 | Appreciates elegance |
+| Scenario                 | Recommended          | Reason               |
+| ------------------------ | -------------------- | -------------------- |
+| **Learning/Teaching**    | Alternatif 1         | Easier to explain    |
+| **Code Review Focus**    | Alternatif 2         | Shows best practices |
+| **Interview Coding**     | Both OK              | Explain trade-offs   |
+| **Production Code**      | Alternatif 2         | Optimal & clean      |
+| **Legacy Codebase**      | Match existing style | Consistency          |
+| **Performance Critical** | Alternatif 2         | Every cycle counts   |
+| **Junior Dev Team**      | Alternatif 1         | Less confusion       |
+| **Senior Dev Team**      | Alternatif 2         | Appreciates elegance |
 
 ---
 
@@ -657,6 +659,7 @@ Perbedaan utama adalah **loop starting point**:
 - **Alternatif 2:** Loop dari `i=1` - skip pasangan pertama
 
 **Impact:**
+
 - Alternatif 1: 1 redundant check (pasangan pertama dicek padahal sudah jadi acuan)
 - Alternatif 2: 0 redundancy (pasangan pertama cuma dipakai sekali sebagai acuan)
 
@@ -677,6 +680,7 @@ Perbedaan utama adalah **loop starting point**:
 4. ✅ Slightly more performant
 
 **TAPI** perlu consider konteks:
+
 - Jika team junior: Alternatif 1 mungkin lebih baik (clarity)
 - Jika clarity critical: Alternatif 1
 - Jika optimization valued: Alternatif 2
@@ -693,11 +697,13 @@ Perbedaan utama adalah **loop starting point**:
 **Kedua alternatif handle dengan benar**, tapi dengan cara berbeda:
 
 **Alternatif 1 (`[5, 10]`):**
+
 - Loop jalan 1x (i=0)
 - Check: 10-5 === 5? Yes
 - Return true
 
 **Alternatif 2 (`[5, 10]`):**
+
 - Loop TIDAK jalan (i=1; i<1 is false)
 - Langsung return true
 

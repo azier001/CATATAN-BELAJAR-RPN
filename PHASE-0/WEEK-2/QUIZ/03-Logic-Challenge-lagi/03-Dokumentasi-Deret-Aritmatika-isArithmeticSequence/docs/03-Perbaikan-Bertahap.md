@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║                   🔧 PART 3: PERBAIKAN BERTAHAP 🔧                      ║
@@ -5,6 +6,7 @@
 ║              Dari Bug ke Optimasi: Journey of Improvement               ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-20%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 🔧 Iterasi 1 | 🛡️ Iterasi 2 | ⚡ Iterasi 3 | 📊 Comparison | 🧠 Teori | 💡 Summary |
-|:------------:|:------------:|:------------:|:-------------:|:--------:|:----------:|
+|              🔧 Iterasi 1              |              🛡️ Iterasi 2              |             ⚡ Iterasi 3              |            📊 Comparison             |         🧠 Teori          |       💡 Summary        |
+| :------------------------------------: | :------------------------------------: | :-----------------------------------: | :----------------------------------: | :-----------------------: | :---------------------: |
 | [Jump](#️-iterasi-1-fix-scope-variable) | [Jump](#️-iterasi-2-edge-case-handling) | [Jump](#-iterasi-3-loop-optimization) | [Jump](#-perbandingan-semua-iterasi) | [Jump](#-teori-matematis) | [Jump](#-key-takeaways) |
 
 ---
@@ -64,18 +66,18 @@ Setelah membaca part ini, kamu akan:
 ```javascript
 // ❌ ITERASI 0 (Bug dari Part 2)
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  
+  let isValid = true;
+
   for (let i = 0; i < arr.length - 1; i++) {
-    let difference = arr[1] - arr[0]  // 🐛 Inside loop!
-    
+    let difference = arr[1] - arr[0]; // 🐛 Inside loop!
+
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -86,17 +88,17 @@ function tentukanDeretAritmatika(arr) {
 ```javascript
 // ✅ ITERASI 1: Fixed Scope
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  let difference = arr[1] - arr[0]  // ✅ Outside loop!
-  
+  let isValid = true;
+  let difference = arr[1] - arr[0]; // ✅ Outside loop!
+
   for (let i = 0; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -106,16 +108,16 @@ function tentukanDeretAritmatika(arr) {
 function tentukanDeretAritmatika(arr) {
   let isValid = true
 + let difference = arr[1] - arr[0]  // ← MOVED HERE
-  
+
   for (let i = 0; i < arr.length - 1; i++) {
 -   let difference = arr[1] - arr[0]  // ← REMOVED FROM HERE
-    
+
     if (difference !== arr[i + 1] - arr[i]) {
       isValid = false
       break
     }
   }
-  
+
   return isValid
 }
 ```
@@ -143,12 +145,12 @@ function tentukanDeretAritmatika(arr) {
 
 ```javascript
 // ✅ Works fine for normal arrays
-tentukanDeretAritmatika([2, 4, 6, 8])  // true
-tentukanDeretAritmatika([1, 2, 4])     // false
+tentukanDeretAritmatika([2, 4, 6, 8]); // true
+tentukanDeretAritmatika([1, 2, 4]); // false
 
 // 💥 CRASH for edge cases!
-tentukanDeretAritmatika([5])           // undefined (arr[1] doesn't exist)
-tentukanDeretAritmatika([])            // undefined (arr[0] doesn't exist)
+tentukanDeretAritmatika([5]); // undefined (arr[1] doesn't exist)
+tentukanDeretAritmatika([]); // undefined (arr[0] doesn't exist)
 ```
 
 **Visualisasi Crash:**
@@ -159,13 +161,13 @@ Input: [5]
 Step 1: let difference = arr[1] - arr[0]
         ├─ arr[1] = undefined
         └─ arr[0] = 5
-        
+
 Step 2: difference = undefined - 5
         └─ Result: NaN 💥
 
 Step 3: Loop check: NaN !== ...
         └─ Always true (NaN !== anything)
-        
+
 Result: return false (incorrect!)
 ```
 
@@ -179,10 +181,11 @@ Result: return false (incorrect!)
 ### **Problem Identified:**
 
 ```javascript
-let difference = arr[1] - arr[0]  // 💥 What if arr.length < 2?
+let difference = arr[1] - arr[0]; // 💥 What if arr.length < 2?
 ```
 
 **Cases to handle:**
+
 - `arr = []` → `arr[0]` dan `arr[1]` = `undefined`
 - `arr = [5]` → `arr[1]` = `undefined`
 
@@ -195,20 +198,20 @@ let difference = arr[1] - arr[0]  // 💥 What if arr.length < 2?
 function tentukanDeretAritmatika(arr) {
   // 🛡️ Edge case: Array terlalu kecil
   if (arr.length < 2) {
-    return true  // Tidak ada yang dilanggar
+    return true; // Tidak ada yang dilanggar
   }
-  
-  let isValid = true
-  let difference = arr[1] - arr[0]
-  
+
+  let isValid = true;
+  let difference = arr[1] - arr[0];
+
   for (let i = 0; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -220,17 +223,17 @@ function tentukanDeretAritmatika(arr) {
 + if (arr.length < 2) {
 +   return true
 + }
-  
+
   let isValid = true
   let difference = arr[1] - arr[0]
-  
+
   for (let i = 0; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
       isValid = false
       break
     }
   }
-  
+
   return isValid
 }
 ```
@@ -282,13 +285,13 @@ Kesimpulan: Secara logika, return true
 
 ```javascript
 // ✅ Edge cases now handled
-tentukanDeretAritmatika([])            // true ✅
-tentukanDeretAritmatika([5])           // true ✅
-tentukanDeretAritmatika([3, 7])        // true ✅
+tentukanDeretAritmatika([]); // true ✅
+tentukanDeretAritmatika([5]); // true ✅
+tentukanDeretAritmatika([3, 7]); // true ✅
 
 // ✅ Normal cases still work
-tentukanDeretAritmatika([2, 4, 6, 8])  // true ✅
-tentukanDeretAritmatika([1, 2, 4])     // false ✅
+tentukanDeretAritmatika([2, 4, 6, 8]); // true ✅
+tentukanDeretAritmatika([1, 2, 4]); // false ✅
 ```
 
 ### **Impact:**
@@ -328,7 +331,7 @@ Step 2: Loop
     └─ 2 !== (4 - 2)
     └─ 2 !== 2
     └─ false (tidak masuk if)
-    
+
   ⚠️ Wait! Kita sudah hitung arr[1] - arr[0] di Step 1!
   ⚠️ Kenapa harus cek lagi di iterasi pertama?
 ```
@@ -382,21 +385,21 @@ Optimasi: Skip i=0!
 // ✅ ITERASI 3: Loop Optimized
 function tentukanDeretAritmatika(arr) {
   if (arr.length < 2) {
-    return true
+    return true;
   }
-  
-  let isValid = true
-  let difference = arr[1] - arr[0]
-  
+
+  let isValid = true;
+  let difference = arr[1] - arr[0];
+
   // ⚡ Start from index 1 (skip pair pertama)
   for (let i = 1; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -407,10 +410,10 @@ function tentukanDeretAritmatika(arr) {
   if (arr.length < 2) {
     return true
   }
-  
+
   let isValid = true
   let difference = arr[1] - arr[0]
-  
+
 - for (let i = 0; i < arr.length - 1; i++) {
 + for (let i = 1; i < arr.length - 1; i++) {  // ← Start from 1!
     if (difference !== arr[i + 1] - arr[i]) {
@@ -418,7 +421,7 @@ function tentukanDeretAritmatika(arr) {
       break
     }
   }
-  
+
   return isValid
 }
 ```
@@ -536,17 +539,17 @@ Optimization: Always save exactly 1 redundant check
 
 ```javascript
 // ✅ Edge cases
-tentukanDeretAritmatika([])            // true ✅
-tentukanDeretAritmatika([5])           // true ✅
-tentukanDeretAritmatika([3, 7])        // true ✅
+tentukanDeretAritmatika([]); // true ✅
+tentukanDeretAritmatika([5]); // true ✅
+tentukanDeretAritmatika([3, 7]); // true ✅
 
 // ✅ Normal cases
-tentukanDeretAritmatika([2, 4, 6, 8])  // true ✅
-tentukanDeretAritmatika([1, 2, 4])     // false ✅
-tentukanDeretAritmatika([5, 5, 5])     // true ✅
+tentukanDeretAritmatika([2, 4, 6, 8]); // true ✅
+tentukanDeretAritmatika([1, 2, 4]); // false ✅
+tentukanDeretAritmatika([5, 5, 5]); // true ✅
 
 // ✅ Negative numbers
-tentukanDeretAritmatika([-5, -3, -1])  // true ✅
+tentukanDeretAritmatika([-5, -3, -1]); // true ✅
 
 // ✅ All test cases pass!
 ```
@@ -557,14 +560,14 @@ tentukanDeretAritmatika([-5, -3, -1])  // true ✅
 
 ### **Side-by-Side Comparison:**
 
-| Aspek | Iterasi 0 (Bug) | Iterasi 1 | Iterasi 2 | Iterasi 3 |
-|-------|-----------------|-----------|-----------|-----------|
-| **Scope** | ❌ Wrong | ✅ Fixed | ✅ Fixed | ✅ Fixed |
-| **Edge Cases** | ❌ Crash | ❌ Crash | ✅ Handled | ✅ Handled |
-| **Redundancy** | ❌ Many | ❌ 1 redundant | ❌ 1 redundant | ✅ Zero |
-| **Correctness** | ⚠️ Works | ⚠️ Works | ✅ All cases | ✅ All cases |
-| **Performance** | ⚠️ Worst | ⚠️ Better | ✅ Good | ✅ Best |
-| **Code Quality** | ❌ Poor | ⚠️ OK | ✅ Good | ✅ Excellent |
+| Aspek            | Iterasi 0 (Bug) | Iterasi 1      | Iterasi 2      | Iterasi 3    |
+| ---------------- | --------------- | -------------- | -------------- | ------------ |
+| **Scope**        | ❌ Wrong        | ✅ Fixed       | ✅ Fixed       | ✅ Fixed     |
+| **Edge Cases**   | ❌ Crash        | ❌ Crash       | ✅ Handled     | ✅ Handled   |
+| **Redundancy**   | ❌ Many         | ❌ 1 redundant | ❌ 1 redundant | ✅ Zero      |
+| **Correctness**  | ⚠️ Works        | ⚠️ Works       | ✅ All cases   | ✅ All cases |
+| **Performance**  | ⚠️ Worst        | ⚠️ Better      | ✅ Good        | ✅ Best      |
+| **Code Quality** | ❌ Poor         | ⚠️ OK          | ✅ Good        | ✅ Excellent |
 
 ---
 
@@ -584,7 +587,7 @@ ITERASI 0: Bug Version
 │ return isValid                     │
 └────────────────────────────────────┘
           ↓ Fix scope
-          
+
 ITERASI 1: Scope Fixed
 ┌────────────────────────────────────┐
 │ let isValid = true                 │
@@ -598,7 +601,7 @@ ITERASI 1: Scope Fixed
 │ return isValid                     │
 └────────────────────────────────────┘
           ↓ Add edge case
-          
+
 ITERASI 2: Edge Case Handled
 ┌────────────────────────────────────┐
 │ if (arr.length < 2) return true    │ ← ✅ Edge case
@@ -614,7 +617,7 @@ ITERASI 2: Edge Case Handled
 │ return isValid                     │
 └────────────────────────────────────┘
           ↓ Optimize loop
-          
+
 ITERASI 3: Optimized
 ┌────────────────────────────────────┐
 │ if (arr.length < 2) return true    │
@@ -828,25 +831,25 @@ Untuk n = 2 (array [a, b]):
 ```javascript
 // Test Iterasi 3 dengan semua cases
 
-console.log('=== EDGE CASES ===')
-console.log(tentukanDeretAritmatika([]))           // true ✅
-console.log(tentukanDeretAritmatika([5]))          // true ✅
-console.log(tentukanDeretAritmatika([3, 7]))       // true ✅
+console.log('=== EDGE CASES ===');
+console.log(tentukanDeretAritmatika([])); // true ✅
+console.log(tentukanDeretAritmatika([5])); // true ✅
+console.log(tentukanDeretAritmatika([3, 7])); // true ✅
 
-console.log('\n=== VALID SEQUENCES ===')
-console.log(tentukanDeretAritmatika([2, 4, 6, 8]))       // true ✅
-console.log(tentukanDeretAritmatika([1, 2, 3, 4, 5, 6])) // true ✅
-console.log(tentukanDeretAritmatika([5, 5, 5, 5]))       // true ✅
-console.log(tentukanDeretAritmatika([10, 7, 4, 1]))      // true ✅
+console.log('\n=== VALID SEQUENCES ===');
+console.log(tentukanDeretAritmatika([2, 4, 6, 8])); // true ✅
+console.log(tentukanDeretAritmatika([1, 2, 3, 4, 5, 6])); // true ✅
+console.log(tentukanDeretAritmatika([5, 5, 5, 5])); // true ✅
+console.log(tentukanDeretAritmatika([10, 7, 4, 1])); // true ✅
 
-console.log('\n=== INVALID SEQUENCES ===')
-console.log(tentukanDeretAritmatika([2, 4, 6, 12, 24]))  // false ✅
-console.log(tentukanDeretAritmatika([1, 2, 3, 4, 7, 9])) // false ✅
-console.log(tentukanDeretAritmatika([2, 6, 18, 54]))     // false ✅
+console.log('\n=== INVALID SEQUENCES ===');
+console.log(tentukanDeretAritmatika([2, 4, 6, 12, 24])); // false ✅
+console.log(tentukanDeretAritmatika([1, 2, 3, 4, 7, 9])); // false ✅
+console.log(tentukanDeretAritmatika([2, 6, 18, 54])); // false ✅
 
-console.log('\n=== NEGATIVE NUMBERS ===')
-console.log(tentukanDeretAritmatika([-5, -3, -1, 1]))    // true ✅
-console.log(tentukanDeretAritmatika([3, 0, -3, -6]))     // true ✅
+console.log('\n=== NEGATIVE NUMBERS ===');
+console.log(tentukanDeretAritmatika([-5, -3, -1, 1])); // true ✅
+console.log(tentukanDeretAritmatika([3, 0, -3, -6])); // true ✅
 
 // ALL TESTS PASSED! 🎉
 ```
@@ -949,6 +952,7 @@ Redundant checks: 0 ✅
 ### **Iterasi 3 (Final Version):**
 
 **Konsep Inti:**
+
 ```
 1. Handle edge case (array < 2 elemen)
 2. Hitung selisih pertama sebagai acuan
@@ -959,6 +963,7 @@ Redundant checks: 0 ✅
 ```
 
 **Step-by-Step:**
+
 ```
 ALGORITMA: tentukanDeretAritmatika
 
@@ -981,6 +986,7 @@ OUTPUT: boolean (true/false)
 ```
 
 **Keywords Penting:**
+
 - 🔑 **Edge case handling** - array < 2 elemen
 - 🔑 **Reference difference** - arr[1] - arr[0]
 - 🔑 **Loop optimization** - start dari index 1
@@ -993,6 +999,7 @@ OUTPUT: boolean (true/false)
 ### **Key Lessons dari Iterasi:**
 
 **1. Incremental Improvement** 📈
+
 ```
 Tidak perlu langsung perfect!
 ├─ Start dengan working solution
@@ -1002,6 +1009,7 @@ Tidak perlu langsung perfect!
 ```
 
 **2. Edge Cases Matter** 🛡️
+
 ```
 Always think about:
 ├─ Empty input
@@ -1011,6 +1019,7 @@ Always think about:
 ```
 
 **3. Optimization Trade-offs** ⚖️
+
 ```
 Consider:
 ├─ Performance gain vs code complexity
@@ -1020,6 +1029,7 @@ Consider:
 ```
 
 **4. Test Thoroughly** 🧪
+
 ```
 Test cases should cover:
 ├─ Normal cases (happy path)
@@ -1040,6 +1050,7 @@ Test cases should cover:
 Karena pasangan pertama (arr[1] - arr[0]) sudah digunakan sebagai reference difference. Jika kita cek lagi di loop pertama (i=0), itu redundant - kita akan membandingkan reference dengan dirinya sendiri.
 
 **Ilustrasi:**
+
 ```
 reference = arr[1] - arr[0]  // Pair 1 dijadikan acuan
 
@@ -1061,6 +1072,7 @@ Loop i=1: Check arr[2] - arr[1] === reference
 Loop **tidak jalan sama sekali**, dan function return `true` (correct!).
 
 **Trace:**
+
 ```
 Input: [3, 7]
 1. arr.length = 2, tidak < 2, lanjut ✓
@@ -1084,11 +1096,13 @@ Ini elegant karena untuk array 2 elemen, hanya ada 1 pair yang otomatis "konsist
 **Tergantung konteks!**
 
 **Iterasi 2 (i=0):**
+
 - Lebih straightforward
 - Easier to understand
 - Good for: learning, teaching, junior teams
 
 **Iterasi 3 (i=1):**
+
 - More optimized (zero redundancy)
 - Shows deeper understanding
 - Good for: production, code quality focus, experienced teams
@@ -1113,14 +1127,14 @@ Setelah membaca Part 3, kamu sekarang paham:
 
 ## 🎯 Comparison Summary
 
-| Feature | Iterasi 0 | Iterasi 1 | Iterasi 2 | Iterasi 3 |
-|---------|-----------|-----------|-----------|-----------|
-| **Status** | 🐛 Bug | ⚠️ Works | ✅ Solid | ⭐ Optimal |
-| **Production Ready?** | ❌ | ❌ | ✅ | ✅ |
-| **Redundancy** | High | Low | Low | None |
-| **Edge Cases** | ❌ | ❌ | ✅ | ✅ |
-| **Readability** | Poor | OK | Good | Excellent |
-| **Best For** | - | Learning | Production | Production+ |
+| Feature               | Iterasi 0 | Iterasi 1 | Iterasi 2  | Iterasi 3   |
+| --------------------- | --------- | --------- | ---------- | ----------- |
+| **Status**            | 🐛 Bug    | ⚠️ Works  | ✅ Solid   | ⭐ Optimal  |
+| **Production Ready?** | ❌        | ❌        | ✅         | ✅          |
+| **Redundancy**        | High      | Low       | Low        | None        |
+| **Edge Cases**        | ❌        | ❌        | ✅         | ✅          |
+| **Readability**       | Poor      | OK        | Good       | Excellent   |
+| **Best For**          | -         | Learning  | Production | Production+ |
 
 ---
 

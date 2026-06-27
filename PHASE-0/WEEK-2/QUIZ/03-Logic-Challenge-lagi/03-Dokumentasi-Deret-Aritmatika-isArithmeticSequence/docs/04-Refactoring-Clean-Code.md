@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║                📝 PART 4: REFACTORING CLEAN CODE 📝                     ║
@@ -5,6 +6,7 @@
 ║          Dari Bahasa Indonesia ke English dengan Best Practices         ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-20%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 🌐 Naming | 🔄 Variables | 📋 Comments | 🎨 Structure | 📊 Comparison | 💡 Summary |
-|:---------:|:------------:|:-----------:|:------------:|:-------------:|:----------:|
+|              🌐 Naming              |      🔄 Variables      |         📋 Comments          |       🎨 Structure       |           📊 Comparison            |       💡 Summary        |
+| :---------------------------------: | :--------------------: | :--------------------------: | :----------------------: | :--------------------------------: | :---------------------: |
 | [Jump](#-english-naming-convention) | [Jump](#-const-vs-let) | [Jump](#-comment-guidelines) | [Jump](#-code-structure) | [Jump](#-before--after-comparison) | [Jump](#-key-takeaways) |
 
 ---
@@ -65,20 +67,20 @@ Setelah membaca part ini, kamu akan:
 ```javascript
 function tentukanDeretAritmatika(arr) {
   if (arr.length < 2) {
-    return true
+    return true;
   }
-  
-  let isValid = true
-  let difference = arr[1] - arr[0]
-  
+
+  let isValid = true;
+  let difference = arr[1] - arr[0];
+
   for (let i = 1; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -87,18 +89,18 @@ function tentukanDeretAritmatika(arr) {
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let index = 1; index < numbers.length - 1; index++) {
     if (numbers[index + 1] - numbers[index] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -110,34 +112,34 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 // ❌ Before
-function tentukanDeretAritmatika(arr) { }
+function tentukanDeretAritmatika(arr) {}
 
 // ✅ After
-function isArithmeticSequence(numbers) { }
+function isArithmeticSequence(numbers) {}
 ```
 
 **Analysis:**
 
-| Aspek | Before | After | Reasoning |
-|-------|--------|-------|-----------|
-| **Language** | 🇮🇩 Indonesia | 🌍 English | International standard |
-| **Verb** | `tentukan` (determine) | `is` (check) | Boolean functions use `is/has/can` |
-| **Naming** | Mixed (camelCase ID) | camelCase EN | Consistent convention |
-| **Clarity** | OK untuk ID speakers | ✅ Universal | Readable by all developers |
+| Aspek        | Before                 | After        | Reasoning                          |
+| ------------ | ---------------------- | ------------ | ---------------------------------- |
+| **Language** | 🇮🇩 Indonesia           | 🌍 English   | International standard             |
+| **Verb**     | `tentukan` (determine) | `is` (check) | Boolean functions use `is/has/can` |
+| **Naming**   | Mixed (camelCase ID)   | camelCase EN | Consistent convention              |
+| **Clarity**  | OK untuk ID speakers   | ✅ Universal | Readable by all developers         |
 
 **Best Practice for Boolean Functions:**
 
 ```javascript
 // ✅ Good boolean function names
-isValid()
-hasPermission()
-canEdit()
-shouldUpdate()
+isValid();
+hasPermission();
+canEdit();
+shouldUpdate();
 
 // ❌ Avoid for boolean functions
-checkValid()      // Unclear what it returns
-validateData()    // Sounds like it modifies
-getIsValid()      // Redundant "get"
+checkValid(); // Unclear what it returns
+validateData(); // Sounds like it modifies
+getIsValid(); // Redundant "get"
 ```
 
 ---
@@ -146,10 +148,10 @@ getIsValid()      // Redundant "get"
 
 ```javascript
 // ❌ Before
-function isArithmeticSequence(arr) { }
+function isArithmeticSequence(arr) {}
 
 // ✅ After
-function isArithmeticSequence(numbers) { }
+function isArithmeticSequence(numbers) {}
 ```
 
 **Analysis:**
@@ -191,10 +193,10 @@ input    → collection → list      → sequence
 
 ```javascript
 // ⚠️ Acceptable
-for (let i = 1; i < numbers.length - 1; i++) { }
+for (let i = 1; i < numbers.length - 1; i++) {}
 
 // ✅ Better (optional)
-for (let index = 1; index < numbers.length - 1; index++) { }
+for (let index = 1; index < numbers.length - 1; index++) {}
 ```
 
 **When to use `i` vs `index`:**
@@ -240,14 +242,14 @@ for (let row = 0; row < matrix.length; row++) {
 // ✅ Option 1: Using "i" (common, concise)
 for (let i = 1; i < numbers.length - 1; i++) {
   if (numbers[i + 1] - numbers[i] !== commonDifference) {
-    return false
+    return false;
   }
 }
 
 // ✅ Option 2: Using "index" (explicit)
 for (let index = 1; index < numbers.length - 1; index++) {
   if (numbers[index + 1] - numbers[index] !== commonDifference) {
-    return false
+    return false;
   }
 }
 ```
@@ -258,10 +260,10 @@ for (let index = 1; index < numbers.length - 1; index++) {
 
 ```javascript
 // ⚠️ Before: Generic
-let difference = numbers[1] - numbers[0]
+let difference = numbers[1] - numbers[0];
 
 // ✅ After: Specific
-const commonDifference = numbers[1] - numbers[0]
+const commonDifference = numbers[1] - numbers[0];
 ```
 
 **Why "commonDifference"?**
@@ -298,18 +300,18 @@ referenceDifference ✅ Alternative perspective
 
 ```javascript
 // ❌ Before: Keep tracking variable
-let isValid = true
+let isValid = true;
 // ... loop logic ...
-return isValid
+return isValid;
 
 // ✅ After: Direct return
 // No need for isValid variable!
 for (let i = 1; i < numbers.length - 1; i++) {
   if (numbers[i + 1] - numbers[i] !== commonDifference) {
-    return false  // ← Direct return
+    return false; // ← Direct return
   }
 }
-return true
+return true;
 ```
 
 **Why Remove `isValid`?**
@@ -338,14 +340,14 @@ return true
 // Pattern 1: Using flag variable
 function check() {
   let isValid = true
-  
+
   for (let i = 0; i < data.length; i++) {
     if (/* condition */) {
       isValid = false
       break
     }
   }
-  
+
   return isValid
 }
 
@@ -356,7 +358,7 @@ function check() {
       return false  // ← Early exit
     }
   }
-  
+
   return true  // ← All checks passed
 }
 ```
@@ -379,7 +381,7 @@ Use const by default
 
 ```javascript
 // ✅ const: Value never changes
-const commonDifference = numbers[1] - numbers[0]
+const commonDifference = numbers[1] - numbers[0];
 
 // ✅ let: Value changes in loop
 for (let i = 1; i < numbers.length - 1; i++) {
@@ -391,11 +393,11 @@ for (let i = 1; i < numbers.length - 1; i++) {
 
 ```javascript
 // ❌ Before: Using let unnecessarily
-let difference = numbers[1] - numbers[0]
+let difference = numbers[1] - numbers[0];
 // difference is never reassigned after this!
 
 // ✅ After: Using const appropriately
-const commonDifference = numbers[1] - numbers[0]
+const commonDifference = numbers[1] - numbers[0];
 // Signals to reader: this won't change
 ```
 
@@ -424,22 +426,22 @@ const commonDifference = numbers[1] - numbers[0]
 ```javascript
 // ❌ MISTAKE 1: Using let when const would work
 function calculate(x, y) {
-  let sum = x + y      // Never reassigned → should be const
-  let product = x * y  // Never reassigned → should be const
-  return sum + product
+  let sum = x + y; // Never reassigned → should be const
+  let product = x * y; // Never reassigned → should be const
+  return sum + product;
 }
 
 // ✅ CORRECT
 function calculate(x, y) {
-  const sum = x + y
-  const product = x * y
-  return sum + product
+  const sum = x + y;
+  const product = x * y;
+  return sum + product;
 }
 
 // ❌ MISTAKE 2: Thinking const means immutable object
-const arr = [1, 2, 3]
-arr.push(4)  // ✅ This works! Array is mutable
-arr = [5, 6] // ❌ This fails! Can't reassign
+const arr = [1, 2, 3];
+arr.push(4); // ✅ This works! Array is mutable
+arr = [5, 6]; // ❌ This fails! Can't reassign
 
 // const prevents REASSIGNMENT, not MUTATION
 ```
@@ -474,21 +476,21 @@ arr = [5, 6] // ❌ This fails! Can't reassign
 function isArithmeticSequence(numbers) {
   // Check if array has less than 2 elements
   if (numbers.length < 2) {
-    return true  // Return true for edge case
+    return true; // Return true for edge case
   }
-  
+
   // Calculate the common difference
-  const commonDifference = numbers[1] - numbers[0]
-  
+  const commonDifference = numbers[1] - numbers[0];
+
   // Loop through all pairs
   for (let i = 1; i < numbers.length - 1; i++) {
     // Check if current difference equals common difference
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false  // Not arithmetic sequence
+      return false; // Not arithmetic sequence
     }
   }
-  
-  return true  // Is arithmetic sequence
+
+  return true; // Is arithmetic sequence
 }
 ```
 
@@ -501,18 +503,18 @@ function isArithmeticSequence(numbers) {
 function isArithmeticSequence(numbers) {
   // Edge case: arrays with < 2 elements are considered valid
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -524,18 +526,18 @@ function isArithmeticSequence(numbers) {
 // ⭐ BEST: Self-documenting code, minimal comments
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -585,18 +587,18 @@ function isArithmeticSequence(numbers) {
 ```javascript
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -635,38 +637,39 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 // ❌ BAD: No spacing
-function isArithmeticSequence(numbers){
-if(numbers.length<2){
-return true
-}
-const commonDifference=numbers[1]-numbers[0]
-for(let i=1;i<numbers.length-1;i++){
-if(numbers[i+1]-numbers[i]!==commonDifference){
-return false
-}
-}
-return true
+function isArithmeticSequence(numbers) {
+  if (numbers.length < 2) {
+    return true;
+  }
+  const commonDifference = numbers[1] - numbers[0];
+  for (let i = 1; i < numbers.length - 1; i++) {
+    if (numbers[i + 1] - numbers[i] !== commonDifference) {
+      return false;
+    }
+  }
+  return true;
 }
 
 // ✅ GOOD: Proper spacing
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
 **Spacing Rules:**
+
 - ✅ Space after `if`, `for`, `function`
 - ✅ Space around operators (`=`, `!==`, `+`, `-`)
 - ✅ Blank line between logical sections
@@ -684,20 +687,20 @@ function isArithmeticSequence(numbers) {
 // ════════════════════════════════════════════
 function tentukanDeretAritmatika(arr) {
   if (arr.length < 2) {
-    return true
+    return true;
   }
-  
-  let isValid = true
-  let difference = arr[1] - arr[0]
-  
+
+  let isValid = true;
+  let difference = arr[1] - arr[0];
+
   for (let i = 1; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 
 // ════════════════════════════════════════════
@@ -705,18 +708,18 @@ function tentukanDeretAritmatika(arr) {
 // ════════════════════════════════════════════
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -724,14 +727,14 @@ function isArithmeticSequence(numbers) {
 
 ### **Change Summary:**
 
-| Element | Before | After | Impact |
-|---------|--------|-------|--------|
-| **Function name** | `tentukanDeretAritmatika` | `isArithmeticSequence` | ✅ International |
-| **Parameter** | `arr` | `numbers` | ✅ Explicit type |
-| **Variable 1** | `let difference` | `const commonDifference` | ✅ Immutable + specific |
-| **Variable 2** | `let isValid` | *(removed)* | ✅ Direct return |
-| **Pattern** | Flag + break | Early return | ✅ Cleaner flow |
-| **Lines of code** | 15 lines | 13 lines | ✅ More concise |
+| Element           | Before                    | After                    | Impact                  |
+| ----------------- | ------------------------- | ------------------------ | ----------------------- |
+| **Function name** | `tentukanDeretAritmatika` | `isArithmeticSequence`   | ✅ International        |
+| **Parameter**     | `arr`                     | `numbers`                | ✅ Explicit type        |
+| **Variable 1**    | `let difference`          | `const commonDifference` | ✅ Immutable + specific |
+| **Variable 2**    | `let isValid`             | _(removed)_              | ✅ Direct return        |
+| **Pattern**       | Flag + break              | Early return             | ✅ Cleaner flow         |
+| **Lines of code** | 15 lines                  | 13 lines                 | ✅ More concise         |
 
 ---
 
@@ -762,19 +765,19 @@ const testCases = [
   { input: [3, 7], expected: true },
   { input: [2, 4, 6, 8], expected: true },
   { input: [1, 2, 4], expected: false },
-]
+];
 
 // Test Before version
 testCases.forEach(({ input, expected }) => {
-  const result = tentukanDeretAritmatika(input)
-  console.log(`${JSON.stringify(input)}: ${result === expected ? '✅' : '❌'}`)
-})
+  const result = tentukanDeretAritmatika(input);
+  console.log(`${JSON.stringify(input)}: ${result === expected ? '✅' : '❌'}`);
+});
 
 // Test After version
 testCases.forEach(({ input, expected }) => {
-  const result = isArithmeticSequence(input)
-  console.log(`${JSON.stringify(input)}: ${result === expected ? '✅' : '❌'}`)
-})
+  const result = isArithmeticSequence(input);
+  console.log(`${JSON.stringify(input)}: ${result === expected ? '✅' : '❌'}`);
+});
 
 // Both pass all tests! ✅
 ```
@@ -809,11 +812,11 @@ It doesn't:
 ```javascript
 // ✅ Early return pattern
 if (edgeCase) {
-  return earlyResult
+  return earlyResult;
 }
 
 // Main logic here
-return normalResult
+return normalResult;
 ```
 
 ### **4. const > let > var** 🔒
@@ -925,7 +928,7 @@ Karena nilai `commonDifference` **tidak pernah berubah** setelah dihitung. Mengg
 4. **Best practice** - default to const, only use let when needed
 
 ```javascript
-const commonDifference = numbers[1] - numbers[0]
+const commonDifference = numbers[1] - numbers[0];
 // Nilai ini tidak akan berubah sepanjang fungsi
 // const mencegah: commonDifference = something else
 ```
@@ -940,12 +943,14 @@ const commonDifference = numbers[1] - numbers[0]
 Tulis comment untuk menjelaskan **WHY**, bukan **WHAT**:
 
 **✅ Good reasons:**
+
 - Complex algorithm yang butuh explanation
 - Business logic yang tidak obvious
 - Workarounds untuk bugs/limitations
 - Decisions yang mungkin dipertanyakan
 
 **❌ Bad reasons:**
+
 - Menjelaskan kode yang sudah jelas
 - Kompensasi nama variable yang buruk
 - Mengulang apa yang kode sudah jelaskan
@@ -960,6 +965,7 @@ Tulis comment untuk menjelaskan **WHY**, bukan **WHAT**:
 **Jawaban:**
 
 **Direct return (early exit):**
+
 ```javascript
 for (...) {
   if (condition) {
@@ -970,12 +976,14 @@ return true
 ```
 
 **Keuntungan:**
+
 1. ✅ **Clearer intent** - langsung return ketika tahu hasilnya
 2. ✅ **Less code** - tidak perlu variabel tambahan
 3. ✅ **Better performance** - exit early, tidak perlu lanjut loop
 4. ✅ **Easier to understand** - flow lebih linear
 
 **Flag variable:**
+
 ```javascript
 let isValid = true
 for (...) {
@@ -988,6 +996,7 @@ return isValid
 ```
 
 **Kekurangan:**
+
 - More code
 - Extra variable to track
 - Less obvious intent
@@ -1015,28 +1024,28 @@ Setelah membaca Part 4, kamu sekarang paham:
 /**
  * Checks if an array of numbers forms an arithmetic sequence.
  * An arithmetic sequence has a constant difference between consecutive elements.
- * 
+ *
  * @param {number[]} numbers - Array of numbers to check
  * @returns {boolean} - True if arithmetic sequence, false otherwise
- * 
+ *
  * @example
  * isArithmeticSequence([2, 4, 6, 8]) // true
  * isArithmeticSequence([1, 2, 4])    // false
  */
 function isArithmeticSequence(numbers) {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
@@ -1051,21 +1060,21 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 // ✅ All acceptable, choose based on context
-isArithmeticSequence(numbers)    // Most explicit
-isArithmeticProgression(numbers) // Mathematical term
-checkArithmeticSequence(numbers) // Verb-based
-validateArithmeticSequence(numbers) // Validation context
+isArithmeticSequence(numbers); // Most explicit
+isArithmeticProgression(numbers); // Mathematical term
+checkArithmeticSequence(numbers); // Verb-based
+validateArithmeticSequence(numbers); // Validation context
 ```
 
 ### **Parameter Name Alternatives:**
 
 ```javascript
 // Context-dependent choices
-isArithmeticSequence(numbers)   // General
-isArithmeticSequence(sequence)  // Mathematical
-isArithmeticSequence(array)     // Generic
-isArithmeticSequence(values)    // Abstract
-isArithmeticSequence(nums)      // Abbreviated (acceptable)
+isArithmeticSequence(numbers); // General
+isArithmeticSequence(sequence); // Mathematical
+isArithmeticSequence(array); // Generic
+isArithmeticSequence(values); // Abstract
+isArithmeticSequence(nums); // Abbreviated (acceptable)
 ```
 
 ### **Variable Name Alternatives:**
@@ -1089,22 +1098,23 @@ const d = ...                     // ❌ Too cryptic
 // ✅ Modern ES6 style
 const isArithmeticSequence = (numbers) => {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
-}
+
+  return true;
+};
 ```
 
 **When to use:**
+
 - Modern JavaScript projects
 - Functional programming style
 - Consistent with team conventions
@@ -1118,22 +1128,23 @@ function isArithmeticSequence(numbers) {
   // Arrays with fewer than 2 elements are considered valid
   // (no consecutive pairs to compare)
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
 **When to use:**
+
 - Business logic might be questioned
 - Decision needs documentation
 - Onboarding new team members
@@ -1144,31 +1155,33 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 function isArithmeticSequence(numbers) {
-  const hasMinimumElements = numbers.length >= 2
+  const hasMinimumElements = numbers.length >= 2;
   if (!hasMinimumElements) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
-    const currentDifference = numbers[i + 1] - numbers[i]
-    const isDifferent = currentDifference !== commonDifference
-    
+    const currentDifference = numbers[i + 1] - numbers[i];
+    const isDifferent = currentDifference !== commonDifference;
+
     if (isDifferent) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
 **Pros:**
+
 - ✅ Very explicit
 - ✅ Each step named
 
 **Cons:**
+
 - ❌ Might be too verbose
 - ❌ Adds complexity for simple logic
 
@@ -1226,22 +1239,23 @@ function isArithmeticSequence(numbers) {
 ```typescript
 function isArithmeticSequence(numbers: number[]): boolean {
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
 **Benefits:**
+
 - ✅ Type checking at compile time
 - ✅ Better IDE autocomplete
 - ✅ Self-documenting types
@@ -1255,35 +1269,37 @@ function isArithmeticSequence(numbers: number[]): boolean {
 function isArithmeticSequence(numbers) {
   // Input validation
   if (!Array.isArray(numbers)) {
-    throw new TypeError('Input must be an array')
+    throw new TypeError('Input must be an array');
   }
-  
-  if (numbers.some(n => typeof n !== 'number')) {
-    throw new TypeError('Array must contain only numbers')
+
+  if (numbers.some((n) => typeof n !== 'number')) {
+    throw new TypeError('Array must contain only numbers');
   }
-  
+
   if (numbers.length < 2) {
-    return true
+    return true;
   }
-  
-  const commonDifference = numbers[1] - numbers[0]
-  
+
+  const commonDifference = numbers[1] - numbers[0];
+
   for (let i = 1; i < numbers.length - 1; i++) {
     if (numbers[i + 1] - numbers[i] !== commonDifference) {
-      return false
+      return false;
     }
   }
-  
-  return true
+
+  return true;
 }
 ```
 
 **When to add validation:**
+
 - ✅ Public API / library functions
 - ✅ User input processing
 - ✅ Critical business logic
 
 **When to skip:**
+
 - ⚠️ Internal functions with controlled input
 - ⚠️ Performance-critical code
 - ⚠️ When TypeScript handles it
@@ -1297,21 +1313,21 @@ function isArithmeticSequence(numbers) {
 ```javascript
 /**
  * Determines if an array represents an arithmetic sequence.
- * 
+ *
  * An arithmetic sequence is a sequence of numbers where the difference
  * between consecutive terms is constant.
- * 
+ *
  * @param {number[]} numbers - The array to check
  * @returns {boolean} True if the array is an arithmetic sequence
- * 
+ *
  * @example
  * // Returns true
  * isArithmeticSequence([2, 4, 6, 8])
- * 
+ *
  * @example
  * // Returns false
  * isArithmeticSequence([1, 2, 4, 8])
- * 
+ *
  * @example
  * // Returns true (edge case)
  * isArithmeticSequence([5])
@@ -1344,7 +1360,8 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 // 💬 Reviewer: "Consider more specific parameter name"
-function isArithmeticSequence(arr) {  // ⚠️
+function isArithmeticSequence(arr) {
+  // ⚠️
   // ...
 }
 
@@ -1358,10 +1375,10 @@ function isArithmeticSequence(numbers) {
 
 ```javascript
 // 💬 Reviewer: "This value never changes, use const"
-let difference = numbers[1] - numbers[0]  // ⚠️
+let difference = numbers[1] - numbers[0]; // ⚠️
 
 // ✅ Response: Changed to const
-const commonDifference = numbers[1] - numbers[0]
+const commonDifference = numbers[1] - numbers[0];
 ```
 
 ### **Review Comment 3: Unnecessary Variable**
@@ -1394,14 +1411,14 @@ return true
 
 ```javascript
 // ❌ Bad
-function check(x) { }
-function process(data) { }
-function doIt(arr) { }
+function check(x) {}
+function process(data) {}
+function doIt(arr) {}
 
 // ✅ Good
-function isValidEmail(email) { }
-function calculateTotalPrice(items) { }
-function formatUserName(user) { }
+function isValidEmail(email) {}
+function calculateTotalPrice(items) {}
+function formatUserName(user) {}
 ```
 
 ### **Example 2: Self-Documenting**
@@ -1410,17 +1427,17 @@ function formatUserName(user) { }
 // ❌ Needs comments to understand
 function calc(a, b, c) {
   // Calculate total with tax
-  let x = a * b
+  let x = a * b;
   // Apply discount
-  x = x - (x * c)
-  return x
+  x = x - x * c;
+  return x;
 }
 
 // ✅ Self-explanatory
 function calculatePriceWithDiscount(price, quantity, discountRate) {
-  const subtotal = price * quantity
-  const discount = subtotal * discountRate
-  return subtotal - discount
+  const subtotal = price * quantity;
+  const discount = subtotal * discountRate;
+  return subtotal - discount;
 }
 ```
 
@@ -1429,24 +1446,24 @@ function calculatePriceWithDiscount(price, quantity, discountRate) {
 ```javascript
 // ❌ Doing too much
 function processUser(user) {
-  validateUser(user)
-  saveToDatabase(user)
-  sendEmail(user)
-  logActivity(user)
-  updateCache(user)
+  validateUser(user);
+  saveToDatabase(user);
+  sendEmail(user);
+  logActivity(user);
+  updateCache(user);
 }
 
 // ✅ Single responsibility
 function validateAndSaveUser(user) {
   if (!isValidUser(user)) {
-    throw new Error('Invalid user')
+    throw new Error('Invalid user');
   }
-  return saveUser(user)
+  return saveUser(user);
 }
 
 function notifyUserCreated(user) {
-  sendWelcomeEmail(user)
-  logUserCreation(user)
+  sendWelcomeEmail(user);
+  logUserCreation(user);
 }
 ```
 
@@ -1455,16 +1472,19 @@ function notifyUserCreated(user) {
 ## 🎓 Learning Resources
 
 **Books:**
+
 - 📘 "Clean Code" by Robert C. Martin
 - 📘 "The Art of Readable Code" by Boswell & Foucher
 - 📘 "Refactoring" by Martin Fowler
 
 **Online:**
+
 - 🌐 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - 🌐 [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 - 🌐 [Clean Code JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
 
 **Tools:**
+
 - 🛠️ ESLint - JavaScript linting
 - 🛠️ Prettier - Code formatting
 - 🛠️ SonarQube - Code quality analysis

@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║                   🐛 PART 2: ANALISIS BUG AWAL 🐛                       ║
@@ -5,6 +6,7 @@
 ║               Belajar dari Kesalahan: Debugging Journey                 ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-15%20minutes-blue)
@@ -15,8 +17,8 @@
 
 ## 🧭 Quick Jump
 
-| 💻 Kode Bug | 🔍 Root Cause | 📊 Trace | 🎯 Analisis | 💡 Fix | 📚 Lesson |
-|:-----------:|:-------------:|:--------:|:-----------:|:------:|:---------:|
+|             💻 Kode Bug             |         🔍 Root Cause         |              📊 Trace               |          🎯 Analisis          |           💡 Fix            |        📚 Lesson         |
+| :---------------------------------: | :---------------------------: | :---------------------------------: | :---------------------------: | :-------------------------: | :----------------------: |
 | [Jump](#-kode-awal-yang-bermasalah) | [Jump](#-root-cause-analysis) | [Jump](#-trace-eksekusi-dengan-bug) | [Jump](#-mengapa-ini-masalah) | [Jump](#-solusi-yang-benar) | [Jump](#-lesson-learned) |
 
 ---
@@ -41,24 +43,25 @@ Ini adalah kode pertama yang mungkin kamu tulis:
 
 ```javascript
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  
+  let isValid = true;
+
   for (let i = 0; i < arr.length - 1; i++) {
-    let difference = arr[1] - arr[0]  // ⚠️ BUG ADA DI SINI!
-    
+    let difference = arr[1] - arr[0]; // ⚠️ BUG ADA DI SINI!
+
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
 ### **❓ Pertanyaan untuk Kamu**
 
 Sebelum lanjut, coba jawab:
+
 1. Apakah kode ini **akan error**?
 2. Apakah kode ini akan **return hasil yang benar**?
 3. Apa yang **salah** dengan kode ini?
@@ -67,6 +70,7 @@ Sebelum lanjut, coba jawab:
 <summary>💡 Klik untuk reveal jawaban</summary>
 
 **Jawaban:**
+
 1. ❌ Tidak akan error - kode akan jalan
 2. ✅ Akan return hasil yang **benar** (surprisingly!)
 3. 🐛 **Masalah:** Variabel `difference` dideklarasikan di **dalam loop**
@@ -83,7 +87,7 @@ Sebelum lanjut, coba jawab:
 
 ```javascript
 for (let i = 0; i < arr.length - 1; i++) {
-  let difference = arr[1] - arr[0]  // 🚨 PROBLEM!
+  let difference = arr[1] - arr[0]; // 🚨 PROBLEM!
   // ...
 }
 ```
@@ -164,20 +168,20 @@ Mari kita trace dengan input konkret untuk benar-benar memahami masalahnya.
 ```javascript
 // Trace step-by-step
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
+  let isValid = true;
   // arr = [2, 4, 6, 8, 10]
-  
+
   // Loop: i dari 0 sampai 3 (arr.length - 1 = 4)
   for (let i = 0; i < 4; i++) {
-    let difference = arr[1] - arr[0]  // Selalu = 4 - 2 = 2
-    
+    let difference = arr[1] - arr[0]; // Selalu = 4 - 2 = 2
+
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -191,13 +195,13 @@ ITERASI 1: i = 0
   2. Deklarasi: let difference = arr[1] - arr[0]
      → difference = 4 - 2 = 2
      🔴 CPU Operation: Subtract & Store
-  
+
   3. Cek kondisi: difference !== arr[i + 1] - arr[i]
      → 2 !== arr[1] - arr[0]
      → 2 !== 4 - 2
      → 2 !== 2
      → false
-  
+
   4. Kondisi false, tidak masuk if
   5. isValid masih true
   6. Loop lanjut...
@@ -211,12 +215,12 @@ ITERASI 2: i = 1
      🔴 CPU Operation: Subtract & Store (REDUNDANT!)
      ⚠️ Variabel difference dari iterasi 1 HILANG!
      ⚠️ Variabel baru difference dibuat dengan nilai SAMA!
-  
+
   3. Cek kondisi: 2 !== arr[2] - arr[1]
      → 2 !== 6 - 4
      → 2 !== 2
      → false
-  
+
   4. Kondisi false, tidak masuk if
   5. isValid masih true
   6. Loop lanjut...
@@ -228,12 +232,12 @@ ITERASI 3: i = 2
   2. Deklarasi: let difference = arr[1] - arr[0]
      → difference = 4 - 2 = 2
      🔴 CPU Operation: Subtract & Store (REDUNDANT!)
-  
+
   3. Cek kondisi: 2 !== arr[3] - arr[2]
      → 2 !== 8 - 6
      → 2 !== 2
      → false
-  
+
   4. Loop lanjut...
 
 ───────────────────────────────────────────────────────────
@@ -243,12 +247,12 @@ ITERASI 4: i = 3
   2. Deklarasi: let difference = arr[1] - arr[0]
      → difference = 4 - 2 = 2
      🔴 CPU Operation: Subtract & Store (REDUNDANT!)
-  
+
   3. Cek kondisi: 2 !== arr[4] - arr[3]
      → 2 !== 10 - 8
      → 2 !== 2
      → false
-  
+
   4. Loop selesai
 
 ═══════════════════════════════════════════════════════════
@@ -302,7 +306,7 @@ Array Size | Bug Version | Correct Version | Waste
 ```javascript
 // 🚩 RED FLAG: Variable declared inside loop
 for (let i = 0; i < arr.length - 1; i++) {
-  let difference = arr[1] - arr[0]  // ← Ini RED FLAG!
+  let difference = arr[1] - arr[0]; // ← Ini RED FLAG!
   // ...
 }
 ```
@@ -322,8 +326,8 @@ Bayangkan developer lain membaca kode ini:
 
 ```javascript
 for (let i = 0; i < arr.length - 1; i++) {
-  let difference = arr[1] - arr[0]  // 🤔 Hmm?
-  
+  let difference = arr[1] - arr[0]; // 🤔 Hmm?
+
   if (difference !== arr[i + 1] - arr[i]) {
     // ...
   }
@@ -331,6 +335,7 @@ for (let i = 0; i < arr.length - 1; i++) {
 ```
 
 **Pertanyaan yang muncul:**
+
 - ❓ "Kenapa `difference` di dalam loop?"
 - ❓ "Apakah `difference` berubah setiap iterasi?"
 - ❓ "Apakah ada bug atau memang sengaja?"
@@ -345,25 +350,25 @@ for (let i = 0; i < arr.length - 1; i++) {
 
 ```javascript
 // GLOBAL SCOPE
-let globalVar = "I'm accessible everywhere"
+let globalVar = "I'm accessible everywhere";
 
 function myFunction() {
   // FUNCTION SCOPE
-  let functionVar = "I'm accessible in this function"
-  
+  let functionVar = "I'm accessible in this function";
+
   for (let i = 0; i < 5; i++) {
     // BLOCK SCOPE (inside loop)
-    let loopVar = "I'm accessible only in this loop"
-    
+    let loopVar = "I'm accessible only in this loop";
+
     // Semua var di atas accessible di sini:
-    console.log(globalVar)    // ✅ OK
-    console.log(functionVar)  // ✅ OK
-    console.log(loopVar)      // ✅ OK
+    console.log(globalVar); // ✅ OK
+    console.log(functionVar); // ✅ OK
+    console.log(loopVar); // ✅ OK
   }
-  
-  console.log(globalVar)      // ✅ OK
-  console.log(functionVar)    // ✅ OK
-  console.log(loopVar)        // ❌ ERROR! Out of scope
+
+  console.log(globalVar); // ✅ OK
+  console.log(functionVar); // ✅ OK
+  console.log(loopVar); // ❌ ERROR! Out of scope
 }
 ```
 
@@ -374,12 +379,12 @@ function myFunction() {
 ```javascript
 function tentukanDeretAritmatika(arr) {
   // FUNCTION SCOPE
-  let isValid = true  // ✅ Good placement
-  
+  let isValid = true; // ✅ Good placement
+
   for (let i = 0; i < arr.length - 1; i++) {
     // LOOP SCOPE
-    let difference = arr[1] - arr[0]  // 🐛 BAD placement
-    
+    let difference = arr[1] - arr[0]; // 🐛 BAD placement
+
     // difference hanya hidup di iterasi ini
     // Iterasi berikutnya: variable baru dibuat lagi!
   }
@@ -433,17 +438,17 @@ Loop Iteration 2:
 
 ```javascript
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  let difference = arr[1] - arr[0]  // ✅ MOVED OUTSIDE LOOP!
-  
+  let isValid = true;
+  let difference = arr[1] - arr[0]; // ✅ MOVED OUTSIDE LOOP!
+
   for (let i = 0; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -452,33 +457,33 @@ function tentukanDeretAritmatika(arr) {
 ```javascript
 // ❌ BEFORE (Bug)
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  
+  let isValid = true;
+
   for (let i = 0; i < arr.length - 1; i++) {
-    let difference = arr[1] - arr[0]  // ← Inside loop
-    
+    let difference = arr[1] - arr[0]; // ← Inside loop
+
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 
 // ✅ AFTER (Fixed)
 function tentukanDeretAritmatika(arr) {
-  let isValid = true
-  let difference = arr[1] - arr[0]  // ← Outside loop
-  
+  let isValid = true;
+  let difference = arr[1] - arr[0]; // ← Outside loop
+
   for (let i = 0; i < arr.length - 1; i++) {
     if (difference !== arr[i + 1] - arr[i]) {
-      isValid = false
-      break
+      isValid = false;
+      break;
     }
   }
-  
-  return isValid
+
+  return isValid;
 }
 ```
 
@@ -519,21 +524,21 @@ function tentukanDeretAritmatika(arr) {
 
 ```javascript
 // Test dengan array besar
-const bigArray = []
+const bigArray = [];
 for (let i = 0; i < 10000; i++) {
-  bigArray.push(i * 2)
+  bigArray.push(i * 2);
 }
 
 // Bug version
-console.time('Bug Version')
-tentukanDeretAritmatika_Bug(bigArray)
-console.timeEnd('Bug Version')
+console.time('Bug Version');
+tentukanDeretAritmatika_Bug(bigArray);
+console.timeEnd('Bug Version');
 // Output: ~0.5ms
 
 // Fixed version
-console.time('Fixed Version')
-tentukanDeretAritmatika_Fixed(bigArray)
-console.timeEnd('Fixed Version')
+console.time('Fixed Version');
+tentukanDeretAritmatika_Fixed(bigArray);
+console.timeEnd('Fixed Version');
 // Output: ~0.3ms
 
 // Improvement: ~40% faster! 🚀
@@ -573,6 +578,7 @@ Ketika menemukan bug seperti ini, tanyakan:
 ### **🎯 Key Lessons:**
 
 **1. Scope Awareness** 🎯
+
 ```
 Variabel yang tidak berubah dalam loop
 → Declare di luar loop
@@ -580,6 +586,7 @@ Variabel yang tidak berubah dalam loop
 ```
 
 **2. Performance Mindset** ⚡
+
 ```
 Setiap operation punya cost
 → Hindari unnecessary repetition
@@ -587,6 +594,7 @@ Setiap operation punya cost
 ```
 
 **3. Code Readability** 📖
+
 ```
 Code harus communicate intent
 → Variable placement matters
@@ -594,6 +602,7 @@ Code harus communicate intent
 ```
 
 **4. Debugging Process** 🐛
+
 ```
 Trace execution step-by-step
 → Understand what happens in each iteration
@@ -631,18 +640,18 @@ Trace execution step-by-step
 ```javascript
 // ✅ CORRECT: Counter berubah → inside loop
 for (let i = 0; i < n; i++) {
-  let counter = 0  // Reset setiap iterasi
+  let counter = 0; // Reset setiap iterasi
   // ... increment counter
 }
 
 // ✅ CORRECT: Total accumulate → outside loop
-let total = 0
+let total = 0;
 for (let i = 0; i < n; i++) {
-  total += arr[i]  // Accumulate across iterations
+  total += arr[i]; // Accumulate across iterations
 }
 
 // ✅ CORRECT: Reference tidak berubah → outside loop
-const reference = arr[0]
+const reference = arr[0];
 for (let i = 1; i < n; i++) {
   if (arr[i] > reference) {
     // ...
@@ -674,15 +683,17 @@ for (let i = 1; i < n; i++) {
 **Jawaban:**
 
 Acceptable ketika:
+
 - ✅ Variable **berubah** setiap iterasi
 - ✅ Variable hanya **dibutuhkan** dalam scope loop
 - ✅ Calculation tergantung pada **iteration state**
 
 Contoh valid:
+
 ```javascript
 for (let i = 0; i < arr.length; i++) {
-  let currentSum = arr[i] + arr[i+1]  // ✅ Different each iteration
-  let isEven = i % 2 === 0            // ✅ Depends on i
+  let currentSum = arr[i] + arr[i + 1]; // ✅ Different each iteration
+  let isEven = i % 2 === 0; // ✅ Depends on i
   // ...
 }
 ```
@@ -706,15 +717,17 @@ Setelah membaca Part 2, kamu sekarang paham:
 ## 🎯 Quick Reference
 
 **Before (Bug):**
+
 ```javascript
 for (let i = 0; i < n; i++) {
-  let x = constantValue  // 🐛 Calculated n times
+  let x = constantValue; // 🐛 Calculated n times
 }
 ```
 
 **After (Fixed):**
+
 ```javascript
-let x = constantValue  // ✅ Calculated once
+let x = constantValue; // ✅ Calculated once
 for (let i = 0; i < n; i++) {
   // Use x here
 }
