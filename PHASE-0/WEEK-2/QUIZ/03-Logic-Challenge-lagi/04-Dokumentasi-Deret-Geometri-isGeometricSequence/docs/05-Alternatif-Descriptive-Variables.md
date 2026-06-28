@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║       ⚡ PART 5: ALTERNATIF DESCRIPTIVE VARIABLES ⚡                    ║
@@ -5,6 +6,7 @@
 ║            Enhanced Readability dengan Extract Variables                 ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-20%20minutes-blue)
@@ -14,8 +16,8 @@
 
 ## 🧭 Quick Jump
 
-| 🎯 Overview | 📋 Ringkasan | 🔍 Improvements | 📊 Comparison | 💡 Takeaways |
-|:-----------:|:------------:|:---------------:|:-------------:|:------------:|
+|             🎯 Overview              |         📋 Ringkasan          |        🔍 Improvements        |             📊 Comparison              |      💡 Takeaways       |
+| :----------------------------------: | :---------------------------: | :---------------------------: | :------------------------------------: | :---------------------: |
 | [Jump](#-overview-readability-focus) | [Jump](#-ringkasan-algoritma) | [Jump](#-improvements-detail) | [Jump](#-comparison-dengan-versi-lain) | [Jump](#-key-takeaways) |
 
 ---
@@ -35,46 +37,48 @@ Setelah membaca part ini, kamu akan:
 ## 🔄 Overview: Readability Focus
 
 ### **Versi Simple (Part 3):**
+
 ```javascript
 function isGeometricSequence(numbers) {
-  if (numbers.length === 0) return false
-  if (numbers.length === 1) return true
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (numbers.length === 0) return false;
+  if (numbers.length === 1) return true;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let i = 1; i < numbers.length; i++) {
     if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 ```
 
 **Style:** Simple, straightforward
 
 ### **Versi Descriptive (Part 5):**
+
 ```javascript
 function isGeometricSequence(numbers) {
-  const length = numbers.length
-  
-  if (length < 2) return length === 1
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  const length = numbers.length;
+
+  if (length < 2) return length === 1;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let index = 1; index < length; index++) {
-    const previous = numbers[index - 1]
-    const current = numbers[index]
-    
+    const previous = numbers[index - 1];
+    const current = numbers[index];
+
     if (previous === 0 || current / previous !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -87,6 +91,7 @@ function isGeometricSequence(numbers) {
 > **💡 Jika kamu sedang ujian dan hanya ingat konsepnya:**
 
 ### **Konsep Inti:**
+
 ```
 Sama seperti for loop version, tapi:
 - Extract length ke variable
@@ -95,6 +100,7 @@ Sama seperti for loop version, tapi:
 ```
 
 ### **Step-by-Step:**
+
 ```
 1. Extract length = numbers.length
 
@@ -122,27 +128,28 @@ Sama seperti for loop version, tapi:
 - ♻️ **DRY principle** (Don't Repeat Yourself)
 
 ### **Pattern Code:**
+
 ```javascript
 const isGeometricSequence = (numbers) => {
-  const length = numbers.length
-  
+  const length = numbers.length;
+
   // Smart guard clause
-  if (length < 2) return length === 1
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (length < 2) return length === 1;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let index = 1; index < length; index++) {
-    const previous = numbers[index - 1]
-    const current = numbers[index]
-    
+    const previous = numbers[index - 1];
+    const current = numbers[index];
+
     if (previous === 0 || current / previous !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 ```
 
 ---
@@ -152,6 +159,7 @@ const isGeometricSequence = (numbers) => {
 ### **1. Extract Length**
 
 #### **Before:**
+
 ```javascript
 if (numbers.length === 0) return false
 if (numbers.length === 1) return true
@@ -161,6 +169,7 @@ for (let i = 1; i < numbers.length; i++) {
 ```
 
 #### **After:**
+
 ```javascript
 const length = numbers.length
 
@@ -172,6 +181,7 @@ for (let index = 1; index < length; index++) {
 ```
 
 **Benefits:**
+
 - ✅ DRY - tidak akses `.length` berkali-kali
 - ✅ Sedikit lebih efisien (negligible tapi good practice)
 - ✅ Konsisten dengan style extract variables
@@ -181,32 +191,36 @@ for (let index = 1; index < length; index++) {
 ### **2. Smart Guard Clause**
 
 #### **Before (2 baris terpisah):**
+
 ```javascript
-if (numbers.length === 0) return false
-if (numbers.length === 1) return true
+if (numbers.length === 0) return false;
+if (numbers.length === 1) return true;
 ```
 
 #### **After (1 baris gabungan):**
+
 ```javascript
-const length = numbers.length
-if (length < 2) return length === 1
+const length = numbers.length;
+if (length < 2) return length === 1;
 ```
 
 **Cara kerja:**
+
 ```javascript
 // Kasus 1: length = 0
-length < 2  // 0 < 2 → true (masuk kondisi)
-return length === 1  // 0 === 1 → false ✅
+length < 2; // 0 < 2 → true (masuk kondisi)
+return length === 1; // 0 === 1 → false ✅
 
 // Kasus 2: length = 1
-length < 2  // 1 < 2 → true (masuk kondisi)
-return length === 1  // 1 === 1 → true ✅
+length < 2; // 1 < 2 → true (masuk kondisi)
+return length === 1; // 1 === 1 → true ✅
 
 // Kasus 3: length >= 2
-length < 2  // false (skip kondisi, lanjut)
+length < 2; // false (skip kondisi, lanjut)
 ```
 
 **Benefits:**
+
 - ✅ Lebih ringkas (2 baris jadi 1)
 - ✅ Tetap jelas dan readable
 - ✅ Smart logic
@@ -216,18 +230,21 @@ length < 2  // false (skip kondisi, lanjut)
 ### **3. Descriptive Loop Variable**
 
 #### **Before:**
+
 ```javascript
 for (let i = 1; i < numbers.length; i++) {
 //       ^ generic
 ```
 
 #### **After:**
+
 ```javascript
 for (let index = 1; index < length; index++) {
 //       ^^^^^ lebih deskriptif
 ```
 
 **Benefits:**
+
 - ✅ `index` lebih jelas dari `i`
 - ✅ Self-documenting
 - ✅ Professional code style
@@ -239,6 +256,7 @@ for (let index = 1; index < length; index++) {
 ### **4. Extract Previous & Current**
 
 #### **Before:**
+
 ```javascript
 if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
 //  ^^^^^^^^^^^^^^             ^^^^^^^^^^  ^^^^^^^^^^^^^^
@@ -246,6 +264,7 @@ if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
 ```
 
 #### **After:**
+
 ```javascript
 const previous = numbers[index - 1]
 const current = numbers[index]
@@ -258,15 +277,17 @@ if (previous === 0 || current / previous !== ratio) {
 **Benefits:**
 
 **1. Lebih Mudah Dibaca:**
+
 ```javascript
 // ❌ Agak membingungkan
-numbers[i] / numbers[i - 1]
+numbers[i] / numbers[i - 1];
 
 // ✅ Jelas!
-current / previous
+current / previous;
 ```
 
 **2. Tidak Ada Pengulangan:**
+
 ```javascript
 // Before: numbers[i-1] ditulis 2 kali
 numbers[i - 1] === 0 || ... / numbers[i - 1]
@@ -277,14 +298,15 @@ previous === 0 || ... / previous
 ```
 
 **3. Mudah Debug:**
-```javascript
-const previous = numbers[index - 1]
-const current = numbers[index]
 
-console.log(`Index ${index}: previous=${previous}, current=${current}`)
+```javascript
+const previous = numbers[index - 1];
+const current = numbers[index];
+
+console.log(`Index ${index}: previous=${previous}, current=${current}`);
 
 if (previous === 0 || current / previous !== ratio) {
-  return false
+  return false;
 }
 ```
 
@@ -293,24 +315,25 @@ if (previous === 0 || current / previous !== ratio) {
 ## 📊 Comparison dengan Versi Lain
 
 ### **Side-by-Side:**
+
 ```javascript
 // ═══════════════════════════════════════════════════════════
 // Versi 1: For Loop Simple (Part 3)
 // ═══════════════════════════════════════════════════════════
 function isGeometricSequence(numbers) {
-  if (numbers.length === 0) return false
-  if (numbers.length === 1) return true
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (numbers.length === 0) return false;
+  if (numbers.length === 1) return true;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let i = 1; i < numbers.length; i++) {
     if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 // Lines: 15
 // Style: Simple, straightforward
@@ -319,16 +342,16 @@ function isGeometricSequence(numbers) {
 // Versi 2: .every() Method (Part 4)
 // ═══════════════════════════════════════════════════════════
 function isGeometricSequence(numbers) {
-  if (numbers.length === 0) return false
-  if (numbers.length === 1) return true
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (numbers.length === 0) return false;
+  if (numbers.length === 1) return true;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   return numbers.every((value, index) => {
-    if (index === 0) return true
-    return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio
-  })
+    if (index === 0) return true;
+    return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio;
+  });
 }
 // Lines: 12
 // Style: Functional, declarative
@@ -337,23 +360,23 @@ function isGeometricSequence(numbers) {
 // Versi 3: Descriptive Variables (Part 5)
 // ═══════════════════════════════════════════════════════════
 function isGeometricSequence(numbers) {
-  const length = numbers.length
-  
-  if (length < 2) return length === 1
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  const length = numbers.length;
+
+  if (length < 2) return length === 1;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let index = 1; index < length; index++) {
-    const previous = numbers[index - 1]
-    const current = numbers[index]
-    
+    const previous = numbers[index - 1];
+    const current = numbers[index];
+
     if (previous === 0 || current / previous !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 // Lines: 18
 // Style: Maximum readability
@@ -361,20 +384,21 @@ function isGeometricSequence(numbers) {
 
 ### **Comparison Table:**
 
-| Aspek | Simple | `.every()` | Descriptive |
-|-------|--------|-----------|-------------|
-| **Lines** | 15 | 12 | 18 |
-| **Readability** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Simplicity** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Debugging** | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Self-Doc** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Modern** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Aspek           | Simple     | `.every()` | Descriptive |
+| --------------- | ---------- | ---------- | ----------- |
+| **Lines**       | 15         | 12         | 18          |
+| **Readability** | ⭐⭐⭐⭐   | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  |
+| **Simplicity**  | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐   | ⭐⭐⭐⭐    |
+| **Debugging**   | ⭐⭐⭐     | ⭐⭐       | ⭐⭐⭐⭐⭐  |
+| **Self-Doc**    | ⭐⭐⭐     | ⭐⭐⭐⭐   | ⭐⭐⭐⭐⭐  |
+| **Modern**      | ⭐⭐⭐     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐    |
 
 ---
 
 ## 🎯 Trade-offs: Readability vs Brevity
 
 ### **Prinsip:**
+
 ```
 More code ≠ Worse code
 Less code ≠ Better code
@@ -385,16 +409,19 @@ The goal: Code that's easy to understand and maintain
 ### **Comparison:**
 
 **Versi Simple (15 lines):**
+
 - ✅ Straightforward
 - ✅ Easy to understand
 - ⚠️ Array access berulang
 
 **Versi `.every()` (12 lines):**
+
 - ✅ Most concise
 - ✅ Functional style
 - ⚠️ Perlu understand callbacks
 
 **Versi Descriptive (18 lines):**
+
 - ✅ Most readable
 - ✅ Self-documenting
 - ⚠️ Slightly longer
@@ -402,6 +429,7 @@ The goal: Code that's easy to understand and maintain
 ### **Kapan Pakai Descriptive Variables?**
 
 **✅ Gunakan jika:**
+
 - Tim besar (banyak developers)
 - Code akan di-maintain lama
 - Readability adalah priority
@@ -409,6 +437,7 @@ The goal: Code that's easy to understand and maintain
 - Debugging frequently needed
 
 **❌ Tidak perlu jika:**
+
 - Solo project kecil
 - Code sangat simple
 - Prefer brevity
@@ -419,6 +448,7 @@ The goal: Code that's easy to understand and maintain
 ## 💡 Best Practices
 
 ### **1. Extract saat Ada Pengulangan:**
+
 ```javascript
 // ✅ GOOD - Tidak ada pengulangan
 const length = numbers.length
@@ -431,6 +461,7 @@ for (let i = 1; i < numbers.length; i++) ...
 ```
 
 ### **2. Descriptive Names di Complex Logic:**
+
 ```javascript
 // ✅ GOOD - Complex condition, extract variables
 const previous = numbers[index - 1]
@@ -442,6 +473,7 @@ if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) ...
 ```
 
 ### **3. Balance antara Clarity dan Brevity:**
+
 ```javascript
 // ❌ TOO VERBOSE
 const currentElement = numbers[index]

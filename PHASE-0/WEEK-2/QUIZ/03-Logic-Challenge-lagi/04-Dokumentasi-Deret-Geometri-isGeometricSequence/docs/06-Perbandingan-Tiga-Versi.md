@@ -1,3 +1,4 @@
+```
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║                                                                          ║
 ║            📊 PART 6: PERBANDINGAN TIGA VERSI 📊                        ║
@@ -5,6 +6,7 @@
 ║              Deep Comparison & Trade-offs Analysis                       ║
 ║                                                                          ║
 ╚══════════════════════════════════════════════════════════════════════════╝
+```
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 ![Estimated Time](https://img.shields.io/badge/Estimated%20Time-15%20minutes-blue)
@@ -14,8 +16,8 @@
 
 ## 🧭 Quick Jump
 
-| 🎯 Overview | 📊 Comparison | 🎯 Decision Tree | 💼 Use Cases | 💡 Takeaways |
-|:-----------:|:-------------:|:----------------:|:------------:|:------------:|
+|          🎯 Overview          |           📊 Comparison            |    🎯 Decision Tree     |          💼 Use Cases          |      💡 Takeaways       |
+| :---------------------------: | :--------------------------------: | :---------------------: | :----------------------------: | :---------------------: |
 | [Jump](#-overview-tiga-versi) | [Jump](#-comprehensive-comparison) | [Jump](#-decision-tree) | [Jump](#-real-world-use-cases) | [Jump](#-key-takeaways) |
 
 ---
@@ -35,21 +37,22 @@ Setelah membaca part ini, kamu akan:
 ## 🔄 Overview: Tiga Versi
 
 ### **Versi 1: For Loop Simple**
+
 ```javascript
 function isGeometricSequence(numbers) {
-  if (numbers.length === 0) return false
-  if (numbers.length === 1) return true
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (numbers.length === 0) return false;
+  if (numbers.length === 1) return true;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let i = 1; i < numbers.length; i++) {
     if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -58,18 +61,19 @@ function isGeometricSequence(numbers) {
 ---
 
 ### **Versi 2: `.every()` Method**
+
 ```javascript
 function isGeometricSequence(numbers) {
-  if (numbers.length === 0) return false
-  if (numbers.length === 1) return true
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  if (numbers.length === 0) return false;
+  if (numbers.length === 1) return true;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   return numbers.every((value, index) => {
-    if (index === 0) return true
-    return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio
-  })
+    if (index === 0) return true;
+    return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio;
+  });
 }
 ```
 
@@ -78,25 +82,26 @@ function isGeometricSequence(numbers) {
 ---
 
 ### **Versi 3: Descriptive Variables**
+
 ```javascript
 function isGeometricSequence(numbers) {
-  const length = numbers.length
-  
-  if (length < 2) return length === 1
-  if (numbers[0] === 0) return false
-  
-  const ratio = numbers[1] / numbers[0]
+  const length = numbers.length;
+
+  if (length < 2) return length === 1;
+  if (numbers[0] === 0) return false;
+
+  const ratio = numbers[1] / numbers[0];
 
   for (let index = 1; index < length; index++) {
-    const previous = numbers[index - 1]
-    const current = numbers[index]
-    
+    const previous = numbers[index - 1];
+    const current = numbers[index];
+
     if (previous === 0 || current / previous !== ratio) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -108,16 +113,16 @@ function isGeometricSequence(numbers) {
 
 ### **Quick Summary Table:**
 
-| Aspek | For Loop Simple | `.every()` Method | Descriptive Variables |
-|-------|----------------|-------------------|----------------------|
-| **Lines of Code** | 15 | 12 | 18 |
-| **Readability** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Simplicity** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Learning Curve** | Easy | Medium | Easy |
-| **Debugging** | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Modern Style** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Performance** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Team Friendly** | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Aspek              | For Loop Simple | `.every()` Method | Descriptive Variables |
+| ------------------ | --------------- | ----------------- | --------------------- |
+| **Lines of Code**  | 15              | 12                | 18                    |
+| **Readability**    | ⭐⭐⭐⭐        | ⭐⭐⭐⭐⭐        | ⭐⭐⭐⭐⭐            |
+| **Simplicity**     | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐          | ⭐⭐⭐⭐              |
+| **Learning Curve** | Easy            | Medium            | Easy                  |
+| **Debugging**      | ⭐⭐⭐          | ⭐⭐              | ⭐⭐⭐⭐⭐            |
+| **Modern Style**   | ⭐⭐⭐          | ⭐⭐⭐⭐⭐        | ⭐⭐⭐⭐              |
+| **Performance**    | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐          | ⭐⭐⭐⭐⭐            |
+| **Team Friendly**  | ⭐⭐⭐⭐        | ⭐⭐⭐            | ⭐⭐⭐⭐⭐            |
 
 ### **Best For:**
 
@@ -130,6 +135,7 @@ function isGeometricSequence(numbers) {
 ## 📋 Detailed Comparison
 
 ### **1. Code Length**
+
 ```
 For Loop Simple:      15 lines
 .every() Method:      12 lines (-20%)
@@ -137,6 +143,7 @@ Descriptive Variables: 18 lines (+20%)
 ```
 
 **Analysis:**
+
 - `.every()` paling ringkas
 - Descriptive paling panjang
 - **Tapi:** Lines ≠ quality metric!
@@ -146,30 +153,36 @@ Descriptive Variables: 18 lines (+20%)
 ### **2. Readability**
 
 **For Loop Simple:**
+
 ```javascript
 for (let i = 1; i < numbers.length; i++) {
   if (numbers[i - 1] === 0 || numbers[i] / numbers[i - 1] !== ratio) {
 ```
+
 - ✅ Clear flow
 - ⚠️ `i`, `i-1` butuh mental parsing
 
 **`.every()` Method:**
+
 ```javascript
 return numbers.every((value, index) => {
-  if (index === 0) return true
-  return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio
-})
+  if (index === 0) return true;
+  return numbers[index - 1] !== 0 && value / numbers[index - 1] === ratio;
+});
 ```
+
 - ✅ Declarative (WHAT not HOW)
 - ⚠️ Butuh understand callbacks
 
 **Descriptive Variables:**
+
 ```javascript
 const previous = numbers[index - 1]
 const current = numbers[index]
 
 if (previous === 0 || current / previous !== ratio) {
 ```
+
 - ✅ Self-documenting
 - ✅ No mental parsing needed
 - ✅ Jelas what's being compared
@@ -181,6 +194,7 @@ if (previous === 0 || current / previous !== ratio) {
 ### **3. Performance**
 
 **Benchmark (informal):**
+
 ```
 Array size: 10,000 elements
 Iterations: 1,000 runs
@@ -191,6 +205,7 @@ Descriptive Variables: ~1.2ms
 ```
 
 **Analysis:**
+
 - For loop & descriptive: Same performance
 - `.every()`: Sedikit overhead dari function call
 - **Tapi:** Negligible untuk most cases!
@@ -203,26 +218,31 @@ Descriptive Variables: ~1.2ms
 ### **4. Debugging Experience**
 
 **For Loop Simple:**
+
 ```javascript
 for (let i = 1; i < numbers.length; i++) {
   console.log(i, numbers[i], numbers[i-1])  // Easy to add
   if (...) return false
 }
 ```
+
 - ✅ Easy to add console.log
 - ✅ Can use debugger; statement
 
 **`.every()` Method:**
+
 ```javascript
 return numbers.every((value, index) => {
   console.log(index, value)  // Possible tapi awkward
   return ...
 })
 ```
+
 - ⚠️ Harder to debug
 - ⚠️ Need to extract callback for complex debugging
 
 **Descriptive Variables:**
+
 ```javascript
 const previous = numbers[index - 1]
 const current = numbers[index]
@@ -230,6 +250,7 @@ console.log({index, previous, current})  // Very clear!
 
 if (previous === 0 || current / previous !== ratio) {
 ```
+
 - ✅ Super easy to debug
 - ✅ Variables already extracted
 - ✅ Clear logs
@@ -241,16 +262,19 @@ if (previous === 0 || current / previous !== ratio) {
 ### **5. Team Collaboration**
 
 **For Loop Simple:**
+
 - ✅ Everyone understands loops
 - ✅ No special knowledge needed
 - ✅ Good for mixed skill levels
 
 **`.every()` Method:**
+
 - ⚠️ Perlu understand array methods
 - ⚠️ Junior might struggle
 - ✅ Good for experienced teams
 
 **Descriptive Variables:**
+
 - ✅ Self-documenting = less questions
 - ✅ Junior friendly (clear names)
 - ✅ Easy to onboard new members
@@ -264,23 +288,28 @@ if (previous === 0 || current / previous !== ratio) {
 **Scenario: Butuh modify logic untuk handle floating point precision**
 
 **For Loop Simple:**
+
 ```javascript
 // Need to change comparison logic
-if (numbers[i - 1] === 0 || 
+if (numbers[i - 1] === 0 ||
     Math.abs(numbers[i] / numbers[i - 1] - ratio) > EPSILON) {
 //  ^^^^^^^ tambah Math.abs logic
 ```
 
 **`.every()` Method:**
+
 ```javascript
 return numbers.every((value, index) => {
-  if (index === 0) return true
-  return numbers[index - 1] !== 0 && 
-         Math.abs(value / numbers[index - 1] - ratio) <= EPSILON
-})
+  if (index === 0) return true;
+  return (
+    numbers[index - 1] !== 0 &&
+    Math.abs(value / numbers[index - 1] - ratio) <= EPSILON
+  );
+});
 ```
 
 **Descriptive Variables:**
+
 ```javascript
 const previous = numbers[index - 1]
 const current = numbers[index]
@@ -295,6 +324,7 @@ if (previous === 0 || Math.abs(currentRatio - ratio) > EPSILON) {
 ---
 
 ## 🎯 Decision Tree
+
 ```
 ┌─────────────────────────────────────┐
 │  Pilih Implementasi                 │
@@ -327,18 +357,21 @@ PEMULA    EXPERIENCED
 ### **Decision Guide:**
 
 **Pilih For Loop Simple jika:**
+
 - ✅ Pemula atau mixed skill team
 - ✅ Solo project kecil
 - ✅ Prefer simplicity over sophistication
 - ✅ No specific style requirements
 
 **Pilih `.every()` Method jika:**
+
 - ✅ Team familiar dengan FP
 - ✅ Modern codebase (ES6+)
 - ✅ Prefer declarative style
 - ✅ Code review emphasis on conciseness
 
 **Pilih Descriptive Variables jika:**
+
 - ✅ Large team (3+ developers)
 - ✅ Long-term maintenance project
 - ✅ Junior developers di team
@@ -352,6 +385,7 @@ PEMULA    EXPERIENCED
 ### **Startup (Fast-Moving):**
 
 **Best:** For Loop Simple atau `.every()`
+
 - Cepat implement
 - Team kecil (semua senior)
 - Speed over extensive documentation
@@ -359,6 +393,7 @@ PEMULA    EXPERIENCED
 ### **Enterprise (Stable Product):**
 
 **Best:** Descriptive Variables
+
 - Many developers
 - Long maintenance lifecycle
 - Readability critical
@@ -367,6 +402,7 @@ PEMULA    EXPERIENCED
 ### **Open Source Project:**
 
 **Best:** For Loop Simple atau `.every()`
+
 - Contributors dengan berbagai skill levels
 - Simple lebih accessible
 - Or modern `.every()` jika target experienced contributors
@@ -374,6 +410,7 @@ PEMULA    EXPERIENCED
 ### **Educational/Tutorial:**
 
 **Best:** For Loop Simple
+
 - Easiest to explain
 - No prerequisite knowledge
 - Step-by-step clear
@@ -385,18 +422,21 @@ PEMULA    EXPERIENCED
 ### **Saat Interview, Show:**
 
 **1. Start Simple:**
+
 ```javascript
 // "Saya mulai dengan for loop yang straightforward..."
 for (let i = 1; i < numbers.length; i++) { ... }
 ```
 
 **2. Mention Alternatives:**
+
 ```javascript
 // "Alternatifnya, saya bisa pakai .every() untuk functional style..."
 return numbers.every((value, index) => { ... })
 ```
 
 **3. Discuss Trade-offs:**
+
 ```javascript
 // "For loop lebih familiar untuk semua developers,
 //  tapi .every() lebih declarative.
@@ -405,6 +445,7 @@ return numbers.every((value, index) => { ... })
 ```
 
 **4. Show Understanding:**
+
 > "Semua versi valid, pilihan tergantung team dan project context"
 
 ---
@@ -412,6 +453,7 @@ return numbers.every((value, index) => { ... })
 ## 🎓 Which Should YOU Learn?
 
 ### **Beginner:**
+
 ```
 1. Start: For Loop Simple
 2. Understand: Why it works
@@ -419,6 +461,7 @@ return numbers.every((value, index) => { ... })
 ```
 
 ### **Intermediate:**
+
 ```
 1. Master: All three versions
 2. Understand: Trade-offs each
@@ -426,6 +469,7 @@ return numbers.every((value, index) => { ... })
 ```
 
 ### **Advanced:**
+
 ```
 1. Know: All patterns
 2. Teach: To others with reasoning
