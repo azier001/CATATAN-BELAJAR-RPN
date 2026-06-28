@@ -10,11 +10,11 @@
 
 ## 📂 Daftar Folder
 
-| No  | Folder                                                                                                            | Kategori                  | Jumlah Challenge | Difficulty Range      |
-| :-: | ----------------------------------------------------------------------------------------------------------------- | ------------------------- | :--------------: | --------------------- |
-| 01  | [📦 Data Handling Array](#-01--data-handling-array--penanganan-data-array)                                        | Array Manipulation        |    2 challenge   | 🟢 Beginner — 🟠 Medium |
-| 02  | [🧠 Logic Challenge](#-02--logic-challenge)                                                                       | String & Number Logic     |    4 challenge   | 🟢 Beginner — 🟠 Medium |
-| 03  | [🧠 Logic Challenge (Lanjutan)](#-03--logic-challenge-lanjutan)                                                   | Math & Pattern Detection  |    4 challenge   | 🟢 Easy — 🟠 Medium     |
+| No  | Folder                                                                     | Kategori                 | Jumlah Challenge | Difficulty Range        |
+| :-: | -------------------------------------------------------------------------- | ------------------------ | :--------------: | ----------------------- |
+| 01  | [📦 Data Handling Array](#-01--data-handling-array--penanganan-data-array) | Array Manipulation       |   2 challenge    | 🟢 Beginner — 🟠 Medium |
+| 02  | [🧠 Logic Challenge](#-02--logic-challenge)                                | String & Number Logic    |   4 challenge    | 🟢 Beginner — 🟠 Medium |
+| 03  | [🧠 Logic Challenge (Lanjutan)](#-03--logic-challenge-lanjutan)            | Math & Pattern Detection |   4 challenge    | 🟢 Easy — 🟠 Medium     |
 
 ---
 
@@ -28,10 +28,10 @@
 
 **Challenge di dalamnya:**
 
-| No  | Challenge                            | Difficulty  | Highlight                                                    |
-| :-: | ------------------------------------ | :---------: | ------------------------------------------------------------ |
-| 01  | 📊 Data Handling I (Profil Array 2D) | 🟢 Beginner | Array 2D, `for...of`, Destructuring, Template Literals       |
-| 02  | 🔧 Data Handling II (Transformasi)   | 🟠 Medium   | `splice`, `split`, `join`, `sort`, `slice`, Immutability     |
+| No  | Challenge                            | Difficulty  | Highlight                                                |
+| :-: | ------------------------------------ | :---------: | -------------------------------------------------------- |
+| 01  | 📊 Data Handling I (Profil Array 2D) | 🟢 Beginner | Array 2D, `for...of`, Destructuring, Template Literals   |
+| 02  | 🔧 Data Handling II (Transformasi)   |  🟠 Medium  | `splice`, `split`, `join`, `sort`, `slice`, Immutability |
 
 **Konsep Kunci yang Dipelajari:**
 
@@ -57,12 +57,12 @@ Array 2D ─→ for...of Loop ─→ Destructuring ─→ Template Literals
 
 **Challenge di dalamnya:**
 
-| No  | Challenge                       | Difficulty  | Highlight                                     |
-| :-: | ------------------------------- | :---------: | --------------------------------------------- |
-| 01  | 🔄 Palindrome Checker           | 🟢 Beginner | String Reversal, Spread + Method Chaining     |
-| 02  | 🔢 Palindrome Number Algorithm  | 🟠 Medium   | While Loop, Type Conversion, Encapsulation    |
-| 03  | 📝 Word Counter                 | 🟠 Medium   | State/Flag Pattern, Regex Split (`/\s+/`)     |
-| 04  | 🎯 Largest Digit Pair           | 🟠 Medium   | Debugging Journey (4 versi), `Math.max()`     |
+| No  | Challenge                      | Difficulty  | Highlight                                  |
+| :-: | ------------------------------ | :---------: | ------------------------------------------ |
+| 01  | 🔄 Palindrome Checker          | 🟢 Beginner | String Reversal, Spread + Method Chaining  |
+| 02  | 🔢 Palindrome Number Algorithm |  🟠 Medium  | While Loop, Type Conversion, Encapsulation |
+| 03  | 📝 Word Counter                |  🟠 Medium  | State/Flag Pattern, Regex Split (`/\s+/`)  |
+| 04  | 🎯 Largest Digit Pair          |  🟠 Medium  | Debugging Journey (4 versi), `Math.max()`  |
 
 **Konsep Kunci yang Dipelajari:**
 
@@ -88,12 +88,12 @@ Method Chaining (ES6) ─→ State/Flag ─→ Regex ─→ Debugging
 
 **Challenge di dalamnya:**
 
-| No  | Challenge                          | Difficulty  | Highlight                                           |
-| :-: | ---------------------------------- | :---------: | --------------------------------------------------- |
-| 01  | 📊 Find Mean (Rata-rata)           | 🟢 Beginner | `reduce()`, Manual Count, Production-Ready Code     |
-| 02  | ✖️ Unique Multiplication           | 🟠 Medium   | Optimasi O(n²) → O(n), Prefix/Suffix Product        |
-| 03  | 📐 Deret Aritmatika                | 🟢 Easy     | Debugging Journey, `.every()`, Clean Code Refactor  |
-| 04  | 📏 Deret Geometri                  | 🟠 Medium   | Triple Bug Hunting, Division by Zero, `.every()`    |
+| No  | Challenge                | Difficulty  | Highlight                                          |
+| :-: | ------------------------ | :---------: | -------------------------------------------------- |
+| 01  | 📊 Find Mean (Rata-rata) | 🟢 Beginner | `reduce()`, Manual Count, Production-Ready Code    |
+| 02  | ✖️ Unique Multiplication |  🟠 Medium  | Optimasi O(n²) → O(n), Prefix/Suffix Product       |
+| 03  | 📐 Deret Aritmatika      |   🟢 Easy   | Debugging Journey, `.every()`, Clean Code Refactor |
+| 04  | 📏 Deret Geometri        |  🟠 Medium  | Triple Bug Hunting, Division by Zero, `.every()`   |
 
 **Konsep Kunci yang Dipelajari:**
 
@@ -109,30 +109,6 @@ Array Iteration ─→ reduce() ─→ Functional Programming
 
 > [!NOTE]
 > 📌 **Fitur Unik:** Folder ini menggunakan format **7-Part Series Dokumentasi** per challenge, lebih mendalam dibanding folder lain. Setiap challenge juga dilengkapi Cheat Sheet terpisah.
-
----
-
-## 🗺️ Peta Konsep Lintas Semua Quiz
-
-Tabel ini membantu melihat **konsep mana yang muncul berulang** di ketiga folder quiz:
-
-| Konsep                      | 📦 Data Handling | 🧠 Logic Ch. | 🧠 Logic Ch. (Lanjut) |
-| --------------------------- | :--------------: | :----------: | :--------------------: |
-| Array Iteration / Loop      |        ✅        |      ✅      |           ✅           |
-| Clean Code / Naming         |        ✅        |      ✅      |           ✅           |
-| Multiple Solution Approach  |        ✅        |      ✅      |           ✅           |
-| Edge Case Handling          |        ✅        |      ✅      |           ✅           |
-| Destructuring               |        ✅        |      —       |           —            |
-| Built-in Array Methods      |        ✅        |      —       |           ✅           |
-| String Manipulation         |        ✅        |      ✅      |           —            |
-| Type Conversion             |        —         |      ✅      |           —            |
-| Boolean / State Pattern     |        —         |      ✅      |           ✅           |
-| Regex                       |        —         |      ✅      |           —            |
-| Debugging Journey           |        —         |      ✅      |           ✅           |
-| Functional Programming      |        —         |      —       |           ✅           |
-| Performance Optimization    |        —         |      —       |           ✅           |
-| Production-Ready Code       |        ✅        |      —       |           ✅           |
-| Immutability Pattern        |        ✅        |      —       |           —            |
 
 ---
 
@@ -160,14 +136,14 @@ Tabel ini membantu melihat **konsep mana yang muncul berulang** di ketiga folder
 
 ## 📊 Statistik Keseluruhan
 
-| Metrik                      | Nilai         |
-| --------------------------- | ------------- |
-| **Total Challenge**         | 10 soal       |
-| **Total Folder Dokumentasi** | 3 kategori   |
-| **Total Versi Solusi**      | 30+ versi     |
-| **Range Difficulty**        | 🟢 Easy — 🟠 Medium |
-| **Format Dokumentasi**      | README + Cheat Sheet + 7-Part Series |
-| **Bahasa Pemrograman**      | JavaScript    |
+| Metrik                       | Nilai                                |
+| ---------------------------- | ------------------------------------ |
+| **Total Challenge**          | 10 soal                              |
+| **Total Folder Dokumentasi** | 3 kategori                           |
+| **Total Versi Solusi**       | 30+ versi                            |
+| **Range Difficulty**         | 🟢 Easy — 🟠 Medium                  |
+| **Format Dokumentasi**       | README + Cheat Sheet + 7-Part Series |
+| **Bahasa Pemrograman**       | JavaScript                           |
 
 ---
 

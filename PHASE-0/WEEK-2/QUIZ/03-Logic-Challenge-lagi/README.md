@@ -232,27 +232,6 @@ Tabel ini membantu melihat **konsep mana yang muncul berulang** di beberapa chal
 
 ---
 
-## 📁 Struktur Setiap Folder
-
-Setiap folder challenge memiliki struktur yang konsisten:
-
-```
-📂 XX-Dokumentasi-nama-challenge/
-├── 📄 README.md                    → Overview & navigation lengkap
-├── 📄 0-Cheat-Sheet-*.md           → Quick reference ringkas
-├── 📄 Dokumentasi-*.md             → Dokumentasi utama (all-in-one)
-└── 📂 docs/                        → 7-Part series dokumentasi
-    ├── 01-*.md                     → Pengenalan Problem
-    ├── 02-*.md                     → Solusi Awal / Bug Analysis
-    ├── 03-*.md                     → Perbaikan / Optimasi
-    ├── 04-*.md                     → Best Practice / Clean Code
-    ├── 05-*.md                     → Alternatif / Functional
-    ├── 06-*.md                     → Perbandingan / Advanced
-    └── 07-*.md                     → Kesimpulan / Cheat Sheet
-```
-
----
-
 ## 📝 Catatan
 
 > Semua dokumentasi dibuat pada **Mei 2026** melalui sesi mentoring interaktif di **Google Antigravity**, sebagai bagian dari program belajar **RPN PHASE-0 WEEK-2**.
