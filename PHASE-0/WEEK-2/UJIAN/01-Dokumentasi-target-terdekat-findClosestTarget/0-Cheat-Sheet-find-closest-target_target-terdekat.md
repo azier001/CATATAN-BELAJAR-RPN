@@ -6,7 +6,31 @@
 
 ## 🏆 BEST PRACTICE & PRODUCTION READY
 
-### 1. Single Pass Simultan (1 Loop) ⭐ `PALING DIREKOMENDASIKAN`
+### 1. Single-Pass Modern (ES6 Arrow) ⭐ `PALING DIREKOMENDASIKAN`
+
+```javascript
+const findClosestDistance = (chars) => {
+  let lastO = null
+  let lastX = null
+  let minDistance = Infinity
+
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] === 'o') lastO = i
+    if (chars[i] === 'x') lastX = i
+
+    if (lastO !== null && lastX !== null) {
+      const distance = Math.abs(lastO - lastX)
+      if (distance < minDistance) minDistance = distance
+    }
+  }
+
+  return minDistance === Infinity ? 0 : minDistance
+}
+```
+
+> 🔑 **O(N) Time | O(1) Space.** Versi paling ringkas (12 baris inti). Track `lastO` & `lastX` dalam 1 loop, hitung jarak setiap kali salah satu di-update. Tidak perlu `else if` — kedua pengecekan berdiri sendiri.
+
+### 2. Single-Pass Simultan (1 Loop)
 
 ```javascript
 function targetTerdekatV2(arr) {
@@ -34,9 +58,9 @@ function targetTerdekatV2(arr) {
 }
 ```
 
-> 🔑 **O(N) Time | O(1) Space.** Pencarian diselesaikan hanya dengan tepat satu iterasi (loop) dari depan ke belakang. Selalu memperbarui rekor jarak tiap kali menemukan `o` atau `x` baru tanpa menggunakan array tambahan.
+> 🔑 **O(N) Time | O(1) Space.** Versi naratif dari Single-Pass. Menggunakan `else if` untuk memisahkan logika `o` dan `x` secara eksplisit. Lebih verbose tapi lebih mudah dibaca baris-per-baris bagi pemula.
 
-### 2. Two-Pass Algorithm (2 Loop Terpisah)
+### 3. Two-Pass Algorithm (2 Loop Terpisah)
 
 ```javascript
 const findClosestDistance = (chars) => {
@@ -62,7 +86,8 @@ const findClosestDistance = (chars) => {
     if (chars[i] === 'x') lastXPos = i;
 
     if (chars[i] === 'o' && lastXPos !== -1) {
-      minDistance = Math.min(minDistance, i - lastXPos);
+      const distance = i - lastXPos;
+      if (distance < minDistance) minDistance = distance;
     }
   }
 
@@ -72,7 +97,8 @@ const findClosestDistance = (chars) => {
   for (let i = length - 1; i >= 0; i--) {
     if (chars[i] === 'x') lastXPos = i;
     if (chars[i] === 'o' && lastXPos !== -1) {
-      minDistance = Math.min(minDistance, lastXPos - i);
+      const distance = lastXPos - i;
+      if (distance < minDistance) minDistance = distance;
     }
   }
 
@@ -196,26 +222,43 @@ function targetTerdekatV3(arr) {
    ```javascript
    // ❌ SALAH: Di JavaScript, 0 adalah angka index yang valid
    let posO = 0;
-   // ✅ BENAR: Gunakan angka mustahil seperti -1 untuk marker awal
+   // ✅ BENAR: Gunakan angka mustahil seperti -1 atau null untuk marker awal
    let posO = -1;
+   let lastO = null;
    ```
 2. **Jebakan Salah Pengereman (`break`)**
    ```javascript
    // ❌ SALAH: Memakai 'break' saat mencari minDistance akan menghentikan evaluasi untuk karakter 'x' lain yang mungkin lebih dekat!
    if (char === 'x') { posX = i; break; }
    ```
+3. **Jebakan Lupa `Math.abs()`**
+   ```javascript
+   // ❌ SALAH: Bisa menghasilkan angka negatif
+   const distance = lastO - lastX;
+   // ✅ BENAR: Selalu gunakan Math.abs() agar jarak positif
+   const distance = Math.abs(lastO - lastX);
+   ```
+4. **Jebakan Two-Pass Lupa Reset**
+   ```javascript
+   // ❌ SALAH: lastXPos masih menyimpan nilai dari Pass 1
+   // Pass 2 langsung pakai lastXPos lama
+
+   // ✅ BENAR: Reset sebelum Pass 2
+   lastXPos = -1;
+   ```
 
 ---
 
 ## 📊 QUICK COMPARISON
 
-| Versi Algoritma               | Time Complexity | Space Complexity | Keunggulan Utama                                          | Rekomendasi |
-| :---------------------------- | :-------------: | :--------------: | :-------------------------------------------------------- | :---------: |
-| **Single Pass Simultan**      |      O(N)       |       O(1)       | Paling optimal, kode bersih, dan nol pemborosan RAM       | ⭐⭐⭐⭐⭐  |
-| **Two-Pass Algorithm**        |      O(N)       |       O(1)       | Terstruktur jelas, tanpa `Math.abs`                       |  ⭐⭐⭐⭐   |
-| **Solusi Buku Catatan**       |      O(N)       |       O(K)       | Cara berpikir linear paling bersahabat untuk pemula       |   ⭐⭐⭐    |
-| **Pendekatan Poros Tengah**   |      O(N)       |       O(1)       | Ide konseptual menarik, namun butuh 3 `for` loop terpisah |    ⭐⭐     |
-| **Nested Loop (Brute-Force)** |      O(N²)      |       O(N)       | Melatih logika pencarian seluruh kombinasi index array    |     ⭐      |
+| Versi Algoritma                | Time Complexity | Space Complexity | Keunggulan Utama                                          | Rekomendasi |
+| :----------------------------- | :-------------: | :--------------: | :-------------------------------------------------------- | :---------: |
+| **Single-Pass Modern (V4)**    |      O(N)       |       O(1)       | Paling ringkas (12 baris), 1 loop, nol pemborosan RAM     | ⭐⭐⭐⭐⭐  |
+| **Single-Pass Simultan (V2)**  |      O(N)       |       O(1)       | Kode naratif, logika `else if` eksplisit, mudah di-debug  | ⭐⭐⭐⭐⭐  |
+| **Two-Pass Algorithm**         |      O(N)       |       O(1)       | Terstruktur jelas, tanpa `Math.abs`                       |  ⭐⭐⭐⭐   |
+| **Solusi Buku Catatan (V1)**   |      O(N)       |       O(K)       | Cara berpikir linear paling bersahabat untuk pemula       |   ⭐⭐⭐    |
+| **Pendekatan Poros Tengah**    |      O(N)       |       O(1)       | Ide konseptual menarik, namun butuh 3 `for` loop terpisah |    ⭐⭐     |
+| **Nested Loop (Brute-Force)**  |      O(N²)      |       O(N)       | Melatih logika pencarian seluruh kombinasi index array    |     ⭐      |
 
 _(Ket: K adalah jumlah kemunculan huruf `x`)_
 
@@ -224,12 +267,12 @@ _(Ket: K adalah jumlah kemunculan huruf `x`)_
 ## 🧪 TEST CASES
 
 ```javascript
-// Function yang digunakan: targetTerdekatV2
+// Function yang digunakan: findClosestDistance (V4 — Single-Pass Modern)
 
-console.log(targetTerdekatV2([' ', ' ', 'o', ' ', ' ', 'x', ' ', 'x'])); // Ekspektasi: 3
-console.log(targetTerdekatV2(['o', ' ', ' ', ' ', 'x', 'x', 'x'])); // Ekspektasi: 4
-console.log(targetTerdekatV2(['x', ' ', ' ', ' ', 'x', 'x', 'o', ' '])); // Ekspektasi: 1
-console.log(targetTerdekatV2([' ', ' ', 'o', ' '])); // Ekspektasi: 0
-console.log(targetTerdekatV2([' ', 'o', ' ', 'x', 'x', ' ', ' ', 'x'])); // Ekspektasi: 2
-console.log(targetTerdekatV2([' ', 'o', ' ', 'x', 'x', 'o', ' ', 'x'])); // Ekspektasi: 1
+console.log(findClosestDistance([' ', ' ', 'o', ' ', ' ', 'x', ' ', 'x'])); // Ekspektasi: 3
+console.log(findClosestDistance(['o', ' ', ' ', ' ', 'x', 'x', 'x']));      // Ekspektasi: 4
+console.log(findClosestDistance(['x', ' ', ' ', ' ', 'x', 'x', 'o', ' '])); // Ekspektasi: 1
+console.log(findClosestDistance([' ', ' ', 'o', ' ']));                      // Ekspektasi: 0
+console.log(findClosestDistance([' ', 'o', ' ', 'x', 'x', ' ', ' ', 'x'])); // Ekspektasi: 2
+console.log(findClosestDistance([' ', 'o', ' ', 'x', 'x', 'o', ' ', 'x'])); // Ekspektasi: 1
 ```
