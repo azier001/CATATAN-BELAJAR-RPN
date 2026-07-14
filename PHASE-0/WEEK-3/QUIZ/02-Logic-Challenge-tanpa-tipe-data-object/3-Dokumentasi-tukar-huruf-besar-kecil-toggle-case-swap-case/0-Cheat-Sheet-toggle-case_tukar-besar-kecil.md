@@ -6,7 +6,7 @@
 
 ## 🏆 BEST PRACTICE & PRODUCTION READY
 
-### 1. Declarative Array Methods + JSDoc ⭐ `PALING DIREKOMENDASIKAN`
+### 1. Versi Final + JSDoc ⭐ `PALING DIREKOMENDASIKAN`
 
 ```javascript
 /**
@@ -16,15 +16,17 @@
  * @param {string} text - Kalimat teks yang akan diproses
  * @returns {string} Kalimat baru dengan huruf yang sudah ditukar (swap case)
  */
-const toggleCase = (text) => {
+const tukarBesarKecil = (text) => {
   return text
     .split('')
-    .map((char) => (char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()))
+    .map((char) =>
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    )
     .join('');
 };
 ```
 
-> 🔑 Menggabungkan `split`, `map`, dan `join` yang lazim di industri. Sangat ringkas menggunakan ternary operator tanpa perlu variabel penampung.
+> 🔑 Menggabungkan `split`, `map`, dan `join` yang lazim di industri. Sangat ringkas menggunakan ternary operator tanpa perlu variabel penampung. Dilengkapi JSDoc untuk standar dokumentasi kode.
 
 ---
 
@@ -54,16 +56,52 @@ const toggleCaseFundamental = (text) => {
 
 ## 🧪 EKSPERIMENTAL / ALTERNATIF
 
-### 3. Satu Baris dengan Regex & Replace
+### 3. `split` + `map` + `if/else` (Early Return) + `join`
 
 ```javascript
-const toggleCaseRegex = (text) => 
+function toggleCase(str) {
+  return str.split('').map(char => {
+    if (/[a-z]/.test(char)) {
+      return char.toUpperCase()
+    }
+
+    return char.toLowerCase()
+  }).join('')
+}
+```
+
+> 🔑 Versi fungsional dengan early return di dalam `map`. Lebih verbose dari ternary tapi lebih mudah dibaca saat kondisi kompleks.
+
+### 4. `split` + `map` + Ternary + `join` (Regex check)
+
+```javascript
+function toggleCase(str) {
+  return str.split('').map(char => /[a-z]/.test(char) ? char.toUpperCase() : char.toLowerCase()).join('')
+}
+```
+
+> 🔑 Versi one-liner fungsional dengan regex `/[a-z]/` yang eksplisit. Paling ringkas di antara versi `split+map+join`.
+
+### 5. `replace` + Regex + Ternary (Regex check di callback)
+
+```javascript
+function toggleCase(str) {
+  return str.replace(/[a-zA-Z]/g, (char) => /[a-z]/.test(char) ? char.toUpperCase() : char.toLowerCase())
+}
+```
+
+> 🔑 Versi `replace` yang menggunakan regex `/[a-z]/` di dalam callback untuk cek yang lebih eksplisit.
+
+### 6. `replace` + Regex + Ternary (String comparison di callback)
+
+```javascript
+const tukarBesarKecilRegex = (text) => 
   text.replace(/[a-zA-Z]/g, (c) => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase());
 ```
 
 > 🔑 Pendekatan ekstrim untuk pamer skill (`one-liner`). Sangat rapi tapi kurang familiar bagi developer yang belum terbiasa dengan metode callback pada `.replace()`.
 
-### 4. Tidak Direkomendasikan: for...of + Char Comparison
+### 7. ⚠️ Tidak Direkomendasikan: `for...of` + Char Comparison
 
 ```javascript
 const swapCase = (sentence) => {
@@ -96,12 +134,15 @@ const swapCase = (sentence) => {
 
 ## 📊 QUICK COMPARISON
 
-| Versi | Pendekatan Utama | Mutasi Data | Keunggulan Utama | Label Rekomendasi |
-|-------|-----------------|:-----------:|------------------|-------------------|
-| **V-Best** | `.split` + `.map` + Ternary | ❌ (Pure) | Bersih, standar industri, tanpa variabel temp | ✅ *Production* |
-| **V-Fund** | `for...of` + Regex | ✅ (Temp var) | Terbaca sangat jelas langkah demi langkah | 🎓 *Belajar* |
-| **V-Regex**| `.replace` + Regex Callback | ❌ (Pure) | Paling ringkas (1 baris) | ⚡ *Alternatif* |
-| **V-Poor** | `for...of` + Char Match | ✅ (Temp var) | Terlihat mudah tapi logika rentan "magic" | ⚠️ *Tidak Disarankan*|
+| # | Versi | Pendekatan Utama | Mutasi Data | Keunggulan Utama | Label Rekomendasi |
+|---|-------|-----------------|:-----------:|------------------|-------------------|
+| 1 | **Final + JSDoc** | `.split` + `.map` + Ternary + JSDoc | ❌ (Pure) | Standar industri, terdokumentasi | ✅ *Production* |
+| 2 | **for...of + Regex** | `for...of` + `/[a-z]/` | ✅ (Temp var) | Terbaca sangat jelas step-by-step | 🎓 *Belajar* |
+| 3 | **map + if/else** | `.split` + `.map` + early return | ❌ (Pure) | Fungsional, mudah dibaca | ⚡ *Alternatif* |
+| 4 | **map + Ternary + Regex** | `.split` + `.map` + ternary + `/[a-z]/` | ❌ (Pure) | Ringkas & eksplisit | ⚡ *Alternatif* |
+| 5 | **replace + Regex check** | `.replace` + `/[a-z]/` di callback | ❌ (Pure) | Satu baris, eksplisit | ⚡ *Alternatif* |
+| 6 | **replace + String check** | `.replace` + char comparison | ❌ (Pure) | Paling ringkas (one-liner) | ⚡ *Alternatif* |
+| 7 | **char comparison** | `for...of` + `char === char.toLowerCase()` | ✅ (Temp var) | Terlihat mudah tapi logika rentan "magic" | ⚠️ *Tidak Disarankan* |
 
 ---
 
